@@ -23,4 +23,8 @@ Things you may want to cover:
 
 * ...
 
-usersテーブル
+
+## Usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
