@@ -185,5 +185,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :cust_rater, class_name: 'User'
 - belongs_to :cust_ratea, class_name: 'User'
-
-
