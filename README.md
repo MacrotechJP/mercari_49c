@@ -25,10 +25,11 @@ Things you may want to cover:
 
 #DB設計
 
-##usersテーブル
+
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null:false,unique:true|
+|nickname|string|null:false, unique:true|
 |firstname|string|null:false|
 |lastname|string|null:false|
 |firstname_kana|string|null:false|
@@ -44,12 +45,12 @@ Things you may want to cover:
 |salesproceeds|integer|null:false|
 |point|integer|null:false|
 |cust_address_id|references|null: false, foreign_key: true|
-|comment_id|references|null: false, foreign_key: true|
-|likes_id|references|null: false, foreign_key: true|
-|rate_id|references|null: false, foreign_key: true|
+|comment_id|references|null:false, foreign_key: true|
+|likes_id|references|null:false, foreign_key: true|
+|rate_id|references|null:false, foreign_key: true|
 |cust_rate_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
-|deal_id|references|null: false, foreign_key: true|
+|item_id|references|null:false, foreign_key: true|
+|deal_id|references|null:false, foreign_key: true|
 
 ### Association
 - has_many :cust_address
@@ -68,7 +69,7 @@ Things you may want to cover:
 - has_many :rates_of_ratea, :class_name: 'Rate', foreign_key: :cust_ratea_id
 
 
-##itemsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -82,10 +83,10 @@ Things you may want to cover:
 |sales_sprofit|bigint|null:false|
 |sales_situation|integer|null:false|
 |likes_count|integer|null:false|
-|category_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
-|comment_id|references|null: false, foreign_key: true|
-|deal_id|references|null: false, foreign_key: true|
+|category_id|references|null:false, foreign_key: true|
+|image_id|references|null:false, foreign_key: true|
+|comment_id|references|null:false, foreign_key: true|
+|deal_id|references|null:false, foreign_key: true|
 
 ### Association
 - has_many :deals
@@ -97,12 +98,13 @@ Things you may want to cover:
 - has_many :likes
 
 
-##dealsテーブル
+
+## dealsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
+|seller_id|integer|null:false, foreign_key: true|
+|buyer_id|integer|null:false, foreign_key: true|
+|item_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -110,7 +112,8 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: 'User'
 
 
-##commentsテーブル
+
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|string|null:false|
@@ -119,7 +122,7 @@ Things you may want to cover:
 - belongs_to :user
 
 
-##categorysテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category_first|string|null:false|
@@ -130,21 +133,21 @@ Things you may want to cover:
 - has_many :items
 
 
-##imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-|item_id|integer|null: false, foreign_key: true|
+|item_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 
 
-##likesテーブル
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null:false, foreign_key: true|
+|item_id|integer|null:false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -153,19 +156,19 @@ Things you may want to cover:
 ##cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
-|address|String|null: false|
+|address|String|null:false|
 
 ### Association
 - belongs_to :user
 
 
-###ratesテーブル
+### ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null: false|
-|rate|integer|null: false|
-|rater_id|integer|null: false,foreign_key|
-|ratea_id|integer|null: false,foreign_key|
+|comment|text|null:false|
+|rate|integer|null:false|
+|rater_id|integer|null:false,foreign_key|
+|ratea_id|integer|null:false,foreign_key|
 |ratedate|Date|null:false|
 
 ### Association
@@ -173,14 +176,14 @@ Things you may want to cover:
 - belongs_to :ratea, class_name: 'User'
 
 
-###cust_ratesテーブル
+### cust_ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|cust_rater_id|references|null: false|
-|cust_ratea_id|references|null: false|
-|good|integer|null: false|
-|normal|integer|null: false|
-|bad|integer|null: false|
+|cust_rater_id|references|null:false|
+|cust_ratea_id|references|null:false|
+|good|integer|null:false|
+|normal|integer|null:false|
+|bad|integer|null:false|
 
 ### Association
 - belongs_to :cust_rater, class_name: 'User'
