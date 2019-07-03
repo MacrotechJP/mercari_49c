@@ -25,7 +25,7 @@ Things you may want to cover:
 
 #DB設計
 
-##usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null:false,unique:true|
@@ -68,7 +68,7 @@ Things you may want to cover:
 - has_many :rates_of_ratea, :class_name: 'Rate', foreign_key: :cust_ratea_id
 
 
-##itemsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -97,7 +97,7 @@ Things you may want to cover:
 - has_many :likes
 
 
-##dealsテーブル
+## dealsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |seller_id|integer|null: false, foreign_key: true|
@@ -110,7 +110,7 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: 'User'
 
 
-##commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|string|null:false|
@@ -119,7 +119,7 @@ Things you may want to cover:
 - belongs_to :user
 
 
-##categorysテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category_first|string|null:false|
@@ -130,7 +130,7 @@ Things you may want to cover:
 - has_many :items
 
 
-##imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
@@ -140,7 +140,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
-##likesテーブル
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -150,7 +150,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-##cust_addresssテーブル
+## cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
 |address|String|null: false|
@@ -159,7 +159,7 @@ Things you may want to cover:
 - belongs_to :user
 
 
-###ratesテーブル
+### ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
@@ -173,7 +173,7 @@ Things you may want to cover:
 - belongs_to :ratea, class_name: 'User'
 
 
-###cust_ratesテーブル
+### cust_ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |cust_rater_id|references|null: false|
