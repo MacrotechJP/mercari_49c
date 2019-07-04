@@ -38,12 +38,10 @@ Things you may want to cover:
 |password|string|null:false|
 |phone_number|string|null:false|
 |birthday|Date|null:false|
-|credicard_number|integer|null:false|
-|creditcard_pin|integer|null:false|
-|profile_image|string|null:false|
-|profile_description|text||
 |salesproceeds|integer|null:false|
 |point|integer|null:false|
+|credicard_id|references|null:false, foreign_key: true|
+|profile_id|references|null:false, foreign_key: true|
 |cust_address_id|references|null: false, foreign_key: true|
 |comment_id|references|null:false, foreign_key: true|
 |likes_id|references|null:false, foreign_key: true|
@@ -55,14 +53,16 @@ Things you may want to cover:
 - has_many :rates
 - has_many :cust_rates
 - has_many :items
+- has_many :credicards
+- has_many :profiles
 - has_many :deals_of_seller, :class_name: 'Deal', :foreign_key: :seller_id
 - has_many :deals_of_buyer, :class_name: 'Deal', :foreign_key: :buyer_id
 - has_many :items_of_seller, through: :deals_of_seller, source: :item
 - has_many :items_of_buyer, through: :deals_of_buyer, source: :item
 - has_many :rates_of_rater, :class_name: Rate', foreign_key: :rater_id
-- has_many :rates_of_ratea, :class_name: 'Rate', foreign_key: :ratea_id
+- has_many :rates_of_ratee, :class_name: 'Rate', foreign_key: :ratee_id
 - has_many :rates_of_rater, :class_name: 'Rate', foreign_key: :cust_rater_id
-- has_many :rates_of_ratea, :class_name: 'Rate', foreign_key: :cust_ratea_id
+- has_many :rates_of_ratee, :class_name: 'Rate', foreign_key: :cust_ratee_id
 
 
 ## itemsテーブル
@@ -102,6 +102,26 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :seller, class_name: 'User'
 - belongs_to :buyer, class_name: 'User'
+
+
+## credicardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|credicard_number|integer|null:false|
+|creditcard_pin|integer|null:false|
+
+### Association
+- belongs_to :user
+
+
+## profilesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|profile_image|string|null:false| 
+|profile_description|text||
+
+### Association
+- belongs_to :user
 
 
 ## commentsテーブル
@@ -144,6 +164,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
+
 ## cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -159,23 +180,24 @@ Things you may want to cover:
 |comment|text|null:false|
 |rate|integer|null:false|
 |rater_id|integer|null:false,foreign_key|
-|ratea_id|integer|null:false,foreign_key|
-|ratedate|Date|null:false|
+|ratee_id|integer|null:false,foreign_key|
+|date|Date|null:false|
 
 ### Association
 - belongs_to :rater, class_name: 'User'
-- belongs_to :ratea, class_name: 'User'
+- belongs_to :ratee, class_name: 'User'
 
 
 ### cust_ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |cust_rater_id|references|null:false|
-|cust_ratea_id|references|null:false|
-|good|integer|null:false|
-|normal|integer|null:false|
-|bad|integer|null:false|
+|cust_ratee_id|references|null:false|
+|evaluate|integer|null:false|
 
 ### Association
 - belongs_to :cust_rater, class_name: 'User'
-- belongs_to :cust_ratea, class_name: 'User'
+- belongs_to :cust_ratee, class_name: 'User'
+
+### enum
+- evaluate
