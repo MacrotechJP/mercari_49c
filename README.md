@@ -36,21 +36,17 @@ Things you may want to cover:
 |lastname_kana|string|null:false|
 |email|string|null:false|
 |password|string|null:false|
-|phone_number|integer|null:false|
+|phone_number|string|null:false|
 |birthday|Date|null:false|
 |credicard_number|integer|null:false|
 |creditcard_pin|integer|null:false|
-|profile_image|text|null:false|
+|profile_image|string|null:false|
 |profile_description|text||
 |salesproceeds|integer|null:false|
 |point|integer|null:false|
 |cust_address_id|references|null: false, foreign_key: true|
 |comment_id|references|null:false, foreign_key: true|
 |likes_id|references|null:false, foreign_key: true|
-|rate_id|references|null:false, foreign_key: true|
-|cust_rate_id|references|null: false, foreign_key: true|
-|item_id|references|null:false, foreign_key: true|
-|deal_id|references|null:false, foreign_key: true|
 
 ### Association
 - has_many :cust_address
@@ -74,7 +70,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null:false|
 |description|text|null:false|
-|condition|String|null:false|
+|condition|string|null:false|
 |price|integer|null:false|
 |brand|integer|null:false|
 |deliveryfee|integer|null:false|
@@ -84,9 +80,6 @@ Things you may want to cover:
 |sales_situation|integer|null:false|
 |likes_count|integer|null:false|
 |category_id|references|null:false, foreign_key: true|
-|image_id|references|null:false, foreign_key: true|
-|comment_id|references|null:false, foreign_key: true|
-|deal_id|references|null:false, foreign_key: true|
 
 ### Association
 - has_many :deals
@@ -154,7 +147,7 @@ Things you may want to cover:
 ## cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
-|address|String|null:false|
+|address|string|null:false|
 
 ### Association
 - belongs_to :user
