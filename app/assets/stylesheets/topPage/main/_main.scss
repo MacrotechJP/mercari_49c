@@ -104,3 +104,24 @@
     }
   }
 }
+
+.sell_btn {
+  position: fixed;
+  z-index: 1000;
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 22px;
+  text-align: center;
+  &-font {
+    margin-top: 32px;
+  }
+  .icon {
+    font-size: 54px;
+    margin-top: 5px;
+  }
+}
