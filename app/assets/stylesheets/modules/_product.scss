@@ -1,0 +1,136 @@
+*{
+  text-decoration: none;
+}
+
+.pc-header{
+  width: 100%;
+  height: 100px;
+  font-size: 14px;
+  .pc-header-box{
+    width: 1020px;
+    margin:auto;
+    padding:8px;
+    .pc-header-box-upper{
+      display: inherit;
+      &__field--right{
+        float:right;
+        position: relative;
+        .product-form__input{
+          // position: relative;
+          height: 40px;
+          width: 840px;
+          font-size: 16px;
+          border-radius: 4px;
+          padding: 0 42px 0 10px;
+          // margin-left: 45px;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          float: left;
+        }
+        &__search{
+          position: absolute;
+          // float: left;
+          top: 0;
+          right:0;
+          width: 40px;
+          height: 40px;
+          border-radius: 0 4px 4px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: gray;
+            color: white;
+        }
+      }
+    }
+    .pc-header-box-lower{
+      margin:8px 0 0;
+      width: 1020px;
+      height:40px;
+      display: inherit;
+      &__left{
+        width:400px;
+        height:inherit;
+        float:left;
+        li{
+          padding:0 5px;
+          display: inline-block;
+          height: inherit;
+          width: 160px;
+          // padding: 10px;
+          font-size: inherit;
+          h2 {
+            font-size: inherit;
+            .fa{
+              color: red;
+            }
+          }
+          ul {
+            height: 50px;
+            width: 160px;
+            border: solid;
+            // li {
+            //   width: 224px;
+            // }
+          }
+        }
+      }
+      &__right{
+        width:200px;
+        height:38px;
+        float:right;
+        position: relative;
+      }
+      ul{
+        height:38px;
+        width:260px;
+        margin:0;
+        padding:0;
+        p:first-child{
+          margin:0;
+          height:35px;
+          // width:106px;
+          width: auto;
+          float:left;
+          padding: 0 10px;
+          margin: 0 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: red;
+          border-radius: 4px;
+          border:1px solid red; 
+          .sp-header-btn.header-signup{
+            color: #ffffff;
+            text-decoration:none;
+            text-align: center;
+          }
+        }
+        p{
+          margin:0;
+          height:35px;
+          // width:106px;
+          width: auto;
+          float:left;
+          padding: 0 10px;
+          margin: 0 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // background-color: red;
+          border-radius: 4px;
+          border:1px solid blue; 
+        .sp-header-btn.header-login{
+          color: blue;
+          text-decoration:none;
+          }
+        }
+      }
+    }
+  }
+}
+.clearfix:after{
+  content: "";
+  clear: both;
+  display: block;
+}
