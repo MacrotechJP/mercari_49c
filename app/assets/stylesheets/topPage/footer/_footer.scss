@@ -50,6 +50,9 @@ body{
               .apple_google{
                 padding-bottom:10px;
                 padding-right: 10px;
+                &:hover{
+                  opacity: 0.5;
+                }
               }
             }
           }
@@ -134,6 +137,9 @@ body{
           img{
             padding:30px 0;
             float: left;
+            &:hover{
+              opacity: 0.5;
+            }
           }
         }
         p{
