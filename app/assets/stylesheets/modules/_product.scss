@@ -65,13 +65,29 @@
               color: red;
             }
           }
-          ul {
+          .pc-header-box-lower__left-parent-wrap {
+            position: absolute;
             height: 50px;
             width: 160px;
             border: solid;
-            // li {
-            //   width: 224px;
-            // }
+            z-index: 100;
+            // display: none;
+            .pc-header-box-lower__left-parent li{
+              width: 224px;
+              border: solid;
+              .pc-header-box-lower__left-child-wrap ul{
+                position: absolute;
+                top: 0;
+                left: 224px;
+                bottom: 0;
+                .pc-header-box-lower__left-children{
+                  display: none;
+                  .pc-header-box-lower__left-grand-child-wrap{
+                    
+                  }
+                }
+              }
+            }
           }
         }
       }
