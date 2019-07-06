@@ -1,0 +1,30 @@
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  height: 72px;
+  margin-top: -36px;  /* 高さの半分だけネガティブマージン */
+  color: white;
+  line-height: 72px;
+  font-size: 60px;
+  cursor: pointer;
+  z-index: 10;  /* 重要 */
+}
+.slider-prev {
+  left: 60px;
+}
+.slider-next {
+  right: 60px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  li {
+    font-size: 20px;
+    button:before {
+      content: "●";
+      font-size: 14px;
+      color: rgb(60, 60, 60);
+    }
+  }
+}
