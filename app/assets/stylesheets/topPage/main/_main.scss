@@ -19,6 +19,10 @@
       a {
         text-decoration: none;
         color: #0099e8;
+        &:hover {
+        text-decoration: underline;
+        opacity: 0.5;
+        }
       }
     }
     &-items {
@@ -104,6 +108,10 @@
         text-decoration: none;
         margin: 0;
         padding: 0;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.5;
+          }
       }
     }
   }
