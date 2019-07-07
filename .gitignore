@@ -28,4 +28,3 @@
 public/uploads/*
 .Ds_Store
 config/secrets.yml
-config/credentials.yml.enc
