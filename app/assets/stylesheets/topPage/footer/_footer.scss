@@ -1,0 +1,156 @@
+body{
+  margin:0;
+}
+
+.footer{
+  width:100%;
+  height:651px;
+  
+  &_top{
+    height:260px;
+    background-color: gray;
+    background-image: url("download_bg_pc.jpg");
+    background-position: center;
+    background-size: cover;
+
+
+    &_center{
+      width:750px;
+      height:100%;
+      margin:0 auto;
+      background-color: transparent;
+
+      &-left{
+        margin:47px 15px;
+        float:left;
+
+        h2{
+          color:white;
+          font-size:24px;
+          margin:0;
+        }
+        p{
+          font-size:35px;
+          color:white;
+          margin:0;
+        }
+
+        &-icon{
+          margin-top:10px;
+
+          li{
+            list-style: none;
+            
+            .mercari_icon{
+              padding-right:10px;
+            }
+            a{
+              text-decoration:none;
+              
+              .apple_google{
+                padding-bottom:10px;
+                padding-right: 10px;
+                &:hover{
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+      &-image{
+        height:100%;
+        float:right;
+        background-image: url("mercari_foot.png");
+        background-size: contain;
+      }
+    }
+  }
+
+  &_bottom{
+    height:391px;
+    background-color: #212121;
+
+    .clearfix{
+      content:"";
+      clear: both;
+      display: block;
+    }
+
+    &_main{
+      height:298px;
+      width:74%;
+      margin:0 auto;
+
+      &-cell{
+          float:left;
+          padding-top:20px;
+          width:20%;
+          height: 241px;
+          margin:0;
+          
+          h2{
+            color:white;
+            font-size:16px;
+            margin:0;
+            font-weight: 100;
+          }
+          ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+            padding-right: 30px;
+
+            li{
+              margin: 5px 0 0;
+
+              .list{
+                font-size: 12px;
+                line-height: 1.5em;
+                text-decoration:none;
+                color:white;
+                opacity: .7;
+              }
+            }
+          }
+          &-icon{
+            margin-top:20px;
+            .fa{
+              color:white;
+              font-size:90;
+              padding-right:10px;
+            }
+          }
+      }  
+      
+    
+    }
+
+    &_bottom{
+      height:calc(100% - 298px);
+      margin:0 210px;
+      position: relative;
+        
+        a{
+          text-decoration:none;
+          
+          img{
+            padding:30px 0;
+            float: left;
+            &:hover{
+              opacity: 0.5;
+            }
+          }
+        }
+        p{
+          text-align: center;
+          color:white;
+          font-size: 12px;
+          position: absolute;
+          top: 30%;
+          right: 45%;
+          
+        }
+    }
+  }
+}
