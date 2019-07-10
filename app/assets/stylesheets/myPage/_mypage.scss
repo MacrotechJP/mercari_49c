@@ -1,0 +1,56 @@
+.mypage {
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto 0;
+  padding: 40px 40px;
+  .left {
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__navi {
+      margin: 0;
+      padding: 0;   
+      &-list {
+        background-color: #FFFFFF;
+        color: #333333;
+        font-size: 14px;
+        &-title {
+          background: #eee;
+          font-weight: 600;
+        }
+        li {
+          height: 48px;
+          text-align: left;
+          border-top: 1px solid #eee;
+          a {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            &:link {
+              color: #333333;
+            }
+            .icon {
+              font-size: 26px;
+              position: absolute;
+              top: 50%;
+              right: 16px;
+              transform: translate(0, -50%);
+            }
+          }
+        }
+      }
+      h3 {
+        margin-top: 40px;
+        padding: 0;
+        font-size: 16px;
+        color: #333333;
+      }
+    }
+  }
+  .contents {
+
+  }
+}
