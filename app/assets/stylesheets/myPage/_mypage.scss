@@ -51,6 +51,17 @@
     }
   }
   .contents {
-
+    width: calc( 100% - 280px);
+    height: 200px;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    background: image-url("user-bg.jpg")
+    a {
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      right: 0px;
+    }
   }
 }
