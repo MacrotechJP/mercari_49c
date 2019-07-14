@@ -12,31 +12,113 @@
       .pc-header-box-lower__left
         %li
           %h2
-            %a{href: "https://www.mercari.com/jp/category/", class: "pc-header-lower list-parent"}
+            %a{href: "https://www.mercari.com/jp/category/", class: "pc-header-lower__left list-parent"}
               %i
                 = fa_icon "list-ul"
               %span カテゴリーから探す
           %ul.pc-header-box-lower__left-parent-wrap
             %li.pc-header-box-lower__left-parent
-              %h3
-                実装中
-                %ul.pc-header-box-lower__left-child-wrap
-                  %li.pc-header-box-lower__left-children
-                    %ul.pc-header-box-lower__left-grand-child-wrap
-                      %li.pc-header-box-lower__left-grand-children
+              %a
+                レディース
+              %ul.pc-header-box-lower__left-child-wrap
+                %li.pc-header-box-lower__left-children
+                  %a
+                    トップス
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(半袖/袖なし)
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(七分/長袖)
+
+                %li.pc-header-box-lower__left-children
+                  %a
+                    ジャケット/アウター
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(七分/長袖)
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        ノーカラージャケット
+
+
+            %li.pc-header-box-lower__left-parent
+              %a
+                メンズ
+              %ul.pc-header-box-lower__left-child-wrap
+                %li.pc-header-box-lower__left-children
+                  %a
+                    トップス
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(半袖/袖なし)
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(七分/長袖)
+
+                %li.pc-header-box-lower__left-children
+                  %a
+                    ジャケット/アウター
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        Tシャツ/カットソー(七分/長袖)
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        ノーカラージャケット
+
+            %li.pc-header-box-lower__left-parent
+              %a
+                ベビー・キッズ
+              %ul.pc-header-box-lower__left-child-wrap
+                %li.pc-header-box-lower__left-children
+                  %a
+                    ベビー服(女の子用)~95cm
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        トップス
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        アウター
+
+                %li.pc-header-box-lower__left-children
+                  %a
+                    ベビー服(男の子用)~95cm
+                  %ul.pc-header-box-lower__left-grand-child-wrap
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        トップス
+                    %li.pc-header-box-lower__left-grand-children
+                      %a
+                        アウター
+
+
+
+
 
         %li
           %h2
-            %a{href: "https://www.mercari.com/jp/category/", class: "pc-header-lower list-parent"}
-            %i
-              = fa_icon "tag"
-            %span ブランドから探す
+            %a{href: "https://www.mercari.com/jp/category/", class: "pc-header-lower list-brand"}
+              %i
+                = fa_icon "tag"
+              %span ブランドから探す
+          %ul.pc-header-box-lower__left-brand-wrap
+            %li.pc-header-box-lower__left-brand
+              %a
+                シャネル
+
+
+
 
       .pc-header-box-lower__right
         %ul.pc-header-box-lower__right-login-nav
-          %p.signup-box
+          %li.signup-box
             %a{href: "https://www.mercari.com/jp/signup/", class: "sp-header-btn header-signup"}新規会員登録
-          %p.login-box
+          %li.login-box
             %a{href: "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2F", class: "sp-header-btn header-login"}ログイン
           
 = render partial: 'main'
