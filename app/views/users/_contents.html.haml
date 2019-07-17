@@ -7,9 +7,62 @@
       .user__number
         .user__number-comment
           評価
-          %span.bold
+          %span.user__number-comment-num
             0
         .user__number-selled
           出品数
-          %span.bold
+          %span.user__number-selled-num
             0
+  %section#tabTop.tab-menu
+    %ul.tab-menu__title
+      %li.tab-menu__title-list{":class" => "{'active': isActive === '1'}", "@click" => "tabChange('1')",}
+        %h3
+        お知らせ
+      %li.tab-menu__title-list{":class" => "{'active': isActive === '2'}", "@click" => "tabChange('2')"}
+        %h3
+        やることリスト
+    %div.tab-menu__content{"v-if" => "isActive === '1'"}
+      %ul.tab-menu__content__lists
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        %li.tab-menu__content__lists-all
+          = link_to "#" do
+            一覧を見る
+    %div.tab-menu__content{"v-else" => "isActive === '2'"}
+      %ul.tab-menu__content__lists
+        =render partial: 'list'
+        =render partial: 'list'
+        %li.tab-menu__content__lists-all
+          = link_to "#" do
+            一覧を見る
+
+  %section#tabUnder.tab-menu
+    %h2 購入した商品
+    %ul.tab-menu__title
+      %li.tab-menu__title-list{":class" => "{'active': isActive === '1'}", "@click" => "tabChange('1')",}
+        %h3
+        取引中
+      %li.tab-menu__title-list{":class" => "{'active': isActive === '2'}", "@click" => "tabChange('2')"}
+        %h3
+        過去の取引
+    %div.tab-menu__content{"v-if" => "isActive === '1'"}
+      %ul.tab-menu__content__lists
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        %li.tab-menu__content__lists-all
+          = link_to "#" do
+            一覧を見る
+    %div.tab-menu__content{"v-else" => "isActive === '2'"}
+      %ul.tab-menu__content__lists
+        =render partial: 'list'
+        =render partial: 'list'
+        =render partial: 'list'
+        %li.tab-menu__content__lists-all
+          = link_to "#" do
+            一覧を見る

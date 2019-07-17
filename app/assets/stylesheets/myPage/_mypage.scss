@@ -29,9 +29,7 @@
             display: flex;
             justify-content: space-between;
             position: relative;
-            &:link {
-              color: #333333;
-            }
+            color: #333333;
             .icon {
               font-size: 26px;
               position: absolute;
@@ -52,16 +50,162 @@
   }
   .contents {
     width: calc( 100% - 280px);
-    height: 200px;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-    background: image-url("user-bg.jpg")
-    a {
-      position: absolute;
-      top: 50%;
-      left: 0px;
-      right: 0px;
+    .user{      
+      height: 200px;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+      background: image-url("user-bg.jpg");
+      background-size: cover;
+      a {
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        right: 0px;
+        transform: translate(0, -50%);
+        color: #333333;
+        &:hover {
+          opacity: 0.5;
+        }
+        .icon {
+          font-size: 60px;
+        }
+        .user__name {
+          font-size: 14px;
+          margin: 8px 0 0;
+          font-weight: 600;
+        }
+        .user__number {
+          display: flex;
+          justify-content: center;
+          &-comment {
+            font-size: 14px;
+            margin: 0;
+            &-num {
+              font-size: 16px;
+              margin: 0 0 0 8px;
+              font-weight: 600;
+            }            
+          }
+          &-selled {
+            margin: 0 0 0 16px;
+            font-size: 14px;
+            &-num {
+              font-size: 16px;
+              margin: 0 0 0 8px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .tab-menu {
+      width: 100%;
+      margin: 0;
+      background: #fff;
+      padding: 0;
+      &__title {
+        background: #eee;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        height: 74px;
+        line-height: 74px;
+        font-weight: bold;
+        .active {
+          background-color: #ffffff;
+          border-top: solid;
+          border-top-color: red;
+        }
+        &-list {
+          width: 50%;
+          margin: 0;
+          text-align: center;
+          h3 {
+            font-size: 22px;
+          }
+        }
+      }
+      &__content {
+        margin: 0;
+        padding: 0;
+        &__lists {
+          &-list {
+            a {
+              display: flex;
+              justify-content: flex-start;
+              min-height: 80px;
+              padding: 16px;
+              color: #333;
+              figure {
+                width: 48px;
+                height: 48px;
+                overflow: hidden;
+                padding: 0;
+                margin: 0;
+                position: relative;
+                img {
+                  width: 100%;
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                }
+              }
+              .tab-menu__content__lists-body {
+                margin: 0 148px 0 60px;
+                p {
+                  max-height: 4.4em;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  line-height: 1.5;
+                }
+                time {
+                  .icon {
+                    font-size: 16px;
+                  }
+                }
+              }
+              .icon {
+                font-size: 28px;
+              }
+              &:hover {
+                background: #fafafa;
+              }
+            }
+          }
+          &-all {
+            padding: 16px;
+            margin: 0;
+
+            a {
+              color: #333;
+              display: block;
+              height: 56px;
+              margin: 0 auto;
+              text-align: center;
+              line-height: 56px;
+              background: #eee;
+              &:hover {
+                background: #fafafa;
+              }
+            }
+          }
+        }
+      }
+    }
+    #tabUnder {
+      margin: 40px 0 0;
+      h2 {
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        height: 72px;
+        font-weight: bold;
+      }
     }
   }
 }
