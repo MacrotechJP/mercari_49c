@@ -16,6 +16,8 @@
               %i
                 = fa_icon "list-ul"
               %span カテゴリーから探す
+
+
         %li
           %h2
             %a{href: "https://www.mercari.com/jp/category/", class: "pc-header-lower list-parent"}
@@ -31,7 +33,7 @@
             %a{href: "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2F", class: "sp-header-btn header-login"}ログイン
           
 .mypage
-  =render partial: 'left_navi'
+  =render partial: 'users/left_navi'
   =render partial: 'contents'
 
 .footer
