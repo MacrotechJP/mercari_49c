@@ -8,7 +8,21 @@
       .item_main_center-cell1
         %h2 商品の情報を入力
       .item_main_center-cell2
-        画像貼るところ
+        .item_main_center-cell2-center
+          %ul
+            %li.left 出品画像
+            %li.right_hissu 必須
+          %p 最大10枚までアップロードできます
+          .drag
+            .drag_over
+              .drag_center
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
+            %input{type:"file", class:"file"}
+            .drag_over2
+              .drag_center2
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
       .item_main_center-cell3
         .item_main_center-cell3-center
           .item_main_center-cell3-center_top

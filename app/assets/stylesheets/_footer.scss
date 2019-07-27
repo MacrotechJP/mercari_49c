@@ -1,159 +1,167 @@
-body{
-  margin:0;
+.drag{
+  width:620px;
+  height:160px;
+  position: relative;
+}
+.drag_over{
+  width:620px;
+  height:160px;
+  background-color: #F5F5F5;
+  border: 1px dashed #ccc;
+  position: absolute;
+  .drag_center{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+    cursor: default;
+    p{
+      margin: 0;
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+.drag_over2{
+  width:620px;
+  height:160px;
+  background-color: #F5F5F5;
+  border: 1px dashed #ccc;
+  position: absolute;
+  top:180px;
+  display: none;
+  .drag_center2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+    cursor: default;
+    p{
+      margin: 0;
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+.file{
+  height:100%;
+  width:100%;
+  outline: 0;
+  opacity: 0;
+  z-index: 100;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 
-.main{
-  width:100%;
-  height:800px;
-  background-color: bisque;
-}
-
-
-
-.footer{
-  width:100%;
-  height:651px;
-  
-  &_top{
-    height:260px;
-    background-color: gray;
-    background-image: url("download_bg_pc.jpg");
-    background-position: center;
-    background-size: cover;
-
-
-    &_center{
-      width:750px;
+.upImage{
+  height:162px;
+  width:116px;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+  float:left;
+  margin-right:10.5px;
+  z-index: 100;
+  img{
+    width:114px;
+    height:78px;
+    margin:16px 0;
+    background-color: white;
+  }
+  &_buton{
+    height:44px;
+    width:100%;
+    position: relative;
+    li{
+      width:50%;
       height:100%;
-      margin:0 auto;
-      background-color: transparent;
-
-      &-left{
-        margin:47px 15px;
-        float:left;
-
-        h2{
-          color:white;
-          font-size:24px;
-          margin:0;
-        }
-        p{
-          font-size:35px;
-          color:white;
-          margin:0;
-        }
-
-        &-icon{
-          margin-top:10px;
-
-          li{
-            list-style: none;
-            
-            .mercari_icon{
-              padding-right:10px;
-            }
-            a{
-              text-decoration:none;
-              
-              .apple_google{
-                padding-bottom:10px;
-                padding-right: 10px;
-              }
-            }
-          }
-        }
-      }
-      &-image{
-        height:100%;
-        float:right;
-        background-image: url("mercari_foot.png");
-        background-size: contain;
-      }
-    }
-  }
-
-  &_bottom{
-    height:391px;
-    background-color: #212121;
-
-    .clearfix{
-      content:"";
-      clear: both;
-      display: block;
-    }
-
-    &_main{
-      height:298px;
-      width:74%;
-      margin:0 auto;
-
-      &-cell{
-          float:left;
-          padding-top:20px;
-          width:20%;
-          height: 241px;
-          margin:0;
-          
-          h2{
-            color:white;
-            font-size:16px;
-            margin:0;
-            font-weight: 100;
-          }
-          ul{
-            list-style: none;
-            margin:0;
-            padding:0;
-            padding-right: 30px;
-
-            li{
-              margin: 5px 0 0;
-
-              .list{
-                font-size: 12px;
-                line-height: 1.5em;
-                text-decoration:none;
-                color:white;
-                opacity: .7;
-              }
-            }
-          }
-          &-icon{
-            margin-top:20px;
-            .fa{
-              color:white;
-              font-size:90;
-              padding-right:10px;
-            }
-          }
-      }  
+      list-style: none;
+      float:left;
       
-    
+      text-align: center;
+      a{
+        color:#0099E8;
+        text-decoration: underline;
+        &:hover{
+          cursor: pointer;
+          opacity: 0.6;
+        }
+      }
     }
-
-    &_bottom{
-      height:calc(100% - 298px);
-      margin:0 210px;
-      position: relative;
-        
-        a{
-          text-decoration:none;
-          
-          img{
-            padding:30px 0;
-            float: left;
-          }
-        }
-        p{
-          text-align: center;
-          color:white;
-          font-size: 12px;
-          position: absolute;
-          top: 30%;
-          right: 45%;
-          
-        }
+    li + li{
+      border-left: 1px solid #eee;
+      box-sizing: border-box;
+    }
+    .change_file{
+      width: 31px;
+      position: absolute;
+      top: 3px;
+      left: 13px;
+      opacity: 0; 
+      z-index: 100;
+      &:hover + li a{
+        opacity: 0.6;
+      }
     }
   }
 }
+.drag .upImage:nth-child(4){
+  position: absolute;
+  top:0;
+}
+.drag .upImage:nth-child(5){
+  position: absolute;
+  top:0;
+  left:126.5px;
+}
+.drag .upImage:nth-child(6){
+  position: absolute;
+  top:0;
+  left:253px;
+}
+.drag .upImage:nth-child(7){
+  position: absolute;
+  top:0;
+  left:379.5px;
+}
+.drag .upImage:nth-child(8){
+  position: absolute;
+  top:0;
+  left:505px;
+}
+.drag .upImage:nth-child(9){
+  position: absolute;
+  top:180px;
+  left:0;
+}
+.drag .upImage:nth-child(10){
+  position: absolute;
+  top:180px;
+  left:126.5px;
+}
+.drag .upImage:nth-child(11){
+  position: absolute;
+  top:180px;
+  left:253px;
+}
+.drag .upImage:nth-child(12){
+  position: absolute;
+  top:180px;
+  left:379.5px;
+}
+.drag .upImage:nth-child(13){
+  position: absolute;
+  top:180px;
+  left:505px;
+}
+
