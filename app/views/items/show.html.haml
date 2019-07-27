@@ -5,6 +5,11 @@
     NIKEはあああああさんから出品されました
   .item-main-details
     .item-main-details-photo
+      .item-carousel
+        .item-carousel-hidden
+        
+        .item-photo-main
+          .item-photo-sub
     %table.item-main-details-table
       %tr
         %th
@@ -12,31 +17,65 @@
           %td
             %a
               商品出品者の名前
-            .item-ratings
-              %i
+              %i.item-ratings
                 = fa_icon "icon-good"
-              .item-ratings
-              %i
+              
+              %i.item-ratings
                 = fa_icon "icon-nomal"
-              .item-ratings
-              %i
+              
+              %i.item-ratings
                 = fa_icon "icon-bad"
       %tr
         %th
-          出品者
+          カテゴリー
           %td
             %a
-              商品出品者の名前
-            %div
-              .item-ratings
-              %i
-                = fa_icon "icon-good"
-              .item-ratings
-              %i
-                = fa_icon "icon-nomal"
-              .item-ratings
-              %i
-                = fa_icon "icon-bad"
+              .subcayegoryスポーツ・レジャー
+            %a
+              .subcayegory
+              サッカー/フットサル
+            %a
+              .subcayegory
+              シューズ
+
+      %tr
+        %th
+          ブランド
+          %td
+            %a{href:"https://www.mercari.com/jp/brand/857/"}
+              %div ナイキ
+
+      %tr
+        %th
+          商品の状態
+          %td
+            %a
+              未使用に近い
+      %tr
+        %th
+          配送料の負担
+          %td
+            %a
+              送料込み（出品者負担）
+      %tr
+        %th
+          配送の方法
+          %td
+            %a
+              らくらくメルカリ便
+      %tr
+        %th
+          配送元地域
+          %td
+            %a
+              大阪府
+      %tr
+        %th
+          配送の目安
+          %td
+            %a
+              1-2日で発送
+
 
   
   .item-price-box
