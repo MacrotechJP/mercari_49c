@@ -1,7 +1,11 @@
 *{
   text-decoration: none;
 }
-
+h1{
+  display:inline-block;
+  width:134px;
+  height:36px;
+}
 a{
   color: black;
 }
@@ -17,10 +21,11 @@ h3{
     margin:auto;
     padding:8px;
     .pc-header-box-upper{
-      display: inherit;
+      display:inline-block;
       &__field--right{
         float:right;
         position: relative;
+        margin-left: 30px;
         .product-form__input{
           height: 40px;
           width: 840px;
@@ -80,7 +85,7 @@ h3{
         }
           .pc-header-box-lower__left-parent-wrap {
             position: absolute;
-            top: 42px;
+            top: 34px;
             left: 0;
             height: 400px;
             width: 224px;
@@ -129,8 +134,8 @@ h3{
         }
         .pc-header-box-lower__left-brand-wrap {
           position: absolute;
-          top: 42px;
-          left: 160px;
+          top: 34px;
+          left: 0px;
           height: 400px;
           width: 224px;
           z-index: 100;
