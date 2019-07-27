@@ -22,24 +22,32 @@
       .identification__form__label
         %label 郵便番号
         %span.identification__form__label-annotation 任意
-        %input.identification__form__label-input
-      #address_pulldown.identification__form__label
+        %input.identification__form__label-input{placeholder:"例）1234567"}
+      #addressPulldown.identification__form__label
         %label 都道府県
         %span.identification__form__label-annotation 任意
-
+        .identification__form__label-pulldown
+          = fa_icon "angle-down", class:"icon"
+          %select.addressSelect
+            %option{"v-for" => "address in addressList"}
+              {{ address }}
       .identification__form__label
         %label 市区町村
         %span.identification__form__label-annotation 任意
-        %input.identification__form__label-input
+        %input.identification__form__label-input{placeholder:"例) 横浜市緑区"}
       .identification__form__label
         %label 番地
         %span.identification__form__label-annotation 任意
-        %input.identification__form__label-input
+        %input.identification__form__label-input{placeholder:"例) 青山1−1−1"}
       .identification__form__label
         %label 建物名
         %span.identification__form__label-annotation 任意
-        %input.identification__form__label-input
+        %input.identification__form__label-input{placeholder:"例) 柳ビル103"}
       %button.identification__form__btn 登録する
       .identification__form__label
-        
+      %div
+        %p.index
+          = link_to "#" do
+            本人情報の登録について
+            = fa_icon "angle-right", class:"icon"
 
