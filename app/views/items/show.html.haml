@@ -5,221 +5,222 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
   .item_main
     .item_main_center
-      .item_main_center-cell1
-        %h2 商品の情報を入力
-      .item_main_center-cell2
-        .item_main_center-cell2-center
-          %ul
-            %li.left 出品画像
-            %li.right_hissu 必須
-          %p 最大10枚までアップロードできます
-          .drag
-            .drag_over
-              .drag_center
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
-            %input{type:"file", class:"file"}
-            .drag_over2
-              .drag_center2
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
-      .item_main_center-cell3
-        .item_main_center-cell3-center
-          .item_main_center-cell3-center_top
+      = form_tag('/items/create', method: :post) do 
+        .item_main_center-cell1
+          %h2 商品の情報を入力
+        .item_main_center-cell2
+          .item_main_center-cell2-center
             %ul
-              %li.left 商品名
+              %li.left 出品画像
               %li.right_hissu 必須
-            %input{placeholder:"商品名（必須40文字まで）"}
-          .item_main_center-cell3-center_bottom
-            %ul
-              %li.left 商品の説明
-              %li.right_hissu 必須
-            %textarea{rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
-      
-      
-      .item_main_center-cell4
-        .item_main_center-cell4-left
-          %h5 商品の詳細
-        .item_main_center-cell4-right
-          = render "category"
-
-          .item_main_center-cell4-right_selectSize
-            %ul
-              %li.left サイズ
-              %li.right_hissu 必須
-            %select{class:"default"}
-              %option{value:""}---
-              %option{value:"1"}XXS以下
-              %option{value:"2"}XS(SS)
-              %option{value:"3"}S
-              %option{value:"4"}M
-              %option{value:"5"}L
-              %option{value:"6"}XL(LL)
-              %option{value:"7"}2XL(3L)
-              %option{value:"8"}3XL(4L)
-              %option{value:"9"}4XL(5L)以上
-              %option{value:"10"}FREE SIZE
-            %i.fa.fa-chevron-down
-
-
-
-          .item_main_center-cell4-right_selectBrand
-            %ul
-              %li.left ブランド
-              %li.right_nini 任意
-            %input{placeholder:"例）シャネル"}
-
-
-
-          .item_main_center-cell4-right_selectBox
-            %ul
-              %li.left 商品の状態
-              %li.right_hissu 必須
-            %select{class:"default"}
-              %option{value:""}---
-              %option{value:"1"}新品、未使用
-              %option{value:"2"}未使用に近い
-              %option{value:"3"}目立った傷や汚れなし
-              %option{value:"4"}やや傷や汚れなし
-              %option{value:"5"}傷や汚れあり
-              %option{value:"6"}全体的に状態が悪い
-            %i.fa.fa-chevron-down
-            
-
-      .item_main_center-cell5
-        .item_main_center-cell5-left
-          %h5 配送について
-          %a{href:"http://urx.space/W3Wr"} ?
-        .item_main_center-cell5-right
-          .item_main_center-cell5-right_select1.select1
-            %ul
-              %li.left 配送料の負担
-              %li.right_hissu 必須
-            %select{id:'drive',class:"default"}
-              %option{value:""}---
-              %option{value:"1"}送料込み(出品者負担)
-              %option{value:"2"}着払い(購入者負担)
-            %i.fa.fa-chevron-down
-          .item_main_center-cell5-right_selectBox.driveWay
-            %ul
-              %li.left 発送の方法
-              %li.right_hissu 必須
-            %select.default
-              %option{value:""}---
-              %option{value:"1"}未定
-              %option{value:"2"}らくらくメルカリ便
-              %option{value:"3"}ゆうメール
-              %option{value:"4"}レターパック
-              %option{value:"5"}普通郵便(定形、定形外)
-              %option{value:"6"}クロネコヤマト
-              %option{value:"7"}ゆうパック
-              %option{value:"8"}クリックポスト
-              %option{value:"9"}ゆうポケット
-            %i.fa.fa-chevron-down
-          .item_main_center-cell5-right_selectBox
-            %ul
-              %li.left 発送元の地域
-              %li.right_hissu 必須
-            %select.default
-              %option{value:""}---
-              %option{value:"1"}北海道
-              %option{value:"2"}青森県
-              %option{value:"3"}岩手県
-              %option{value:"4"}宮城県
-              %option{value:"5"}秋田県
-              %option{value:"6"}山形県
-              %option{value:"7"}福島県
-              %option{value:"8"}茨城県
-              %option{value:"9"}栃木県
-              %option{value:"10"}群馬県
-              %option{value:"11"}埼玉県
-              %option{value:"12"}千葉県
-              %option{value:"13"}東京都
-              %option{value:"14"}神奈川県
-              %option{value:"15"}新潟県
-              %option{value:"16"}富山県
-              %option{value:"17"}石川県
-              %option{value:"18"}福井県
-              %option{value:"19"}山梨県
-              %option{value:"20"}長野県
-              %option{value:"21"}岐阜県
-              %option{value:"22"}静岡県
-              %option{value:"23"}愛知県
-              %option{value:"24"}三重県
-              %option{value:"25"}滋賀県
-              %option{value:"26"}京都府
-              %option{value:"27"}大阪府
-              %option{value:"28"}兵庫県
-              %option{value:"29"}奈良県
-              %option{value:"30"}和歌山県
-              %option{value:"31"}鳥取県
-              %option{value:"32"}島根県
-              %option{value:"33"}岡山県
-              %option{value:"34"}広島県
-              %option{value:"35"}山口県
-              %option{value:"36"}徳島県
-              %option{value:"37"}香川県
-              %option{value:"38"}愛媛県
-              %option{value:"39"}高知県
-              %option{value:"40"}福岡県
-              %option{value:"41"}佐賀県
-              %option{value:"42"}長崎県
-              %option{value:"43"}熊本県
-              %option{value:"44"}大分県
-              %option{value:"45"}宮崎県
-              %option{value:"46"}鹿児島県
-              %option{value:"47"}沖縄県
-              %option{value:"48"}未定
-            %i.fa.fa-chevron-down
-
-          .item_main_center-cell5-right_selectBox
-            %ul
-              %li.left 発送までの日数
-              %li.right_hissu 必須
-            %select.default
-              %option{value:""}---
-              %option{value:"1"}１〜２日で発送
-              %option{value:"2"}２〜３日で発送
-              %option{value:"2"}４〜７日で発送
-            %i.fa.fa-chevron-down
-
-      .item_main_center-cell6
-        .item_main_center-cell6-center
-          .item_main_center-cell6-center_left
-            %h5 販売価格(300〜9,999,999)
-            %a{href:"http://urx.space/W3Wr"} ?
-          .item_main_center-cell6-center_right
-            .item_main_center-cell6-center_right_top
+            %p 最大10枚までアップロードできます
+            .drag
+              .drag_over
+                .drag_center
+                  %p ドラッグアンドドロップ
+                  %p またはクリックしてファイルをアップロード
+              %input{name:"file[]", type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png"}
+              .drag_over2
+                .drag_center2
+                  %p ドラッグアンドドロップ
+                  %p またはクリックしてファイルをアップロード
+        .item_main_center-cell3
+          .item_main_center-cell3-center
+            .item_main_center-cell3-center_top
               %ul
-                %li.left 価格
-                %li.left.right_hissu 必須
-                %input{placeholder:"例）300",id:"price"}
-                %li.right ¥
-            .item_main_center-cell6-center_right_main
-              .left 販売手数料(10%)
-              #rightUp -
-            .item_main_center-cell6-center_right_bottom
-              .left 販売利益
-              %h2#rightDown -
-      
-      
-      .item_main_center-cell7
-        .item_main_center-cell7-center
-          %p
-            %a{href:"https://www.mercari.com/jp/help_center/getting_started/prohibited_items/"}禁止されている出品
-            、
-            %a{href:"https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/"}行為
-            を必ずご確認ください。
-          %p
-            またブランド品でシリアルナンバー等がある場合はご記載ください。
-            %a{href:"https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/"}偽ブランドの販売
-            は犯罪であり処罰される可能性があります。
-          %p
-            また、出品をもちまして
-            %a{href:"https://www.mercari.com/jp/seller_terms/"}加盟店規約
-            に同意したことになります。
-          %input{type:"submit",value:"出品する",class:"go"}
-          %input{type:"button",value:"もどる",onclick:"history.back()",class:"back"}
+                %li.left 商品名
+                %li.right_hissu 必須
+              %input{name:"item_name", placeholder:"商品名（必須40文字まで）"}
+            .item_main_center-cell3-center_bottom
+              %ul
+                %li.left 商品の説明
+                %li.right_hissu 必須
+              %textarea{name:"item_intro",rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        
+        
+        .item_main_center-cell4
+          .item_main_center-cell4-left
+            %h5 商品の詳細
+          .item_main_center-cell4-right
+            = render "category"
+
+            .item_main_center-cell4-right_selectSize
+              %ul
+                %li.left サイズ
+                %li.right_hissu 必須
+              %select{class:"default"}
+                %option{value:""}---
+                %option{value:"1"}XXS以下
+                %option{value:"2"}XS(SS)
+                %option{value:"3"}S
+                %option{value:"4"}M
+                %option{value:"5"}L
+                %option{value:"6"}XL(LL)
+                %option{value:"7"}2XL(3L)
+                %option{value:"8"}3XL(4L)
+                %option{value:"9"}4XL(5L)以上
+                %option{value:"10"}FREE SIZE
+              %i.fa.fa-chevron-down
+
+
+
+            .item_main_center-cell4-right_selectBrand
+              %ul
+                %li.left ブランド
+                %li.right_nini 任意
+              %input{placeholder:"例）シャネル"}
+
+
+
+            .item_main_center-cell4-right_selectBox
+              %ul
+                %li.left 商品の状態
+                %li.right_hissu 必須
+              %select{class:"default"}
+                %option{value:""}---
+                %option{value:"1"}新品、未使用
+                %option{value:"2"}未使用に近い
+                %option{value:"3"}目立った傷や汚れなし
+                %option{value:"4"}やや傷や汚れなし
+                %option{value:"5"}傷や汚れあり
+                %option{value:"6"}全体的に状態が悪い
+              %i.fa.fa-chevron-down
+              
+
+        .item_main_center-cell5
+          .item_main_center-cell5-left
+            %h5 配送について
+            %a{href:"http://urx.space/W3Wr"} ?
+          .item_main_center-cell5-right
+            .item_main_center-cell5-right_select1.select1
+              %ul
+                %li.left 配送料の負担
+                %li.right_hissu 必須
+              %select{id:'drive',class:"default"}
+                %option{value:""}---
+                %option{value:"1"}送料込み(出品者負担)
+                %option{value:"2"}着払い(購入者負担)
+              %i.fa.fa-chevron-down
+            .item_main_center-cell5-right_selectBox.driveWay
+              %ul
+                %li.left 発送の方法
+                %li.right_hissu 必須
+              %select.default
+                %option{value:""}---
+                %option{value:"1"}未定
+                %option{value:"2"}らくらくメルカリ便
+                %option{value:"3"}ゆうメール
+                %option{value:"4"}レターパック
+                %option{value:"5"}普通郵便(定形、定形外)
+                %option{value:"6"}クロネコヤマト
+                %option{value:"7"}ゆうパック
+                %option{value:"8"}クリックポスト
+                %option{value:"9"}ゆうポケット
+              %i.fa.fa-chevron-down
+            .item_main_center-cell5-right_selectBox
+              %ul
+                %li.left 発送元の地域
+                %li.right_hissu 必須
+              %select.default
+                %option{value:""}---
+                %option{value:"1"}北海道
+                %option{value:"2"}青森県
+                %option{value:"3"}岩手県
+                %option{value:"4"}宮城県
+                %option{value:"5"}秋田県
+                %option{value:"6"}山形県
+                %option{value:"7"}福島県
+                %option{value:"8"}茨城県
+                %option{value:"9"}栃木県
+                %option{value:"10"}群馬県
+                %option{value:"11"}埼玉県
+                %option{value:"12"}千葉県
+                %option{value:"13"}東京都
+                %option{value:"14"}神奈川県
+                %option{value:"15"}新潟県
+                %option{value:"16"}富山県
+                %option{value:"17"}石川県
+                %option{value:"18"}福井県
+                %option{value:"19"}山梨県
+                %option{value:"20"}長野県
+                %option{value:"21"}岐阜県
+                %option{value:"22"}静岡県
+                %option{value:"23"}愛知県
+                %option{value:"24"}三重県
+                %option{value:"25"}滋賀県
+                %option{value:"26"}京都府
+                %option{value:"27"}大阪府
+                %option{value:"28"}兵庫県
+                %option{value:"29"}奈良県
+                %option{value:"30"}和歌山県
+                %option{value:"31"}鳥取県
+                %option{value:"32"}島根県
+                %option{value:"33"}岡山県
+                %option{value:"34"}広島県
+                %option{value:"35"}山口県
+                %option{value:"36"}徳島県
+                %option{value:"37"}香川県
+                %option{value:"38"}愛媛県
+                %option{value:"39"}高知県
+                %option{value:"40"}福岡県
+                %option{value:"41"}佐賀県
+                %option{value:"42"}長崎県
+                %option{value:"43"}熊本県
+                %option{value:"44"}大分県
+                %option{value:"45"}宮崎県
+                %option{value:"46"}鹿児島県
+                %option{value:"47"}沖縄県
+                %option{value:"48"}未定
+              %i.fa.fa-chevron-down
+
+            .item_main_center-cell5-right_selectBox
+              %ul
+                %li.left 発送までの日数
+                %li.right_hissu 必須
+              %select.default
+                %option{value:""}---
+                %option{value:"1"}１〜２日で発送
+                %option{value:"2"}２〜３日で発送
+                %option{value:"2"}４〜７日で発送
+              %i.fa.fa-chevron-down
+
+        .item_main_center-cell6
+          .item_main_center-cell6-center
+            .item_main_center-cell6-center_left
+              %h5 販売価格(300〜9,999,999)
+              %a{href:"http://urx.space/W3Wr"} ?
+            .item_main_center-cell6-center_right
+              .item_main_center-cell6-center_right_top
+                %ul
+                  %li.left 価格
+                  %li.left.right_hissu 必須
+                  %input{placeholder:"例）300",id:"price"}
+                  %li.right ¥
+              .item_main_center-cell6-center_right_main
+                .left 販売手数料(10%)
+                #rightUp -
+              .item_main_center-cell6-center_right_bottom
+                .left 販売利益
+                %h2#rightDown -
+        
+        
+        .item_main_center-cell7
+          .item_main_center-cell7-center
+            %p
+              %a{href:"https://www.mercari.com/jp/help_center/getting_started/prohibited_items/"}禁止されている出品
+              、
+              %a{href:"https://www.mercari.com/jp/help_center/getting_started/prohibited_conduct/"}行為
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              %a{href:"https://www.mercari.com/jp/help_center/getting_started/counterfeit_goods/"}偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              %a{href:"https://www.mercari.com/jp/seller_terms/"}加盟店規約
+              に同意したことになります。
+            %input{type:"submit",value:"出品する",class:"go"}
+            %input{type:"button",value:"もどる",onclick:"history.back()",class:"back"}
   .item_bottom
     %p.item_bottom_top
       %a{href:"https://www.mercari.com/jp/privacy/"}プライバシーポリシー

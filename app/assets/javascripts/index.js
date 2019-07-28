@@ -9,7 +9,7 @@ $(document).ready(function () {
     var img = '<div class="upImage" id='+cnn+'>'+
                 '<img id="'+cnn+'">'+
                 '<div class="upImage_buton">'+
-                  '<input type="file" class="change_file img_edi'+cnn+'">'+
+                  '<input name="file[]" type="file" class="change_file img_edi'+cnn+'">'+
                   '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
                   '<li><a href="#" class="img_del">削除</a></li>'+
                 '</div>'+
@@ -163,24 +163,3 @@ $(document).ready(function () {
 $(document).ready(function(){
   $('.file').dropify();
 });
-
-// $(function(){
-//   if($(".upImage").length == 1){
-//     console.log(111);
-//   }
-// });
-// $(function(){
-//    //"div.categoryの要素毎に処理する
-//    $(".drag").each(function () {
-//     //"div.categoryの要素内のliの数をカウント
-//     //var num = $(this).find('.drag .upImage').length;
-//     //"div.category内のul.catlist liが0件だったら
-//     //if(num==1){
-//       //$(this).find('.upImage').css('display','none');
-//     //}
-//     console.log(111);
-//    });
-// });
-
-  
-

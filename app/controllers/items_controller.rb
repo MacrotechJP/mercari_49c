@@ -5,4 +5,9 @@ class ItemsController < ApplicationController
 
   def show
   end
+
+  def create
+    binding.pry
+    Item.create(name: params[:name],image: params[:image])
+  end
 end

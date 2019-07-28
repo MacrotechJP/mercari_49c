@@ -1,0 +1,7 @@
+.contents.row
+  = form_tag('/items/create', method: :post) do 
+    %h3
+      投稿する
+    %input{placeholder:"Nickname", type:"text", name:"name"}
+    %input{placeholder:"Image Url", type:"text", name:"image"}
+    %input{type:"submit", value:"SENT"}
