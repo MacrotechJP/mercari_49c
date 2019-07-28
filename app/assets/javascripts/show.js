@@ -38,8 +38,9 @@ $(function(){
   $('.category3').change(function() {
     
       $(".item_main_center-cell4-right_selectBrand").show();
-      $(".item_main_center-cell4").css('height', '+=110');
-      $(".item_main").css('height', '+=110');
+      $(".item_main_center-cell4-right_selectSize").show();
+      $(".item_main_center-cell4").css('height', '+=220');
+      $(".item_main").css('height', '+=220');
     
   });
 
