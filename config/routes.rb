@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :identification]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
+  resources :credicards, only: [:show]
 end
