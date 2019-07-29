@@ -47,7 +47,6 @@ $(function(){
   //配送についてのセレクトボックスを増表示する
   $('#drive').change(function() {
     var val = $('#drive').val();
-    console.log(111);
     if(val != ""){
       $(".driveWay").show();
       $(".item_main_center-cell5").css('height', '+=110');
@@ -88,7 +87,7 @@ $(document).ready(function () {
     var img = '<div class="upImage" id='+cnn+'>'+
                 '<img id="'+cnn+'">'+
                 '<div class="upImage_buton">'+
-                  '<input name="file[]" type="file" class="change_file img_edi'+cnn+'">'+
+                  '<input name="file" type="file" class="change_file img_edi'+cnn+'" accept=".jpg,.gif,.png,image/jpeg,image/png">'+
                   '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
                   '<li><a href="#" class="img_del">削除</a></li>'+
                 '</div>'+
@@ -130,7 +129,6 @@ $(document).ready(function () {
   } 
   function classCnt(){
     var size = $('.upImage').length;
-    console.log(size);
     if(size == 0){
       $(".drag_over").css({
         "margin-left": "0",
@@ -224,14 +222,12 @@ $(document).ready(function () {
     
     if ($(".drag_over").is(":hidden")) {
       //非表示のときの処理をする
-      console.log("非表示");
       if($(".item_main_center-cell2").css('height') == "303px"){
         $(".item_main_center-cell2").css('height', '463');
         $(".item_main").css('height', '+=160');
       }
     } else {
       //表示しているときの処理をする
-      console.log("表示");
       if($(".item_main_center-cell2").css('height') == "463px"){
         $(".item_main_center-cell2").css('height', '303');
         $(".item_main").css('height', '-=160');

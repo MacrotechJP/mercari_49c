@@ -5,7 +5,7 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
   .item_main
     .item_main_center
-      = form_tag('/items/create', method: :post) do 
+      = form_tag('/items', method: :post) do 
         .item_main_center-cell1
           %h2 商品の情報を入力
         .item_main_center-cell2
@@ -19,7 +19,7 @@
                 .drag_center
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-              %input{name:"file[]", type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png"}
+              %input{name:"file[]", type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",multiple:"true"}
               .drag_over2
                 .drag_center2
                   %p ドラッグアンドドロップ
@@ -30,19 +30,19 @@
               %ul
                 %li.left 商品名
                 %li.right_hissu 必須
-              %input{name:"item_name", placeholder:"商品名（必須40文字まで）"}
+              %input{name:"item_name", placeholder:"商品名（必須40文字まで）", required:"true"}
             .item_main_center-cell3-center_bottom
               %ul
                 %li.left 商品の説明
                 %li.right_hissu 必須
-              %textarea{name:"item_intro",rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+              %textarea{name:"item_intro",rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", required:"true"}
         
         
         .item_main_center-cell4
           .item_main_center-cell4-left
             %h5 商品の詳細
           .item_main_center-cell4-right
-            = render "showCategory"
+            = render "newCategory"
 
             .item_main_center-cell4-right_selectSize
               %ul
@@ -76,14 +76,14 @@
               %ul
                 %li.left 商品の状態
                 %li.right_hissu 必須
-              %select{class:"default"}
+              %select{class:"default",name:"item_state",required:"true"}
                 %option{value:""}---
-                %option{value:"1"}新品、未使用
-                %option{value:"2"}未使用に近い
-                %option{value:"3"}目立った傷や汚れなし
-                %option{value:"4"}やや傷や汚れなし
-                %option{value:"5"}傷や汚れあり
-                %option{value:"6"}全体的に状態が悪い
+                %option{value:"新品、未使用"}新品、未使用
+                %option{value:"未使用に近い"}未使用に近い
+                %option{value:"目立った傷や汚れなし"}目立った傷や汚れなし
+                %option{value:"やや傷や汚れなし"}やや傷や汚れなし
+                %option{value:"傷や汚れあり"}傷や汚れあり
+                %option{value:"全体的に状態が悪い"}全体的に状態が悪い
               %i.fa.fa-chevron-down
               
 
@@ -96,92 +96,92 @@
               %ul
                 %li.left 配送料の負担
                 %li.right_hissu 必須
-              %select{id:'drive',class:"default"}
+              %select{id:'drive',class:"default",name:"drive_include",required:"true"}
                 %option{value:""}---
-                %option{value:"1"}送料込み(出品者負担)
-                %option{value:"2"}着払い(購入者負担)
+                %option{value:"送料込み(出品者負担)"}送料込み(出品者負担)
+                %option{value:"着払い(購入者負担)"}着払い(購入者負担)
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox.driveWay
               %ul
                 %li.left 発送の方法
                 %li.right_hissu 必須
-              %select.default
+              %select{class:"default",name:"drive_way"}
                 %option{value:""}---
-                %option{value:"1"}未定
-                %option{value:"2"}らくらくメルカリ便
-                %option{value:"3"}ゆうメール
-                %option{value:"4"}レターパック
-                %option{value:"5"}普通郵便(定形、定形外)
-                %option{value:"6"}クロネコヤマト
-                %option{value:"7"}ゆうパック
-                %option{value:"8"}クリックポスト
-                %option{value:"9"}ゆうポケット
+                %option{value:"未定"}未定
+                %option{value:"らくらくメルカリ便"}らくらくメルカリ便
+                %option{value:"ゆうメール"}ゆうメール
+                %option{value:"レターパック"}レターパック
+                %option{value:"普通郵便(定形、定形外)"}普通郵便(定形、定形外)
+                %option{value:"クロネコヤマト"}クロネコヤマト
+                %option{value:"ゆうパック"}ゆうパック
+                %option{value:"クリックポスト"}クリックポスト
+                %option{value:"ゆうポケット"}ゆうポケット
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox
               %ul
                 %li.left 発送元の地域
                 %li.right_hissu 必須
-              %select.default
+              %select{class:"default",name:"drive_place",required:"true"}
                 %option{value:""}---
-                %option{value:"1"}北海道
-                %option{value:"2"}青森県
-                %option{value:"3"}岩手県
-                %option{value:"4"}宮城県
-                %option{value:"5"}秋田県
-                %option{value:"6"}山形県
-                %option{value:"7"}福島県
-                %option{value:"8"}茨城県
-                %option{value:"9"}栃木県
-                %option{value:"10"}群馬県
-                %option{value:"11"}埼玉県
-                %option{value:"12"}千葉県
-                %option{value:"13"}東京都
-                %option{value:"14"}神奈川県
-                %option{value:"15"}新潟県
-                %option{value:"16"}富山県
-                %option{value:"17"}石川県
-                %option{value:"18"}福井県
-                %option{value:"19"}山梨県
-                %option{value:"20"}長野県
-                %option{value:"21"}岐阜県
-                %option{value:"22"}静岡県
-                %option{value:"23"}愛知県
-                %option{value:"24"}三重県
-                %option{value:"25"}滋賀県
-                %option{value:"26"}京都府
-                %option{value:"27"}大阪府
-                %option{value:"28"}兵庫県
-                %option{value:"29"}奈良県
-                %option{value:"30"}和歌山県
-                %option{value:"31"}鳥取県
-                %option{value:"32"}島根県
-                %option{value:"33"}岡山県
-                %option{value:"34"}広島県
-                %option{value:"35"}山口県
-                %option{value:"36"}徳島県
-                %option{value:"37"}香川県
-                %option{value:"38"}愛媛県
-                %option{value:"39"}高知県
-                %option{value:"40"}福岡県
-                %option{value:"41"}佐賀県
-                %option{value:"42"}長崎県
-                %option{value:"43"}熊本県
-                %option{value:"44"}大分県
-                %option{value:"45"}宮崎県
-                %option{value:"46"}鹿児島県
-                %option{value:"47"}沖縄県
-                %option{value:"48"}未定
+                %option{value:"北海道"}北海道
+                %option{value:"青森県"}青森県
+                %option{value:"岩手県"}岩手県
+                %option{value:"宮城県"}宮城県
+                %option{value:"秋田県"}秋田県
+                %option{value:"山形県"}山形県
+                %option{value:"福島県"}福島県
+                %option{value:"茨城県"}茨城県
+                %option{value:"栃木県"}栃木県
+                %option{value:"群馬県"}群馬県
+                %option{value:"埼玉県"}埼玉県
+                %option{value:"千葉県"}千葉県
+                %option{value:"東京都"}東京都
+                %option{value:"神奈川県"}神奈川県
+                %option{value:"新潟県"}新潟県
+                %option{value:"富山県"}富山県
+                %option{value:"石川県"}石川県
+                %option{value:"福井県"}福井県
+                %option{value:"山梨県"}山梨県
+                %option{value:"長野県"}長野県
+                %option{value:"岐阜県"}岐阜県
+                %option{value:"静岡県"}静岡県
+                %option{value:"愛知県"}愛知県
+                %option{value:"三重県"}三重県
+                %option{value:"滋賀県"}滋賀県
+                %option{value:"京都府"}京都府
+                %option{value:"大阪府"}大阪府
+                %option{value:"兵庫県"}兵庫県
+                %option{value:"奈良県"}奈良県
+                %option{value:"和歌山県"}和歌山県
+                %option{value:"鳥取県"}鳥取県
+                %option{value:"島根県"}島根県
+                %option{value:"岡山県"}岡山県
+                %option{value:"広島県"}広島県
+                %option{value:"山口県"}山口県
+                %option{value:"徳島県"}徳島県
+                %option{value:"香川県"}香川県
+                %option{value:"愛媛県"}愛媛県
+                %option{value:"高知県"}高知県
+                %option{value:"福岡県"}福岡県
+                %option{value:"佐賀県"}佐賀県
+                %option{value:"長崎県"}長崎県
+                %option{value:"熊本県"}熊本県
+                %option{value:"大分県"}大分県
+                %option{value:"宮崎県"}宮崎県
+                %option{value:"鹿児島県"}鹿児島県
+                %option{value:"沖縄県"}沖縄県
+                %option{value:"未定"}未定
               %i.fa.fa-chevron-down
 
             .item_main_center-cell5-right_selectBox
               %ul
                 %li.left 発送までの日数
                 %li.right_hissu 必須
-              %select.default
+              %select{class:"default",name:"drive_day",required:"true"}
                 %option{value:""}---
-                %option{value:"1"}１〜２日で発送
-                %option{value:"2"}２〜３日で発送
-                %option{value:"2"}４〜７日で発送
+                %option{value:"１〜２日で発送"}１〜２日で発送
+                %option{value:"２〜３日で発送"}２〜３日で発送
+                %option{value:"４〜７日で発送"}４〜７日で発送
               %i.fa.fa-chevron-down
 
         .item_main_center-cell6
@@ -194,7 +194,7 @@
                 %ul
                   %li.left 価格
                   %li.left.right_hissu 必須
-                  %input{placeholder:"例）300",id:"price"}
+                  %input{name:"item_price",placeholder:"例）300",id:"price", required:"true"}
                   %li.right ¥
               .item_main_center-cell6-center_right_main
                 .left 販売手数料(10%)
