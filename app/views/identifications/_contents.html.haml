@@ -1,0 +1,53 @@
+.contents
+  %section.identification
+    %h2.identification__title
+      本人情報の登録
+    .identification__form
+      %div
+        %p お客さまの本人情報をご登録ください。
+        %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.index
+          = link_to "#" do
+            本人確認書類のアップロードについて
+            = fa_icon "angle-right", class:"icon"
+      .identification__form__label
+        %label お名前
+        %p 潘少卓
+      .identification__form__label
+        %label お名前カナ
+        %p ハンショウタク
+      .identification__form__label
+        %label 生年月日
+        %p 1987/03/28
+      .identification__form__label
+        %label 郵便番号
+        %span.identification__form__label-annotation 任意
+        %input.identification__form__label-input{placeholder:"例）1234567"}
+      #addressPulldown.identification__form__label
+        %label 都道府県
+        %span.identification__form__label-annotation 任意
+        .identification__form__label-pulldown
+          = fa_icon "angle-down", class:"icon"
+          %select.addressSelect
+            %option{"v-for" => "address in addressList"}
+              {{ address }}
+      .identification__form__label
+        %label 市区町村
+        %span.identification__form__label-annotation 任意
+        %input.identification__form__label-input{placeholder:"例) 横浜市緑区"}
+      .identification__form__label
+        %label 番地
+        %span.identification__form__label-annotation 任意
+        %input.identification__form__label-input{placeholder:"例) 青山1−1−1"}
+      .identification__form__label
+        %label 建物名
+        %span.identification__form__label-annotation 任意
+        %input.identification__form__label-input{placeholder:"例) 柳ビル103"}
+      %button.identification__form__btn 登録する
+      .identification__form__label
+      %div
+        %p.index
+          = link_to "#" do
+            本人情報の登録について
+            = fa_icon "angle-right", class:"icon"
+

@@ -1,0 +1,62 @@
+.contents {
+  width: calc( 100% - 280px);
+  .credicard {
+    margin: 0;
+    background: #fff;
+    padding: 0;
+    &__title {
+      font-size: 24px;
+      padding: 8px 24px;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &__content {
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+      margin: 0;
+      &__header {
+        max-width: 480px;
+        margin: 0 auto;
+        &-title {
+          font-weight: bold;
+          font-size: 16px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &__addArea {
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+        &-btn {
+          max-width: 480px;
+          margin: 0 auto;
+          padding: 0;
+          a {
+            margin: 0 0 8px 0;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            text-align: center;
+            .icon {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+      .index {
+        text-align: right;
+        margin: 40px 0 0;
+        line-height: 1.5;
+        a {
+          color: #0099e8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
