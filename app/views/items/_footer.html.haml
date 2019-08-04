@@ -7,9 +7,9 @@
         .footer_top_center-left-icon
           %li
             = image_tag 'mercari_icon.png',width: '68px',class:"mercari_icon"
-            %a{href:"http://urx2.nu/gBv0"}
+            = link_to "http://urx2.nu/gBv0" do
               = image_tag 'http://urx2.nu/T4Pd',class:"apple_google"
-            %a{href:"http://urx2.nu/0CyU"}
+            = link_to "http://urx2.nu/0CyU" do
               = image_tag 'http://urx2.nu/RlpH',class:"apple_google"
       = image_tag 'mercari_foot.png', class: 'footer_top_center-image'
   .footer_bottom
@@ -82,7 +82,7 @@
             = link_to'United States','https://www.mercari.com/',class:"list"        
 
     .footer_bottom_bottom
-      %a{href:"https://www.mercari.com/jp/"}
+      = link_to "https://www.mercari.com/jp/" do
         = image_tag 'http://urx2.nu/WUUf',class:"mercari"
       %p © 2019 Mercari
 
