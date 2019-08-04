@@ -48,6 +48,9 @@ h3{
           align-items: center;
           background-color: gray;
           color: white;
+          .fa{
+            background-color: gray;
+          }
         }
       }
     }
@@ -181,6 +184,7 @@ h3{
             color: #ffffff;
             text-decoration:none;
             text-align: center;
+            background-color: red;
           }
         }
       }
