@@ -1,0 +1,205 @@
+.header-secound{
+  background-color: #f5f5f5;
+  height: 128px;
+  width: 100%;
+  text-align: center;
+  display: inline-flex;
+  &__logo{
+    width: 185px;
+    height: 49px;
+    margin: auto 0;
+    margin-left: 250px;
+    &__icon{
+      width: 185px;
+      height: 49px;
+    }
+  }
+  &__signup-bar{
+    padding: 40px 0 0 44px;
+    &__stepber{
+      height: 34px;
+      display: flex;
+      &--active{
+        font-size: 14px;
+        margin: 0 40px 0 0;
+        position: relative;
+        font-weight: 600;
+        color: #ea352d;
+        z-index: 1;
+        .bubble{
+          width: 12px;
+          height: 12px;
+          background-color: #ea352d;
+          border-radius: 50%;
+          margin: 8px auto 0;
+        }
+        :after{
+          position: absolute;
+          top: 34px;
+          display: block;
+          width: 200%;
+          height: 2px;
+          content: '';
+          background: #ccc;
+          z-index: -1;
+        }
+      }
+      &--yet{
+        font-size: 14px;
+        margin: 0 40px 0 0;
+        position: relative;
+        color: #888;
+        z-index: 1;
+        .bubble{
+          width: 12px;
+          height: 12px;
+          background-color: #ccc;
+          border-radius: 50%;
+          margin: 8px auto 0;
+        }
+        &:before, :after{
+          position: absolute;
+          top: 34px;
+          display: block;
+          width: 120%;
+          height: 2px;
+          content: '';
+          background: #ccc;
+          z-index: -1;
+        }
+        &:after{
+          width: 150%;
+        }
+      }
+      &--end{
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+        color: #888;
+        .bubble{
+          width: 12px;
+          height: 12px;
+          background-color: #ccc;
+          border-radius: 50%;
+          margin: 8px auto 0;
+        }
+        &:before{
+          position: absolute;
+          top: 34px;
+          display: block;
+          width: 100%;
+          right: 15px;
+          content: '';
+          height: 2px;
+          background: #ccc;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+.main-secound{
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 1283px;
+  text-align: center;
+  &__block{
+    background-color: #fff;
+    width: 700px;
+    height:384px;
+    margin: 0 auto;
+    &__title{
+      font-size: 22px;
+      padding: 32px;
+      font-weight: bold;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &__contents{
+      background-color: #fff;
+      height:1283px;
+      &__container{
+        height: 1283px;
+        width: 343px;
+        margin: auto;
+        &__block{
+          float: left;
+          margin-top: 30px;
+          &__text{
+            font-size: 14px;
+            font-weight: 600;
+            float: left;
+          }
+          &__require{
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            background-color: #ea352d;
+            float: left;
+          }
+          &__form{
+            .input-place{
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              margin-top: 5px;
+              width: 343px;
+            }
+          }
+          &__title{
+            font-weight: 600;
+            float: left;
+          }
+          &__description{
+            float: left;
+            margin-top: 8px;
+            text-align: left;
+            font-size: 14px;
+            color: #333333;
+          }
+          &__form-half{
+            float: left;
+            .input-place{
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              width: 160px;
+              margin-top: 8px;
+            }
+          }
+          &__form-year{
+            float: left;
+            margin-top: 8px;
+            .year-js, .month-js, .day-js{
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              width: 76px;  
+            }
+          }
+          &__info{
+            color: #888;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
