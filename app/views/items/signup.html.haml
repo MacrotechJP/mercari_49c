@@ -251,14 +251,14 @@
         .main-secound__block__contents__container__block
           %p.main-secound__block__contents__container__block__text-message
             「次へ進む」のボタンを押すことにより、
-            = link_to "利用規約", "https://www.mercari.com/jp/tos_list/" 
+            = link_to "利用規約", "https://www.mercari.com/jp/tos_list/" ,class: 'link-blue'
             同意したものとします
         .main-secound__block__contents__container__block
           .main-secound__block__contents__container__block__btn-next
-            = link_to "次へ進む" ,"#"
-        .main-secound__block__contents__container__block
+            = link_to "次へ進む" ,"#" ,class:'link-white'
+        .main-secound__block__contents__container__block.text-right
           .main-secound__block__contents__container__block--information
-            = link_to "#" do
+            = link_to "#" ,class:'link-blue' do
               本人情報の登録について
               %i.fa.fa-chevron-right
 .footer-first
