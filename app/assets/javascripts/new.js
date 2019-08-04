@@ -235,6 +235,3 @@ $(document).ready(function () {
     }
   }
 });
-$(document).ready(function(){
-  $('.file').dropify();
-});
