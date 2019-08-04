@@ -19,7 +19,7 @@
     &__stepber{
       height: 34px;
       display: flex;
-      &--active{
+      &--first{
         font-size: 14px;
         margin: 0 40px 0 0;
         position: relative;
@@ -44,7 +44,32 @@
           z-index: -1;
         }
       }
-      &--yet{
+      &--secound{
+        font-size: 14px;
+        margin: 0 40px 0 0;
+        position: relative;
+        font-weight: 600;
+        color: #ea352d;
+        z-index: 1;
+        .bubble{
+          width: 12px;
+          height: 12px;
+          background-color: #ccc;
+          border-radius: 50%;
+          margin: 8px auto 0;
+        }
+        :after{
+          position: absolute;
+          top: 34px;
+          display: block;
+          width: 170%;
+          height: 2px;
+          content: '';
+          background: #ccc;
+          z-index: -1;
+        }
+      }  
+      &--third{
         font-size: 14px;
         margin: 0 40px 0 0;
         position: relative;
@@ -57,7 +82,7 @@
           border-radius: 50%;
           margin: 8px auto 0;
         }
-        &:before, :after{
+        :after{
           position: absolute;
           top: 34px;
           display: block;
@@ -67,11 +92,32 @@
           background: #ccc;
           z-index: -1;
         }
-        &:after{
-          width: 150%;
+      }
+      &--forth{
+        font-size: 14px;
+        margin: 0 40px 0 0;
+        position: relative;
+        color: #888;
+        z-index: 1;
+        .bubble{
+          width: 12px;
+          height: 12px;
+          background-color: #ccc;
+          border-radius: 50%;
+          margin: 8px auto 0;
+        }
+        :after{
+          position: absolute;
+          top: 34px;
+          display: block;
+          width:130%;
+          height: 2px;
+          content: '';
+          background: #ccc;
+          z-index: -1;
         }
       }
-      &--end{
+      &--fifth{
         font-size: 14px;
         position: relative;
         z-index: 1;
@@ -82,17 +128,6 @@
           background-color: #ccc;
           border-radius: 50%;
           margin: 8px auto 0;
-        }
-        &:before{
-          position: absolute;
-          top: 34px;
-          display: block;
-          width: 100%;
-          right: 15px;
-          content: '';
-          height: 2px;
-          background: #ccc;
-          z-index: -1;
         }
       }
     }
