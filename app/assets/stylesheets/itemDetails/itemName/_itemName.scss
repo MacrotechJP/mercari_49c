@@ -1,5 +1,9 @@
-*{
+.background-color-fafafa{
   background-color: #fafafa;
+  width: 100%;
+  height: auto;
+  padding-top: 40px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16) inset;
 }
 
 a{
@@ -9,7 +13,7 @@ a{
 
 .item-details-box{
   width: 700px;
-  margin: 40px auto 0;
+  margin: 0 auto;
   padding: 24px 40px 40px;
   background-color: #fff;
   h1.item-name{
