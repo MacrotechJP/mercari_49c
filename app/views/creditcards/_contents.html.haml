@@ -1,0 +1,18 @@
+.contents
+  %section.credicard
+    %h2.credicard__title
+      支払い方法
+    .credicard__content
+      .credicard__content__header
+        %h3.credicard__content__header-title
+          クレジットカード一覧
+      .credicard__content__addArea
+        .credicard__content__addArea-btn
+          =link_to "#" do
+            =fa_icon "credit-card", class:"icon"
+            クレジットカードを追加する
+      %div
+        %p.index
+          = link_to "#" do
+            支払い方法について
+            = fa_icon "angle-right", class:"icon"
