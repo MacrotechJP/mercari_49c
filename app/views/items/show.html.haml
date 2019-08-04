@@ -1,25 +1,10 @@
 %section.item-details-box
   %h1.item-name
     とても良い商品
-  -# %p
-  -#   NIKEはあああああさんから出品されました
   .item-main-details
     .item-main-details-photo
-      -# .item-photo-main-stage-wrap
-      -#   .item-photo-main-stage
-
       .item-photo-main
         =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-      -# .item-photo-main
-      -#   =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-      -# .item-photo-main
-      -#   =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-      -# .item-photo-main
-      -#   =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-      -# .item-photo-main
-      -#   =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-      -# .item-photo-main
-      -#   =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
         .item-carousel-hidden
 
       .item-photo-slick.clearfix
@@ -41,7 +26,7 @@
         %th
           出品者
           %td
-            %a
+            = link_to "https://www.mercari.com/jp/" do
               商品出品者の名前
             %div
               .item-ratings
@@ -57,12 +42,12 @@
         %th
           カテゴリー
           %td
-            %a
+            = link_to "https://www.mercari.com/jp/" do
               スポーツ・レジャー
-            %a
+            = link_to "https://www.mercari.com/jp/" do
               %i.fas.fa-chevron-right
               サッカー/フットサル
-            %a
+            = link_to "https://www.mercari.com/jp/" do
               %i.fas.fa-chevron-right
               シューズ
 
@@ -70,8 +55,8 @@
         %th
           ブランド
           %td
-            %a{href:"https://www.mercari.com/jp/brand/857/"}
-              %div ナイキ
+            = link_to "https://www.mercari.com/jp/" do
+              ナイキ
 
       %tr
         %th
@@ -92,7 +77,7 @@
         %th
           配送元地域
           %td
-            %a
+            = link_to "https://www.mercari.com/jp/" do
               大阪府
       %tr
         %th
@@ -111,7 +96,7 @@
     %span.item-shipping-fee
       送料込み
 
-  %a{href: "", class: "item-buy-button"}
+  = link_to "https://www.mercari.com/jp/", class:"item-buy-button" do
     購入画面に進む
 
   .item-sentence
@@ -122,18 +107,16 @@
 
   .item-buttons-box.clearfix
     .item-button-left
-      %a{href: "", class: "item-button item-button-like"}
+      = link_to "https://www.mercari.com/jp/", class:"item-button item-button-like" do
         = fa_icon "heart-o"
         %span いいね！0
 
-
-      %a{href: "", class: "item-button item-button-report"}
+      = link_to "https://www.mercari.com/jp/", class:"item-button item-button-report" do
         = fa_icon "flag-o"
         %span 不適切な商品の報告
 
-
     .item-button-right
-      %a{href: "", class: "item-button item-button-lock"}
+      = link_to "https://www.mercari.com/jp/", class:"item-button item-button-lock" do
         = fa_icon "lock"
         %span あんしん・あんぜんへの取り組み
   
