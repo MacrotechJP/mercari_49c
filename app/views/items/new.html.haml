@@ -35,7 +35,7 @@
               %ul
                 %li.left 商品の説明
                 %li.right_hissu 必須
-              %textarea{name:"item_intro",rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", required:"true"}
+              %textarea{name:"item_description",rows:"5",placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", required:"true"}
         
         
         .item_main_center-cell4
@@ -68,7 +68,7 @@
               %ul
                 %li.left ブランド
                 %li.right_nini 任意
-              %input{placeholder:"例）シャネル"}
+              %input{placeholder:"例）シャネル",name:"item_brand"}
 
 
 
@@ -76,7 +76,7 @@
               %ul
                 %li.left 商品の状態
                 %li.right_hissu 必須
-              %select{class:"default",name:"item_state",required:"true"}
+              %select{class:"default",name:"item_condition",required:"true"}
                 %option{value:""}---
                 %option{value:"新品、未使用"}新品、未使用
                 %option{value:"未使用に近い"}未使用に近い
@@ -96,7 +96,7 @@
               %ul
                 %li.left 配送料の負担
                 %li.right_hissu 必須
-              %select{id:'drive',class:"default",name:"drive_include",required:"true"}
+              %select{id:'drive',class:"default",name:"item_deliveryfee",required:"true"}
                 %option{value:""}---
                 %option{value:"送料込み(出品者負担)"}送料込み(出品者負担)
                 %option{value:"着払い(購入者負担)"}着払い(購入者負担)
@@ -121,7 +121,7 @@
               %ul
                 %li.left 発送元の地域
                 %li.right_hissu 必須
-              %select{class:"default",name:"drive_place",required:"true"}
+              %select{class:"default",name:"item_area",required:"true"}
                 %option{value:""}---
                 %option{value:"北海道"}北海道
                 %option{value:"青森県"}青森県
@@ -177,7 +177,7 @@
               %ul
                 %li.left 発送までの日数
                 %li.right_hissu 必須
-              %select{class:"default",name:"drive_day",required:"true"}
+              %select{class:"default",name:"item_days_to_ship",required:"true"}
                 %option{value:""}---
                 %option{value:"１〜２日で発送"}１〜２日で発送
                 %option{value:"２〜３日で発送"}２〜３日で発送
@@ -194,7 +194,7 @@
                 %ul
                   %li.left 価格
                   %li.left.right_hissu 必須
-                  %input{name:"item_price",placeholder:"例）300",id:"price", required:"true"}
+                  %input{name:"item_price",placeholder:"例）300",id:"price", required:"true",type:"number",min:"300",max:"9999999"}
                   %li.right ¥
               .item_main_center-cell6-center_right_main
                 .left 販売手数料(10%)
