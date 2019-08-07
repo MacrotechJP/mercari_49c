@@ -72,7 +72,7 @@ Things you may want to cover:
 - has_many :images
 - has_many :likes
 - belongs_to :user
-- belongs_to :categories
+- belongs_to :category
 
 
 
@@ -95,11 +95,14 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- belongs_to :item
 
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null:false|
+|ancestry|||
 
 
 ### Association
@@ -151,8 +154,8 @@ Things you may want to cover:
 |rate|string|null:false|
 
 ### Association
-- belongs_to :rater, class_name: 'User'
-- belongs_to :ratee, class_name: 'User'
+- belongs_to :user
+
 
 
 
