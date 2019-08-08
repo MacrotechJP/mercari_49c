@@ -19,7 +19,7 @@
                 .drag_center
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-              %input{name:"file[]", type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",multiple:"true"}
+              %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png"}
               .drag_over2
                 .drag_center2
                   %p ドラッグアンドドロップ
@@ -49,20 +49,18 @@
                 %li.left サイズ
                 %li.right_hissu 必須
               %select{class:"default"}
-                %option{value:""}---
-                %option{value:"1"}XXS以下
-                %option{value:"2"}XS(SS)
-                %option{value:"3"}S
-                %option{value:"4"}M
-                %option{value:"5"}L
-                %option{value:"6"}XL(LL)
-                %option{value:"7"}2XL(3L)
-                %option{value:"8"}3XL(4L)
-                %option{value:"9"}4XL(5L)以上
-                %option{value:"10"}FREE SIZE
+                %option ---
+                %option XXS以下
+                %option XS(SS)
+                %option S
+                %option M
+                %option L
+                %option XL(LL)
+                %option 2XL(3L)
+                %option 3XL(4L)
+                %option 4XL(5L)以上
+                %option FREE SIZE
               %i.fa.fa-chevron-down
-
-
 
             .item_main_center-cell4-right_selectBrand
               %ul
@@ -70,23 +68,20 @@
                 %li.right_nini 任意
               %input{placeholder:"例）シャネル",name:"item_brand"}
 
-
-
             .item_main_center-cell4-right_selectBox
               %ul
                 %li.left 商品の状態
                 %li.right_hissu 必須
               %select{class:"default",name:"item_condition",required:"true"}
-                %option{value:""}---
-                %option{value:"新品、未使用"}新品、未使用
-                %option{value:"未使用に近い"}未使用に近い
-                %option{value:"目立った傷や汚れなし"}目立った傷や汚れなし
-                %option{value:"やや傷や汚れなし"}やや傷や汚れなし
-                %option{value:"傷や汚れあり"}傷や汚れあり
-                %option{value:"全体的に状態が悪い"}全体的に状態が悪い
+                %option ---
+                %option 新品、未使用
+                %option 未使用に近い
+                %option 目立った傷や汚れなし
+                %option やや傷や汚れなし
+                %option 傷や汚れあり
+                %option 全体的に状態が悪い
               %i.fa.fa-chevron-down
               
-
         .item_main_center-cell5
           .item_main_center-cell5-left
             %h5 配送について
@@ -97,80 +92,80 @@
                 %li.left 配送料の負担
                 %li.right_hissu 必須
               %select{id:'drive',class:"default",name:"item_deliveryfee",required:"true"}
-                %option{value:""}---
-                %option{value:"送料込み(出品者負担)"}送料込み(出品者負担)
-                %option{value:"着払い(購入者負担)"}着払い(購入者負担)
+                %option ---
+                %option 送料込み(出品者負担)
+                %option 着払い(購入者負担)
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox.driveWay
               %ul
                 %li.left 発送の方法
                 %li.right_hissu 必須
               %select{class:"default",name:"drive_way"}
-                %option{value:""}---
-                %option{value:"未定"}未定
-                %option{value:"らくらくメルカリ便"}らくらくメルカリ便
-                %option{value:"ゆうメール"}ゆうメール
-                %option{value:"レターパック"}レターパック
-                %option{value:"普通郵便(定形、定形外)"}普通郵便(定形、定形外)
-                %option{value:"クロネコヤマト"}クロネコヤマト
-                %option{value:"ゆうパック"}ゆうパック
-                %option{value:"クリックポスト"}クリックポスト
-                %option{value:"ゆうポケット"}ゆうポケット
+                %option ---
+                %option 未定
+                %option らくらくメルカリ便
+                %option ゆうメール
+                %option レターパック
+                %option 普通郵便(定形、定形外)
+                %option クロネコヤマト
+                %option ゆうパック
+                %option クリックポスト
+                %option ゆうポケット
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox
               %ul
                 %li.left 発送元の地域
                 %li.right_hissu 必須
               %select{class:"default",name:"item_area",required:"true"}
-                %option{value:""}---
-                %option{value:"北海道"}北海道
-                %option{value:"青森県"}青森県
-                %option{value:"岩手県"}岩手県
-                %option{value:"宮城県"}宮城県
-                %option{value:"秋田県"}秋田県
-                %option{value:"山形県"}山形県
-                %option{value:"福島県"}福島県
-                %option{value:"茨城県"}茨城県
-                %option{value:"栃木県"}栃木県
-                %option{value:"群馬県"}群馬県
-                %option{value:"埼玉県"}埼玉県
-                %option{value:"千葉県"}千葉県
-                %option{value:"東京都"}東京都
-                %option{value:"神奈川県"}神奈川県
-                %option{value:"新潟県"}新潟県
-                %option{value:"富山県"}富山県
-                %option{value:"石川県"}石川県
-                %option{value:"福井県"}福井県
-                %option{value:"山梨県"}山梨県
-                %option{value:"長野県"}長野県
-                %option{value:"岐阜県"}岐阜県
-                %option{value:"静岡県"}静岡県
-                %option{value:"愛知県"}愛知県
-                %option{value:"三重県"}三重県
-                %option{value:"滋賀県"}滋賀県
-                %option{value:"京都府"}京都府
-                %option{value:"大阪府"}大阪府
-                %option{value:"兵庫県"}兵庫県
-                %option{value:"奈良県"}奈良県
-                %option{value:"和歌山県"}和歌山県
-                %option{value:"鳥取県"}鳥取県
-                %option{value:"島根県"}島根県
-                %option{value:"岡山県"}岡山県
-                %option{value:"広島県"}広島県
-                %option{value:"山口県"}山口県
-                %option{value:"徳島県"}徳島県
-                %option{value:"香川県"}香川県
-                %option{value:"愛媛県"}愛媛県
-                %option{value:"高知県"}高知県
-                %option{value:"福岡県"}福岡県
-                %option{value:"佐賀県"}佐賀県
-                %option{value:"長崎県"}長崎県
-                %option{value:"熊本県"}熊本県
-                %option{value:"大分県"}大分県
-                %option{value:"宮崎県"}宮崎県
-                %option{value:"鹿児島県"}鹿児島県
-                %option{value:"沖縄県"}沖縄県
-                %option{value:"未定"}未定
+                %option ---
+                %option 北海道
+                %option 青森県
+                %option 岩手県
+                %option 宮城県
+                %option 秋田県
+                %option 山形県
+                %option 福島県
+                %option 茨城県
+                %option 栃木県
+                %option 群馬県
+                %option 埼玉県
+                %option 千葉県
+                %option 東京都
+                %option 神奈川県
+                %option 新潟県
+                %option 富山県
+                %option 石川県
+                %option 福井県
+                %option 山梨県
+                %option 長野県
+                %option 岐阜県
+                %option 静岡県
+                %option 愛知県
+                %option 三重県
+                %option 滋賀県
+                %option 京都府
+                %option 大阪府
+                %option 兵庫県
+                %option 奈良県
+                %option 和歌山県
+                %option 鳥取県
+                %option 島根県
+                %option 岡山県
+                %option 広島県
+                %option 山口県
+                %option 徳島県
+                %option 香川県
+                %option 愛媛県
+                %option 高知県
+                %option 福岡県
+                %option 佐賀県
+                %option 長崎県
+                %option 熊本県
+                %option 大分県
+                %option 宮崎県
+                %option 鹿児島県
+                %option 沖縄県
+                %option 未定
               %i.fa.fa-chevron-down
 
             .item_main_center-cell5-right_selectBox
@@ -178,10 +173,10 @@
                 %li.left 発送までの日数
                 %li.right_hissu 必須
               %select{class:"default",name:"item_days_to_ship",required:"true"}
-                %option{value:""}---
-                %option{value:"１〜２日で発送"}１〜２日で発送
-                %option{value:"２〜３日で発送"}２〜３日で発送
-                %option{value:"４〜７日で発送"}４〜７日で発送
+                %option ---
+                %option １〜２日で発送
+                %option ２〜３日で発送
+                %option ４〜７日で発送
               %i.fa.fa-chevron-down
 
         .item_main_center-cell6
@@ -202,7 +197,6 @@
               .item_main_center-cell6-center_right_bottom
                 .left 販売利益
                 %h2#rightDown -
-        
         
         .item_main_center-cell7
           .item_main_center-cell7-center
