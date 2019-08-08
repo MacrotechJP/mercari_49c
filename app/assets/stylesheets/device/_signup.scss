@@ -28,7 +28,7 @@
         .bubble{
           width: 12px;
           height: 12px;
-          background-color: #ea352d;
+          background-color: #ccc;
           border-radius: 50%;
           margin: 8px auto 0;
         }
@@ -135,85 +135,115 @@
 .main-secound{
   background-color: #f5f5f5;
   width: 100%;
-  height: 1283px;
+  height: 100%;
   text-align: center;
   &__block{
     background-color: #fff;
     width: 700px;
-    height:384px;
     margin: 0 auto;
+    border-bottom: 1px solid #f5f5f5;
     &__title{
       font-size: 22px;
       padding: 32px;
       font-weight: bold;
-      border-bottom: 1px solid #f5f5f5;
+      
     }
-    &__contents{
-      background-color: #fff;
-      height:1283px;
-      &__container{
-        height: 1283px;
-        width: 343px;
-        margin: auto;
-        &__block{
+  }
+  &__contents{
+    background-color: #fff;
+    width: 700px;
+    display: table; 
+    margin: auto;
+    &__container{
+      width: 343px;
+      margin: 0 auto;
+      &__block{
+        float: left;
+        margin-top: 30px;
+        &__text{
+          font-size: 14px;
+          font-weight: 600;
           float: left;
-          margin-top: 30px;
-          &__text{
-            font-size: 14px;
-            font-weight: 600;
-            float: left;
+          text-align: left;
+        }
+        &__require{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          background-color: #ea352d;
+          float: left;
+        }
+        &__form{
+          .input-place{
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            margin-top: 5px;
+            width: 343px;
           }
-          &__require{
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            background-color: #ea352d;
-            float: left;
-          }
-          &__form{
-            .input-place{
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
-              margin-top: 5px;
-              width: 343px;
-            }
-          }
-          &__title{
-            font-weight: 600;
-            float: left;
-          }
-          &__description{
-            float: left;
+        }
+        &__title{
+          font-weight: 600;
+          float: left;
+        }
+        &__description{
+          float: left;
+          margin-top: 8px;
+          text-align: left;
+          font-size: 14px;
+          color: #333333;
+        }
+        &__form-half{
+          float: left;
+          .input-place{
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+            width: 160px;
             margin-top: 8px;
-            text-align: left;
-            font-size: 14px;
-            color: #333333;
           }
-          &__form-half{
-            float: left;
-            .input-place{
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
-              width: 160px;
-              margin-top: 8px;
+        }
+        &__form{
+          display: flex;
+          float: left;
+          margin-top: 8px;
+          &--select-box{
+            position: relative;
+            &::before{
+              content: "\f107";
+              font-family: "FontAwesome";
+              font-size: 30px;
+              color: #888;
+              position: absolute;
+              right: 30px;
+              top: 8px;
             }
-          }
-          &__form-year{
-            float: left;
-            margin-top: 8px;
             .year-js, .month-js, .day-js{
+              position: relative;
+              z-index: 2;
+              height: 48px;
+              padding: 0 11px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 12px;
+              line-height: 1.5;
+              cursor: pointer;
+              width: 76px;
+              -webkit-appearance: none;
+              font-weight: bold;
+            }
+            .prefectures{
               position: relative;
               z-index: 2;
               height: 48px;
@@ -224,47 +254,78 @@
               font-size: 16px;
               line-height: 1.5;
               cursor: pointer;
-              width: 76px;  
+              width: 343px;
+              -webkit-appearance: none;
             }
-          }
-          &__info{
-            color: #888;
-            font-size: 14px;
-          }
-          &__text-message{
-            font-size: 14px;
-            color: #333333;
-            .link-blue{
-              color: #0099e8;
-              text-decoration: none;
-            }
-          }
-          &__btn-next{
-            height: 50px;
-            background-color: #ea352d;
-            width: 343px;
-            .link-white{
-              color: #fff;
-              text-decoration: none;
-              display: inline-block;
+            .word{
               font-size: 14px;
-              width: 100%;
-              height: 100%;
-              line-height: 50px;
+              margin-right: 4px;
             }
           }
-          &--information{
-            width: 343px;
-            text-align: right;
-            .link-blue{
-              float: right;
-              font-size: 14px;
-              color: #0099e8;
-              text-decoration: none;
-            }
+        }
+        &__info{
+          color: #888;
+          font-size: 14px;
+        }
+        &__text-message{
+          font-size: 14px;
+          color: #333333;
+          .link-blue{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+        &__btn-next{
+          height: 50px;
+          background-color: #ea352d;
+          width: 343px;
+          .link-white{
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            width: 100%;
+            height: 100%;
+            line-height: 50px;
+          }
+        }
+        &--information{
+          width: 343px;
+          text-align: right;
+          margin-bottom: 100px;
+          .link-blue{
+            float: right;
+            font-size: 14px;
+            color: #0099e8;
+            text-decoration: none;
           }
         }
       }
     }
   }
+}
+.red-color{
+  background-color: #ea352d!important;
+}
+.red-color-text{
+  color: #ea352d;
+  font-weight: 600;
+}
+
+.bottom-space{
+  padding-bottom: 70px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.link-return{
+  color: #0099e8;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.small-text{
+  float: left;
+  font-size: 12px;
+  text-align: left
+}
+.gray-color{
+  background-color: #8885;
 }
