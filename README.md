@@ -48,6 +48,10 @@ Things you may want to cover:
 - has_many :creditcards
 - has_many :likes
 - has_many :cust_addresses
+- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :selling_items, -> { where( "buyer_id is NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+- has_many :sold_items, -> { where( "buyer_id is no NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+
 
 
 
@@ -73,6 +77,8 @@ Things you may want to cover:
 - has_many :likes
 - belongs_to :user
 - belongs_to :category
+- belongs_to :buyer_id, class_name: "User"
+- belongs_to :seller_id, class_name: "User"
 
 
 
