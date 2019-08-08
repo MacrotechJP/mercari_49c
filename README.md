@@ -64,8 +64,8 @@ Things you may want to cover:
 |days_to_ship|integer|null:false|
 |sales_situation|integer|null:false|
 |likes_count|integer|null:false|
-|seller_id|integer|null:false,foreign_key: true|
-|buyer_id|integer|null:false,foreign_key: true|
+|seller_id|references|null:false,foreign_key: true|
+|buyer_id|references|null:false,foreign_key: true|
 
 ### Association
 - has_many :comments
@@ -90,8 +90,9 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,foreign_key: true|
+|user_id|references|null:false,foreign_key: true|
 |comment|String|null:false|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -113,7 +114,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|String|null:false|
-|item_id|integer|null:false,foreign_key: true|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -122,8 +123,8 @@ Things you may want to cover:
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,foreign_key: true|
-|item_id|integer|null:false,foreign_key: true|
+|user_id|references|null:false,foreign_key: true|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -133,7 +134,7 @@ Things you may want to cover:
 ## cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,foreign_key: true|
+|user_id|references|null:false,foreign_key: true|
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |municipality|string|null: false|
@@ -147,7 +148,7 @@ Things you may want to cover:
 ### ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false,foreign_key: true|
+|user_id|references|null:false,foreign_key: true|
 |comment|text|null: false|
 |rater_id|references|foreign_key:true|
 |ratedate|Date|null:false|
