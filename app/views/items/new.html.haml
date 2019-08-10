@@ -5,7 +5,7 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
   .item_main
     .item_main_center
-      = form_tag('/items', method: :post) do 
+      = form_tag('/items', method: :post,onSubmit:"return checkSubmit()") do 
         .item_main_center-cell1
           %h2 商品の情報を入力
         .item_main_center-cell2

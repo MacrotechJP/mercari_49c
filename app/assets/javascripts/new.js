@@ -239,3 +239,6 @@ $(document).ready(function () {
     }
   }
 });
+function checkSubmit() {
+	return confirm("送信しても良いですか？");
+}
