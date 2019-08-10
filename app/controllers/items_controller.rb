@@ -19,7 +19,9 @@ class ItemsController < ApplicationController
       unless seco == "---"
         item_params[:item_category_third].each do |thir|
           unless thir == "---"
-            Category.create(first:item_params[:item_category_first],second:seco,third:thir,item_id:Item.last.id)
+            first = Category.create(name:item_params[:item_category_first],item_id:Item.last.id)
+            second = first.children.create(name:seco,item_id:Item.last.id)
+            third = second.children.create(name:thir,item_id:Item.last.id)
           end
         end
       end
