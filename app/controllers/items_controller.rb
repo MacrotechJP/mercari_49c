@@ -15,21 +15,24 @@ class ItemsController < ApplicationController
     item_params[:file].each do |image|
       Image.create(image:image,item_id:Item.last.id)
     end
-    Category.create(first:item_params[:item_category_first],item_id:Item.last.id)
+    category = Category.new
+    category.first = item_params[:item_category_first]
+    category.item_id = Item.last.id
     num = 0
     while num < 10 do
       if item_params[:item_category_second][num] != "---" then
-        Category.create(second:item_params[:item_category_second][num],item_id:Item.last.id)
+        category.second = item_params[:item_category_second][num]
         num = 0
         break
       end
     end
     while num < 40 do
       if item_params[:item_category_second][num] != "---" then
-        Category.create(third:item_params[:item_category_third][num],item_id:Item.last.id)
+        category.third = item_params[:item_category_third][num]
         break
       end
     end
+    category.save
     binding.pry
   end
 
