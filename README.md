@@ -48,6 +48,10 @@ Things you may want to cover:
 - has_many :creditcards
 - has_many :likes
 - has_many :cust_addresses
+- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :selling_items, -> { where( "buyer_id is NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+- has_many :sold_items, -> { where( "buyer_id is no NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+
 
 
 
@@ -58,12 +62,14 @@ Things you may want to cover:
 |description|text|null:false|
 |condition|string|null:false|
 |price|integer|null:false|
-|brand|integer|null:false,add_index|
-|deliveryfee|integer|null:false|
-|area|integer|null:false|
-|days_to_ship|integer|null:false|
-|sales_situation|integer|null:false|
+|brand|string|null:false,add_index|
+|deliveryfee|string|null:false|
+|area|string|null:false|
+|days_to_ship|string|null:false|
+|sales_situation|string|null:false|
 |likes_count|integer|null:false|
+|size|string|null:false|
+|deliveryway|string|null:false|
 |seller_id|references|null:false,foreign_key: true|
 |buyer_id|references|null:false,foreign_key: true|
 
@@ -73,6 +79,8 @@ Things you may want to cover:
 - has_many :likes
 - belongs_to :user
 - belongs_to :category
+- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
 
 
 
