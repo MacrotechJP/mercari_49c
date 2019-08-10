@@ -80,7 +80,6 @@ $(document).ready(function () {
 
   var cnn = 0; 
   $(document).on('change',".file", function(){
-    console.log($(this).val());
     var fileprop = $(this).prop('files')[0],
          filereader = new FileReader(),
          view_box = $(this).parent('.drag');
