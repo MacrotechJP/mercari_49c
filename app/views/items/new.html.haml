@@ -19,7 +19,7 @@
                 .drag_center
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-              %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png"}
+              %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",required:"true"}
               .drag_over2
                 .drag_center2
                   %p ドラッグアンドドロップ
@@ -48,7 +48,7 @@
               %ul
                 %li.left サイズ
                 %li.right_hissu 必須
-              %select{class:"default"}
+              %select{class:"default",name:"item_size"}
                 %option ---
                 %option XXS以下
                 %option XS(SS)
