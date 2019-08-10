@@ -7,28 +7,28 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
 
 
-.buy-all-container-box
+.buy-all-container__box
   .buy-container
-    .buy-container-box
+    .buy-container__box
       %h2.buy-box-head 購入内容の確認
-      .buy-content-box
-        .buy-content-box-inner
-          %h3.buy-content-box-inner-image
+      .buy-content__box
+        .buy-content__box--inner
+          %h3.buy-content__box--inner-image
             = image_tag 'https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg',width:'180px',class:"buy-content-photo"
-          %p.buy-content-name ナイキの新作スニーカー 新品 美品
+          %p.buy-content__box--inner-name ナイキの新作スニーカー 新品 美品
 
           = form_with url:'https://www.mercari.com/jp/', local: true, class: 'buy-form-box' do |f|
-            %p.buy-content-price-ja.bold
+            %p.buy-content__price-ja.bold
               ￥31,500
-              %span.buy-content-fee 送料込み
+              %span.buy-content__fee 送料込み
             %ul.buy-content-accordion-box.not-have
               %li.buy-content-accordion-parent
-                .buy-content-accordion-toggle.not-have ポイントはありません
+                .buy-content-accordion-box-toggle.not-have ポイントはありません
 
-            %ul.buy-content-price-table
-              %li.buy-content-proce-row.bold
-                .buy-content-price-cel 支払い金額
-                .buy-content-price-cel
+            %ul.buy-content__price-table
+              %li.buy-content__price-table-row.bold
+                .buy-content__price-table-cel 支払い金額
+                .buy-content__price-table-cel
                   %span
                     ￥31,500
 
