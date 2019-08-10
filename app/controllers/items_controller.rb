@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
         end
       end
     end
-    binding.pry
+    redirect_to "/"
   end
 
   private
