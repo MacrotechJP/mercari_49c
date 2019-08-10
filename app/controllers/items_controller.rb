@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
         end
       end
     end
-    redirect_to "/"
+    redirect_to items_path
   end
 
   private
