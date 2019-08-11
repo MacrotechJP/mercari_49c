@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @item = Item.find_by(seller_id:current_user.id)
-    @images = Image.find_by(item_id:@item.id)
+    
   end
 
 
@@ -17,18 +16,10 @@ class ItemsController < ApplicationController
     item_params[:file].each do |image|
       Image.create(image:image,item_id:Item.last.id)
     end
-    item_params[:item_category_second].each do |seco|
-      unless seco == "---"
-        item_params[:item_category_third].each do |thir|
-          unless thir == "---"
-            first = Category.create(name:item_params[:item_category_first],item_id:Item.last.id)
-            second = first.children.create(name:seco,item_id:Item.last.id)
-            third = second.children.create(name:thir,item_id:Item.last.id)
-          end
-        end
-      end
-    end
-    redirect_to items_path
+    first = Category.create(name:item_params[:item_category_first],item_id:Item.last.id)
+    second = first.children.create(name:item_params[:item_category_second][0],item_id:Item.last.id)
+    third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
+    redirect_to root_path
   end
 
   private

@@ -1,5 +1,7 @@
 $(function(){
 
+  $(".item_main_center-cell4-right_select2 select").val("");
+  $(".item_main_center-cell4-right_select3 select").val("");
   //カテゴリーについてのセレクトボックスを増表示する
   $('.category1').change(function() {
     var cal = $('.category1').prop("selectedIndex");
