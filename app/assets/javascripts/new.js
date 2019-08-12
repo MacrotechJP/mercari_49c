@@ -1,19 +1,24 @@
 $(function(){
 
+  $(".item_main_center-cell4-right_select2 select").val("");
+  $(".item_main_center-cell4-right_select3 select").val("");
   //カテゴリーについてのセレクトボックスを増表示する
   $('.category1').change(function() {
-    var cal = $('.category1').val();
-    if(cal != ""){
+    var cal = $('.category1').prop("selectedIndex");
+    if(cal != 0){
       $(".item_main_center-cell4-right_select2."+cal).show();
       $(".item_main_center-cell4").css('height', '+=110');
       $(".item_main").css('height', '+=110');
     }else{
       if($(".item_main_center-cell4-right_select3").length){
+        $(".item_main_center-cell4-right_select2 select").val("");
         $(".item_main_center-cell4-right_select2").hide();
+        $(".item_main_center-cell4-right_select3 select").val("");
         $(".item_main_center-cell4-right_select3").hide();
         $(".item_main_center-cell4").css('height', '-=220');
         $(".item_main").css('height', '-=220');
       }else{
+        $(".item_main_center-cell4-right_select2 select").val("");
         $(".item_main_center-cell4-right_select2").hide();
         $(".item_main_center-cell4").css('height', '-=110');
         $(".item_main").css('height', '-=110');
@@ -22,13 +27,14 @@ $(function(){
     
   });
   $('.category2').change(function() {
-    var cal = $('.category1').val();
-    var cal2 = $(this).val();
-    if(cal2 != ""){
+    var cal = $('.category1').prop("selectedIndex");
+    var cal2 = $(this).prop("selectedIndex");
+    if(cal2 != 0 ){
       $(".item_main_center-cell4-right_select3."+cal+"_"+cal2).show();
       $(".item_main_center-cell4").css('height', '+=110');
       $(".item_main").css('height', '+=110');
     }else{
+      $(".item_main_center-cell4-right_select3 select").val("");
       $(".item_main_center-cell4-right_select3").hide();
       $(".item_main_center-cell4").css('height', '-=110');
       $(".item_main").css('height', '-=110');
@@ -46,8 +52,8 @@ $(function(){
 
   //配送についてのセレクトボックスを増表示する
   $('#drive').change(function() {
-    var val = $('#drive').val();
-    if(val != ""){
+    var val = $('#drive').prop("selectedIndex");
+    if(val != 0 ){
       $(".driveWay").show();
       $(".item_main_center-cell5").css('height', '+=110');
       $(".item_main").css('height', '+=110');
@@ -79,22 +85,23 @@ $(function(){
 $(document).ready(function () {
 
   var cnn = 0; 
-  $(".file").on('change', function(){
+  $(document).on('change',".file", function(){
     var fileprop = $(this).prop('files')[0],
          filereader = new FileReader(),
          view_box = $(this).parent('.drag');
      
     var img = '<div class="upImage" id='+cnn+'>'+
                 '<img id="'+cnn+'">'+
-                '<div class="upImage_buton">'+
-                  '<input name="file" type="file" class="change_file img_edi'+cnn+'" accept=".jpg,.gif,.png,image/jpeg,image/png">'+
+                '<div class="upImage_buton '+cnn+'">'+
                   '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
                   '<li><a href="#" class="img_del">削除</a></li>'+
-                '</div>'+
+                  '</div>'+
               '</div>';
-     
     view_box.append(img);
-    $('.file').replaceWith($('.file').clone(true));
+    $(this).clone(true).insertAfter(this);
+    $(this).attr('name','file[]');
+    $(this).attr('class','change_file img_edi'+cnn);
+    $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
  
     filereader.onload = function() {
       view_box.find('#'+cnn+' img').attr('src', filereader.result);
@@ -103,7 +110,6 @@ $(document).ready(function () {
       
     }
     filereader.readAsDataURL(fileprop);
-    $(".file").val(''); 
     classCnt()
   });
   
@@ -235,3 +241,6 @@ $(document).ready(function () {
     }
   }
 });
+function checkSubmit() {
+	return confirm("送信しても良いですか？");
+}

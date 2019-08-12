@@ -82,3 +82,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
 end
+gem 'ancestry'
+gem 'devise'
+gem 'carrierwave'
