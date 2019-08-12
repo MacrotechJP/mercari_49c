@@ -15,5 +15,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :deliveryWay
       t.timestamps
     end
+    add_reference :items,:seller, foreign_key:{ to_table: :users}
+    add_reference :items,:buyer, foreign_key:{ to_table: :users}
   end
 end
