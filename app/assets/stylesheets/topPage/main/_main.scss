@@ -4,6 +4,7 @@
 
 .pickup {
   padding: 40px 0;
+  background-color:#F5F5F5;
   &__header {
     font-size: 28px;
     color: #333333;
@@ -52,13 +53,15 @@
               left: 0;
               z-index: 1;
               width: 213px;
-              height: 213px;
+              height: 220px;
+              background-color: black;
             }
           }
           .item-box__body {
             padding: 16px;
             height: 110px;
             margin: 0;
+            background-color: white;
             &-name {
               overflow: hidden;
               position: relative;
