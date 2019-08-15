@@ -257,6 +257,7 @@
               width: 343px;
               -webkit-appearance: none;
             }
+
             .word{
               font-size: 14px;
               margin-right: 4px;
@@ -300,6 +301,21 @@
             text-decoration: none;
           }
         }
+        &__card{
+          width: 343px;
+          float: left;
+          display: flex;
+          margin-top: 8px;
+          .card-image{
+            margin-left: 8px;
+          }
+        }
+        &__remarks-column{
+        width: 343px;
+        margin-top: 8px;
+        float: left;
+        position: relative;
+        }
       }
     }
   }
@@ -328,4 +344,23 @@
 }
 .gray-color{
   background-color: #8885;
+}
+.harf-size{
+  width: 131px!important;
+}
+.question-mark{
+  color: #fff;
+  background-color: #0099e8;
+  float: left;
+  position: absolute;
+  font-size: 10px;
+  padding: 0px 4px;
+  border-radius: 50px;
+  top: 3px;
+  right: 154px;
+}
+.blue-color-text{
+  color: #0099e8;
+  font-size: 14px;
+  text-align: right;
 }
