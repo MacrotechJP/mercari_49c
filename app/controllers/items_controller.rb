@@ -4,12 +4,6 @@ class ItemsController < ApplicationController
     
   end
 
-
-
-
-  def signup
-  end
-
   def show
   end
 
