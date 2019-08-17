@@ -1,0 +1,203 @@
+= render partial: 'header'
+.background-color-fafafa
+  %section.item-details-box
+    %h1.item-name
+      とても良い商品
+    .item-main-details
+      .item-main-details-photo
+        .item-photo-main
+          =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
+          .item-carousel-hidden
+
+        .item-photo-slick.clearfix
+          .item-photo-slick-sub
+            =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
+          .item-photo-slick-sub
+            =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160702363918_TP_V.jpg", alt: "mercari_icon"
+          .item-photo-slick-sub
+            =image_tag "https://www.pakutaso.com/shared/img/thumb/STOCKER1202070_TP_V.jpg", alt: "mercari_icon"
+          .item-photo-slick-sub
+            =image_tag "https://www.pakutaso.com/shared/img/thumb/STOCKER1202056_TP_V4.jpg", alt: "mercari_icon"
+          .item-photo-slick-sub
+            =image_tag "https://img.huffingtonpost.com/asset/5cb6ed33240000ab000680f3.jpeg?ops=scalefit_630_noupscale", alt: "mercari_icon"
+          .item-photo-slick-sub
+            =image_tag "https://www.pakutaso.com/shared/img/thumb/AME20181201C002_TP_V.jpg", alt: "mercari_icon"
+
+      %table.item-main-details-table
+        %tr
+          %th
+            出品者
+            %td
+              = link_to "https://www.mercari.com/jp/" do
+                商品出品者の名前
+              %div
+                .item-ratings
+                  %i.fas.fa-grin
+                  %span 10
+                .item-ratings
+                  %i.fas.fa-meh
+                  %span 5
+                .item-ratings
+                  %i.fas.fa-frown
+                  %span 0
+        %tr
+          %th
+            カテゴリー
+            %td
+              = link_to "https://www.mercari.com/jp/" do
+                スポーツ・レジャー
+              = link_to "https://www.mercari.com/jp/" do
+                %i.fas.fa-chevron-right
+                サッカー/フットサル
+              = link_to "https://www.mercari.com/jp/" do
+                %i.fas.fa-chevron-right
+                シューズ
+
+        %tr
+          %th
+            ブランド
+            %td
+              = link_to "https://www.mercari.com/jp/" do
+                ナイキ
+
+        %tr
+          %th
+            商品の状態
+            %td
+              未使用に近い
+        %tr
+          %th
+            配送料の負担
+            %td
+              送料込み（出品者負担）
+        %tr
+          %th
+            配送の方法
+            %td
+              らくらくメルカリ便
+        %tr
+          %th
+            配送元地域
+            %td
+              = link_to "https://www.mercari.com/jp/" do
+                大阪府
+        %tr
+          %th
+            配送の目安
+            %td
+              1-2日で発送
+
+
+
+    
+    .item-price-box
+      %span.item-price
+        ¥ 14,099
+      %span.item-tax
+        (税込)
+      %span.item-shipping-fee
+        送料込み
+
+    = link_to "https://www.mercari.com/jp/", class:"item-buy-button" do
+      購入画面に進む
+
+    .item-sentence
+      %p.item-sentence-inner
+        ご覧いただきありがとうございます。
+        あああああああ
+        いいいいいいいいいい
+
+    .item-buttons-box.clearfix
+      .item-button-left
+        = link_to "https://www.mercari.com/jp/", class:"item-button item-button-like" do
+          = fa_icon "heart-o"
+          %span いいね！0
+
+        = link_to "https://www.mercari.com/jp/", class:"item-button item-button-report" do
+          = fa_icon "flag-o"
+          %span 不適切な商品の報告
+
+      .item-button-right
+        = link_to "https://www.mercari.com/jp/", class:"item-button item-button-lock" do
+          = fa_icon "lock"
+          %span あんしん・あんぜんへの取り組み
+    
+  .item-details-comment
+    .comment-container
+      .comment-content
+        %ul.comment-items
+          %li.clearfix
+            %figure.comment-user
+              =link_to image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
+              %figcaption.bold
+                とてもいい購入者
+
+            .comment-input-box
+              .comment-input-box-text
+                とてもいい商品です
+              .comment-icons.clearfix
+                %time.comment-icon-left
+                  %i.far.fa-clock 
+                  %span 7日前
+                .comment-icon-right
+                  = form_tag 'https://www.mercari.com/jp/'  do
+                    %button{type:"submit"}
+                      %i.far.fa-flag
+
+      .comment-content
+        = form_tag 'https://www.mercari.com/jp/', class:"comment-form"  do
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %textarea{type: "text", name: "body", class: "textarea-default"}
+
+          %button{type: "submit", class: "comment-submit btn-default btn-gray"}
+            %span コメントする
+
+
+  %ul.item-link-prev-next.clearfix
+    %li.item-link-prev
+      = link_to "https://www.mercari.com/jp/" do
+        %i.fas.fa-chevron-left
+        リメイクハット 帽子
+
+    %li.item-link-next
+      = link_to "https://www.mercari.com/jp/" do
+        ナイキ スニーカー
+        %i.fas.fa-chevron-right
+
+
+  .social-media-link-box
+    %ul.social-media-box
+      %li
+        =link_to image_tag "https://ja-jp.facebook.com/", alt: "facebook_icon", class: "pinterest_icon"do
+          %i.fab.fa-facebook-square
+      %li
+        =link_to image_tag "https://twitter.com/login?lang=ja", alt: "twitter_icon", class: "pinterest_icon" do
+          %i.fab.fa-twitter-square
+      %li
+        =link_to image_tag "https://www.pinterest.jp/", alt: "pinterest_icon", class: "pinterest_icon"  do
+          %i.fab.fa-pinterest-square
+
+
+
+  .user-profiling-items.clearfix
+    %section.item-box-user-related
+      %h2.item-box-title
+        = link_to "とても良い出品者のその他の出品","https://www.mercari.com/jp/"
+      .items-box-user-content
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+
+    %section.item-box-brand-related
+      %h2.item-box-title
+        = link_to "素晴らしいその他の商品","https://www.mercari.com/jp/"
+      .items-box-user-content
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'
+        =render partial: 'item'

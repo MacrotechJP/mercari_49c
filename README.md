@@ -34,91 +34,62 @@ Things you may want to cover:
 |lastname|string|null:false|
 |firstname_kana|string|null:false|
 |lastname_kana|string|null:false|
-|email|string|null:false|
-|password|string|null:false|
 |phone_number|string|null:false|
 |birthday|Date|null:false|
 |salesproceeds|integer|null:false|
 |point|integer|null:false|
-|credicard_id|references|null:false, foreign_key: true|
-|profile_id|references|null:false, foreign_key: true|
-|cust_address_id|references|null: false, foreign_key: true|
-|comment_id|references|null:false, foreign_key: true|
-|likes_id|references|null:false, foreign_key: true|
+|profile_image|string||
+|profile_description|text||
 
 ### Association
-- has_many :cust_address
-- has_many :comments
-- has_many :likes
-- has_many :rates
-- has_many :cust_rates
 - has_many :items
-- has_many :credicards
-- has_many :profiles
-- has_many :deals_of_seller, :class_name: 'Deal', :foreign_key: :seller_id
-- has_many :deals_of_buyer, :class_name: 'Deal', :foreign_key: :buyer_id
-- has_many :items_of_seller, through: :deals_of_seller, source: :item
-- has_many :items_of_buyer, through: :deals_of_buyer, source: :item
-- has_many :rates_of_rater, :class_name: Rate', foreign_key: :rater_id
-- has_many :rates_of_ratee, :class_name: 'Rate', foreign_key: :ratee_id
-- has_many :rates_of_rater, :class_name: 'Rate', foreign_key: :cust_rater_id
-- has_many :rates_of_ratee, :class_name: 'Rate', foreign_key: :cust_ratee_id
+- has_many :comments
+- has_many :rates
+- has_many :creditcards
+- has_many :likes
+- has_many :cust_addresses
+- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :selling_items, -> { where( "buyer_id is NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+- has_many :sold_items, -> { where( "buyer_id is no NULL" ) }, foreign_key: "seller_id", class_name: "Item"
+
+
 
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null:false|
+|name|string|null:false,add_index|
 |description|text|null:false|
 |condition|string|null:false|
 |price|integer|null:false|
-|brand|integer|null:false|
-|deliveryfee|integer|null:false|
-|area|integer|null:false|
-|days_to_ship|integer|null:false|
-|sales_sprofit|bigint|null:false|
-|sales_situation|integer|null:false|
+|brand|string|null:false,add_index|
+|deliveryfee|string|null:false|
+|area|string|null:false|
+|days_to_ship|string|null:false|
+|sales_situation|string|null:false|
 |likes_count|integer|null:false|
-|category_id|references|null:false, foreign_key: true|
+|size|string|null:false|
+|deliveryway|string|null:false|
+|seller_id|references|null:false,foreign_key: true|
+|buyer_id|references|null:false,foreign_key: true|
 
 ### Association
-- has_many :deals
-- has_many :sellers, through: :deals
-- has_many :buyers, through: :deals
-- belongs_to :category
-- has_many :images
 - has_many :comments
+- has_many :images
 - has_many :likes
+- belongs_to :user
+- belongs_to :category
+- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
 
-
-## dealsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|seller_id|integer|null:false, foreign_key: true|
-|buyer_id|integer|null:false, foreign_key: true|
-|item_id|integer|null:false, foreign_key: true|
-
-### Association
-- belongs_to :item
-- belongs_to :seller, class_name: 'User'
-- belongs_to :buyer, class_name: 'User'
 
 
 ## credicardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credicard_number|integer|null:false|
-|creditcard_pin|integer|null:false|
-
-### Association
-- belongs_to :user
-
-
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|profile_image|string|null:false| 
-|profile_description|text||
+|user_id|references|null: false, foreign_key: true|
+|card_id|string|null:false|
+|customer_id|string|null:false|
 
 ### Association
 - belongs_to :user
@@ -127,18 +98,21 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|string|null:false|
+|user_id|references|null:false,foreign_key: true|
+|comment|String|null:false|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to :item
 
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_first|string|null:false|
-|category_second|string|null:false|
-|category_third|string|null:false|
+|name|string|null:false|
+|ancestry|||
+
 
 ### Association
 - has_many :items
@@ -147,8 +121,8 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null:false|
-|item_id|integer|null:false, foreign_key: true|
+|image|String|null:false|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -157,8 +131,8 @@ Things you may want to cover:
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null:false, foreign_key: true|
-|item_id|integer|null:false, foreign_key: true|
+|user_id|references|null:false,foreign_key: true|
+|item_id|references|null:false,foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -168,7 +142,12 @@ Things you may want to cover:
 ## cust_addresssテーブル
 |Column|Type|Options|
 |------|----|-------|
-|address|string|null:false|
+|user_id|references|null:false,foreign_key: true|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|municipality|string|null: false|
+|house_number|string|null: false|
+|building_name|string||
 
 ### Association
 - belongs_to :user
@@ -177,27 +156,15 @@ Things you may want to cover:
 ### ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null:false|
-|rate|integer|null:false|
-|rater_id|integer|null:false,foreign_key|
-|ratee_id|integer|null:false,foreign_key|
-|date|Date|null:false|
+|user_id|references|null:false,foreign_key: true|
+|comment|text|null: false|
+|rater_id|references|foreign_key:true|
+|ratedate|Date|null:false|
+|rate|string|null:false|
 
 ### Association
-- belongs_to :rater, class_name: 'User'
-- belongs_to :ratee, class_name: 'User'
+- belongs_to :user
 
 
-### cust_ratesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|cust_rater_id|references|null:false|
-|cust_ratee_id|references|null:false|
-|evaluate|integer|null:false|
 
-### Association
-- belongs_to :cust_rater, class_name: 'User'
-- belongs_to :cust_ratee, class_name: 'User'
 
-### enum
-- evaluate
