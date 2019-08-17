@@ -77,6 +77,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'active_hash'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
@@ -85,3 +86,4 @@ end
 gem 'ancestry'
 gem 'devise'
 gem 'carrierwave'
+
