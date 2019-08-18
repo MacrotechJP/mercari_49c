@@ -3,7 +3,7 @@
     =link_to "#" do
       = fa_icon "user-circle", class:"icon"
       %h2.user__name
-        テック エキスパート
+        = current_user.nickname
       .user__number
         .user__number-comment
           評価

@@ -12,13 +12,18 @@
             = fa_icon "angle-right", class:"icon"
       .identification__form__label
         %label お名前
-        %p 潘少卓
+        %p 
+          = current_user.firstname
+          = current_user.lastname
       .identification__form__label
         %label お名前カナ
-        %p ハンショウタク
+        %p 
+          = current_user.firstname_kana
+          = current_user.lastname_kana
       .identification__form__label
         %label 生年月日
-        %p 1987/03/28
+        %p 
+          = current_user.birthday.strftime('%Y/%m/%d') 
       .identification__form__label
         %label 郵便番号
         %span.identification__form__label-annotation 任意
