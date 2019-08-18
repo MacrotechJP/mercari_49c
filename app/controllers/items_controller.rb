@@ -25,6 +25,10 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
+  def edit
+    
+  end
   private
   def item_params
     attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
