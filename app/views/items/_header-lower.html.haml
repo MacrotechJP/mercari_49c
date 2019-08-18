@@ -20,7 +20,7 @@
     %ul.pc-header-box-lower__right-login-nav
       - if user_signed_in?
         %li.signup-box
-          = link_to "押さないで", new_user_registration_path, class: "sp-header-btn header-signup"
+          = link_to "マイページ", mypage_path, class: "sp-header-btn header-signup"
         %li.login-box
           = link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "sp-header-btn header-login"
       - else
