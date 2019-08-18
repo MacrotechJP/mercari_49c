@@ -86,4 +86,4 @@ end
 gem 'ancestry'
 gem 'devise'
 gem 'carrierwave'
-
+gem 'gretel'
