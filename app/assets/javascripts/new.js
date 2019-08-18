@@ -86,31 +86,33 @@ $(document).ready(function () {
 
   var cnn = 0; 
   $(document).on('change',".file", function(){
-    var fileprop = $(this).prop('files')[0],
-         filereader = new FileReader(),
-         view_box = $(this).parent('.drag');
-     
-    var img = '<div class="upImage" id='+cnn+'>'+
-                '<img id="'+cnn+'">'+
-                '<div class="upImage_buton '+cnn+'">'+
-                  '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
-                  '<li><a href="#" class="img_del">削除</a></li>'+
-                  '</div>'+
-              '</div>';
-    view_box.append(img);
-    $(this).clone(true).insertAfter(this);
-    $(this).attr('name','file[]');
-    $(this).attr('class','change_file img_edi'+cnn);
-    $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
- 
-    filereader.onload = function() {
-      view_box.find('#'+cnn+' img').attr('src', filereader.result);
-      cnn += 1 ;
-      img_del(view_box);
+    if($(this).val() != ""){
+      var fileprop = $(this).prop('files')[0],
+          filereader = new FileReader(),
+          view_box = $(this).parent('.drag');
       
+      var img = '<div class="upImage" id='+cnn+'>'+
+                  '<img id="'+cnn+'">'+
+                  '<div class="upImage_buton '+cnn+'">'+
+                    '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
+                    '<li><a href="#" class="img_del">削除</a></li>'+
+                    '</div>'+
+                '</div>';
+      view_box.append(img);
+      $(this).clone(true).insertAfter(this);
+      $(this).attr('name','file[]');
+      $(this).attr('class','change_file img_edi'+cnn);
+      $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
+  
+      filereader.onload = function() {
+        view_box.find('#'+cnn+' img').attr('src', filereader.result);
+        cnn += 1 ;
+        img_del(view_box);
+        
+      }
+      filereader.readAsDataURL(fileprop);
+      classCnt()
     }
-    filereader.readAsDataURL(fileprop);
-    classCnt()
   });
   
   function img_del(target){
