@@ -3,10 +3,7 @@
     =link_to "#" do
       レディース 新着アイテム
   .pickup__contents-items
-    =render partial: 'item'
-    =render partial: 'item'
-    =render partial: 'item'
-    =render partial: 'item'
+    =render @items
   .pickup__contents-more
     =link_to "#" do
       すべての商品を見る
