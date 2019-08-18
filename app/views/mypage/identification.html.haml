@@ -1,7 +1,7 @@
 =render partial: 'items/header'          
 .mypage
-  =render partial: 'users/left_navi'
-  =render partial: 'contents'
+  =render partial: 'left_navi',locals: { left_navi: 'identification' }
+  =render partial: 'identificationRight'
 
 .footer
   .footer_top
