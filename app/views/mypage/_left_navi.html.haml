@@ -1,10 +1,16 @@
 .left
   %nav.left__navi
     %ul.left__navi-list
-      %li.left__navi-list-title
-        =link_to mypage_path do
-          マイページ
-          = fa_icon "angle-right", class:"icon"
+      - if left_navi == "index"
+        %li.left__navi-list-title
+          =link_to mypage_path do
+            マイページ
+            = fa_icon "angle-right", class:"icon"
+      - else
+        %li
+          =link_to mypage_path do
+            マイページ
+            = fa_icon "angle-right", class:"icon"
       %li
         =link_to "#" do
           お知らせ
@@ -69,10 +75,16 @@
           = fa_icon "angle-right", class:"icon"
     %h3 設定
     %ul.left__navi-list
-      %li
-        =link_to mypage_profile_path do
-          プロフィール
-          = fa_icon "angle-right", class:"icon"
+      - if left_navi == "profile"
+        %li.left__navi-list-title
+          =link_to mypage_profile_path do
+            プロフィール
+            = fa_icon "angle-right", class:"icon"
+      - else
+        %li
+          =link_to mypage_profile_path do
+            プロフィール
+            = fa_icon "angle-right", class:"icon"
       %li
         =link_to "#" do
           発送元・お届け先住所変更
@@ -85,10 +97,16 @@
         =link_to "#" do
           メール/パスワード
           = fa_icon "angle-right", class:"icon"
-      %li
-        =link_to mypage_identification_path do
-          本人情報
-          = fa_icon "angle-right", class:"icon"
+      - if left_navi == "identification"
+        %li.left__navi-list-title
+          =link_to mypage_identification_path do
+            本人情報
+            = fa_icon "angle-right", class:"icon"
+      - else
+        %li
+          =link_to mypage_identification_path do
+            本人情報
+            = fa_icon "angle-right", class:"icon"
       %li
         =link_to "#" do
           電話番号の確認

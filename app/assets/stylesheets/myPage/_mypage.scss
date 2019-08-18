@@ -23,6 +23,17 @@
           height: 48px;
           text-align: left;
           border-top: 1px solid #eee;
+          &:hover{
+            background: #fafafa;
+            text-decoration: none;
+            opacity: 1;
+          }
+          &:hover{
+            .icon{
+              font-size: 20px;
+              transform: translate(40%, -50%);
+            }
+          }
           a {
             padding: 16px;
             display: flex;
@@ -30,11 +41,11 @@
             position: relative;
             color: #333333;
             .icon {
-              font-size: 26px;
               position: absolute;
               top: 50%;
               right: 16px;
               transform: translate(0, -50%);
+              transition: all 0.4s;
             }
           }
         }
