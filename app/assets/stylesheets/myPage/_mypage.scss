@@ -142,6 +142,7 @@
         padding: 0;
         &__lists {
           &-list {
+            border-bottom: 1px solid #eee;
             a {
               display: flex;
               justify-content: flex-start;

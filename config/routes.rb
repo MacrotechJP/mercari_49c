@@ -20,18 +20,10 @@ Rails.application.routes.draw do
   resources :identifications, only: [:show]
   resources :creditcards, only: [:show]
 
-  get "mypage/",to:"mypage#index"
-  get "mypage/profile",to:"mypage#profile"
-  get "mypage/identification",to:"mypage#identification"
-  resources :mypage do
-    member do
-      get 'index'
-      get 'signup2'
-      get 'signup3'
-      get 'signup4'
-      get 'signup5'
-      get 'signup6'
-      get 'login'
-    end
+  get 'mypage',to:'mypage#index'
+  namespace :mypage do
+    get 'profile'
+    get 'identification'
   end
+  
 end
