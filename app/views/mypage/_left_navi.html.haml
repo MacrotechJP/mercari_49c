@@ -2,7 +2,7 @@
   %nav.left__navi
     %ul.left__navi-list
       %li.left__navi-list-title
-        =link_to "#" do
+        =link_to mypage_path do
           マイページ
           = fa_icon "angle-right", class:"icon"
       %li
@@ -70,7 +70,7 @@
     %h3 設定
     %ul.left__navi-list
       %li
-        =link_to "#" do
+        =link_to mypage_profile_path do
           プロフィール
           = fa_icon "angle-right", class:"icon"
       %li
@@ -86,7 +86,7 @@
           メール/パスワード
           = fa_icon "angle-right", class:"icon"
       %li
-        =link_to "#" do
+        =link_to mypage_identification_path do
           本人情報
           = fa_icon "angle-right", class:"icon"
       %li

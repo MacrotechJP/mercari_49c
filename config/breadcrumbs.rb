@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :item_show do
-  link "商品詳細", item_path
+  link "#{Item.find(params[:id]).name}", item_path
 end
 # crumb :projects do
 #   link "Projects", projects_path
