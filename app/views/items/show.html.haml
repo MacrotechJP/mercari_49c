@@ -2,26 +2,18 @@
 .background-color-fafafa
   %section.item-details-box
     %h1.item-name
-      とても良い商品
+      = @item.name
     .item-main-details
       .item-main-details-photo
         .item-photo-main
-          =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
+          = image_tag @image[0].image.url, alt: "mercari_icon"
           .item-carousel-hidden
 
         .item-photo-slick.clearfix
+        - @image.each do |img|
           .item-photo-slick-sub
-            =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160701265118_TP_V.jpg", alt: "mercari_icon"
-          .item-photo-slick-sub
-            =image_tag "https://www.pakutaso.com/shared/img/thumb/elly20160702363918_TP_V.jpg", alt: "mercari_icon"
-          .item-photo-slick-sub
-            =image_tag "https://www.pakutaso.com/shared/img/thumb/STOCKER1202070_TP_V.jpg", alt: "mercari_icon"
-          .item-photo-slick-sub
-            =image_tag "https://www.pakutaso.com/shared/img/thumb/STOCKER1202056_TP_V4.jpg", alt: "mercari_icon"
-          .item-photo-slick-sub
-            =image_tag "https://img.huffingtonpost.com/asset/5cb6ed33240000ab000680f3.jpeg?ops=scalefit_630_noupscale", alt: "mercari_icon"
-          .item-photo-slick-sub
-            =image_tag "https://www.pakutaso.com/shared/img/thumb/AME20181201C002_TP_V.jpg", alt: "mercari_icon"
+            = image_tag img.image.url, alt: "mercari_icon"
+
 
       %table.item-main-details-table
         %tr
@@ -29,7 +21,7 @@
             出品者
             %td
               = link_to "https://www.mercari.com/jp/" do
-                商品出品者の名前
+                = @user.nickname
               %div
                 .item-ratings
                   %i.fas.fa-grin
@@ -45,54 +37,55 @@
             カテゴリー
             %td
               = link_to "https://www.mercari.com/jp/" do
-                スポーツ・レジャー
+                = @category[0].name
               = link_to "https://www.mercari.com/jp/" do
                 %i.fas.fa-chevron-right
-                サッカー/フットサル
+                = @category[1].name
               = link_to "https://www.mercari.com/jp/" do
                 %i.fas.fa-chevron-right
-                シューズ
+                = @category[2].name
 
         %tr
           %th
             ブランド
             %td
               = link_to "https://www.mercari.com/jp/" do
-                ナイキ
+                = @item.brand
 
         %tr
           %th
             商品の状態
             %td
-              未使用に近い
+              = @item.condition
         %tr
           %th
             配送料の負担
             %td
-              送料込み（出品者負担）
+              = @item.deliveryfee
         %tr
           %th
             配送の方法
             %td
-              らくらくメルカリ便
+              = @item.deliveryWay
         %tr
           %th
             配送元地域
             %td
               = link_to "https://www.mercari.com/jp/" do
-                大阪府
+                = @item.area
         %tr
           %th
             配送の目安
             %td
-              1-2日で発送
+              = @item.days_to_ship
 
 
 
     
     .item-price-box
       %span.item-price
-        ¥ 14,099
+        ¥
+        = @item.price.to_s(:delimited)
       %span.item-tax
         (税込)
       %span.item-shipping-fee
@@ -103,15 +96,14 @@
 
     .item-sentence
       %p.item-sentence-inner
-        ご覧いただきありがとうございます。
-        あああああああ
-        いいいいいいいいいい
+        = @item.description
 
     .item-buttons-box.clearfix
       .item-button-left
         = link_to "https://www.mercari.com/jp/", class:"item-button item-button-like" do
           = fa_icon "heart-o"
-          %span いいね！0
+          %span いいね！
+          = @item.likes_count
 
         = link_to "https://www.mercari.com/jp/", class:"item-button item-button-report" do
           = fa_icon "flag-o"
