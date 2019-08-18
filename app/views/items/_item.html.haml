@@ -1,7 +1,7 @@
 %section.item-box
   =link_to "/item/#{item.id}" do
     %figure.item-box__image
-      = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m23772397908_1.jpg?1560688076"
+      = image_tag item.images.first.image.url
     .item-box__body
       %h3.item-box__body-name
         = item.name

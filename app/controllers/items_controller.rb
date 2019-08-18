@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.last(4)
-    
+    @items = Item.limit(4).order("id DESC")
+    @categories = Category.all
+
   end
 
   def show
