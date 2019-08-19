@@ -5,6 +5,23 @@
   display: flex;
   justify-content: space-between;
   padding: 40px 15%;
+  &_pankuzu{
+    height:49px;
+    border-top: 1px solid #eee;
+    .breadcrumbs{
+      width:1020px;
+      padding: 14px 0;
+      margin:auto;
+      font-size: 14px;
+      a:hover{
+        opacity: 0.6;
+        text-decoration: underline;
+      }
+      span{
+        font-weight: bold;
+      }
+    }
+  }
   .left {
     width: 280px;
     margin: 0 40px 0 0;
