@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @item = Item.find(params[:id])
     @image = @item.images
     @category = Category.where(item_id:@item.id)

@@ -176,23 +176,23 @@
       %h2.item-box-title
         = link_to "とても良い出品者のその他の出品","https://www.mercari.com/jp/"
       .items-box-user-content
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
+        =render @items
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
 
     %section.item-box-brand-related
       %h2.item-box-title
         = link_to "素晴らしいその他の商品","https://www.mercari.com/jp/"
       .items-box-user-content
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
-        =render partial: 'item'
+        =render @items
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
+        -# =render partial: 'item'
 .show_pankuzu
   - breadcrumb :item_show
   = breadcrumbs  separator: " 　&rsaquo;　 "

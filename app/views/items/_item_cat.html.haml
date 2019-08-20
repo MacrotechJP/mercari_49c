@@ -1,10 +1,39 @@
 %section.pickup__contents
   %h3.pickup__contents-title
-    - @categories.each do |category|
-      =link_to "#" do
-        = "#{category.name}新着アイテム"
-      .pickup__contents-items
-        =render @items
-      .pickup__contents-more
-        =link_to "#" do
-          すべての商品を見る
+    =link_to "#" do
+      レディース新着アイテム
+  .pickup__contents-items
+    =render @items
+  .pickup__contents-more
+    =link_to "#" do
+      すべての商品を見る
+
+%section.pickup__contents
+  %h3.pickup__contents-title
+    =link_to "#" do
+      メンズ新着アイテム
+  .pickup__contents-items
+    =render @items
+  .pickup__contents-more
+    =link_to "#" do
+      すべての商品を見る
+
+%section.pickup__contents
+  %h3.pickup__contents-title
+    =link_to "#" do
+      ベビー・キッズ新着アイテム
+  .pickup__contents-items
+    =render @items
+  .pickup__contents-more
+    =link_to "#" do
+      すべての商品を見る
+
+%section.pickup__contents
+  %h3.pickup__contents-title
+    =link_to "#" do
+      コスメ・香水・美容新着アイテム
+  .pickup__contents-items
+    =render @items
+  .pickup__contents-more
+    =link_to "#" do
+      すべての商品を見る
