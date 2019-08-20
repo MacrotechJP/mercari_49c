@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get 'signup5'
       get 'signup6'
       get 'login'
-      get 'signout'
     end
   end
   resources :items, only: [:index,:new,:create,:show,:destroy]
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     get 'profile'
     get 'identification'
+    get 'logout'
   end
   
 end

@@ -2,18 +2,23 @@
   width: calc( 100% - 280px);
   &__signout-block{
     height: 200px;
-    width: 800px;
+    width: 100%;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &__btn{
       margin: 0 auto;
       &__red{
         background-color: #ea352d;
         height: 50px;
         width: 300px;
-        margin: 80px 250px;
         cursor: pointer;
         font-size: 14px;
         color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
