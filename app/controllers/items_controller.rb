@@ -15,10 +15,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # Category.find_by(item_id:params[:id]).destroy if Category.find_by(item_id:params[:id])
-    # Image.find_by(item_id:params[:id]).destroy if Image.find_by(item_id:params[:id])
-    # Item.find(params[:id]).delete
-    # redirect_to root_path
+    Category.find_by(item_id:params[:id]).destroy if Category.find_by(item_id:params[:id])
+    Image.find_by(item_id:params[:id]).destroy if Image.find_by(item_id:params[:id])
+    Item.find(params[:id]).delete
+    redirect_to root_path
   end
 
   def create
