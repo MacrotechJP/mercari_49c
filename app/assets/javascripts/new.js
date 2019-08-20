@@ -246,14 +246,3 @@ $(document).ready(function () {
 function checkSubmit() {
 	return confirm("送信しても良いですか？");
 }
-// function item_delete() { 
-// 	if(confirm('このスクリプトを実行しますか？')) {  
-     
-//   } else {  
-//       return false;  
-//   }  
-// }
-$(".item-delete-button").on('click', function(e){
-  
-  e.preventDefault();  // 画面遷移を無効化
-});
