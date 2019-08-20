@@ -22,9 +22,11 @@
         justify-content: center;
         display: flex;
         align-items: center;
-        .icon {
-          font-size: 48px;
-          margin: 0 20px 0 0;
+        img {
+          width: 48px;
+          border-radius: 50%;
+          border:1px solid silver;
+          margin-right: 5px;
         }
         input {
           height: 48px;

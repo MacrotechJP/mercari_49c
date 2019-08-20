@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   resources :identifications, only: [:show]
   resources :creditcards, only: [:show]
 
-  get 'mypage',to:'mypage#index'
+  
+  get 'mypage',to:'mypage#index' 
   namespace :mypage do
     get 'profile'
     get 'card'
