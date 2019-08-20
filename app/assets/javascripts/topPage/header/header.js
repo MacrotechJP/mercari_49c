@@ -47,7 +47,7 @@ $(function(){
  
   $('.pc-header-box-lower__right .login-box').hover(function(){
     $(this).children().css('color','white');
-    $(this).css('background','blue');
+    $(this).css('background','#0099e8');
  
   },function(){
     $(this).css('background', '');
