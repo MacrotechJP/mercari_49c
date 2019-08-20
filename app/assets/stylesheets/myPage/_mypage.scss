@@ -94,8 +94,10 @@
         &:hover {
           opacity: 0.5;
         }
-        .icon {
-          font-size: 60px;
+        img {
+          width:58px;
+          border-radius: 50%;
+          border:1px solid silver;
         }
         .user__name {
           font-size: 14px;
