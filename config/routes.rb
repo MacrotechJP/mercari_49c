@@ -14,24 +14,17 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :items, only: [:index,:new,:create,:show]
+  resources :items, only: [:index,:new,:create,:show,:destroy]
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
   resources :creditcards, only: [:show]
 
-  get "mypage/",to:"mypage#index"
-  get "mypage/profile",to:"mypage#profile"
-  get "mypage/identification",to:"mypage#identification"
-  resources :mypage do
-    member do
-      get 'index'
-      get 'signup2'
-      get 'signup3'
-      get 'signup4'
-      get 'signup5'
-      get 'signup6'
-      get 'login'
-    end
+  get 'mypage',to:'mypage#index'
+  namespace :mypage do
+    get 'profile'
+    get 'identification'
+    get 'logout'
   end
+  
 end

@@ -5,6 +5,25 @@ end
 crumb :item_show do
   link "#{Item.find(params[:id]).name}", item_path
 end
+
+crumb :mypage do
+  link "マイページ", mypage_path
+end
+
+crumb :mypage_profile do 
+  link "プロフィール", mypage_profile_path
+  parent :mypage
+end
+
+crumb :mypage_identification do 
+  link "本人情報の登録", mypage_identification_path
+  parent :mypage
+end
+
+crumb :mypage_logout do 
+  link "ログアウト", mypage_logout_path
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
