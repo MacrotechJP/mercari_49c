@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'signup5'
       get 'signup6'
       get 'login'
+      get 'signout'
     end
   end
   resources :items, only: [:index,:new,:create,:show]
