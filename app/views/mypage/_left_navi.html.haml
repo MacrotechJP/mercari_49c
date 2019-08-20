@@ -89,10 +89,16 @@
         =link_to "#" do
           発送元・お届け先住所変更
           = fa_icon "angle-right", class:"icon"
-      %li
-        =link_to "#" do
-          支払い方法
-          = fa_icon "angle-right", class:"icon"
+      - if left_navi == "card"
+        %li.left__navi-list-title
+          =link_to mypage_card_path do
+            支払い方法
+            = fa_icon "angle-right", class:"icon"
+      - else
+        %li
+          =link_to mypage_card_path do
+            支払い方法
+            = fa_icon "angle-right", class:"icon"
       %li
         =link_to "#" do
           メール/パスワード

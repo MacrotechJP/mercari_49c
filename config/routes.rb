@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'mypage',to:'mypage#index'
   namespace :mypage do
     get 'profile'
+    get 'card'
     get 'identification'
     get 'logout'
   end
