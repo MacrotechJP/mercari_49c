@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'mypage',to:'mypage#index' 
   namespace :mypage do
     get 'profile'
+    put 'profile_update'
     get 'card'
     get 'identification'
     get 'logout'
