@@ -259,6 +259,6 @@ function checkSubmit() {
   }else{//モーダルウィンドウ表示
     document.activeElement.blur();
     $("#modal-all").show();
-    $("#modal-itemnew").show();
+    $("#modal-itemnew").slideToggle("slow");
   }
 }
