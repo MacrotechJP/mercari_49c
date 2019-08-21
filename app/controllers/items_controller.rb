@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
     first = Category.create(name:item_params[:item_category_first],item_id:Item.last.id)
     second = first.children.create(name:item_params[:item_category_second][0],item_id:Item.last.id)
     third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
-    redirect_to root_path
   end
 
   private
