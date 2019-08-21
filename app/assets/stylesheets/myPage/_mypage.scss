@@ -4,8 +4,24 @@
   background-color: #F5F5F5;
   display: flex;
   justify-content: space-between;
-  margin: 40px auto 0;
-  padding: 40px 40px;
+  padding: 40px 15%;
+  &_pankuzu{
+    height:49px;
+    border-top: 1px solid #eee;
+    .breadcrumbs{
+      width:1020px;
+      padding: 14px 0;
+      margin:auto;
+      font-size: 14px;
+      a:hover{
+        opacity: 0.6;
+        text-decoration: underline;
+      }
+      span{
+        font-weight: bold;
+      }
+    }
+  }
   .left {
     width: 280px;
     margin: 0 40px 0 0;
@@ -24,6 +40,17 @@
           height: 48px;
           text-align: left;
           border-top: 1px solid #eee;
+          &:hover{
+            background: #fafafa;
+            text-decoration: none;
+            opacity: 1;
+          }
+          &:hover{
+            .icon{
+              font-size: 20px;
+              transform: translate(40%, -50%);
+            }
+          }
           a {
             padding: 16px;
             display: flex;
@@ -31,11 +58,11 @@
             position: relative;
             color: #333333;
             .icon {
-              font-size: 26px;
               position: absolute;
               top: 50%;
               right: 16px;
               transform: translate(0, -50%);
+              transition: all 0.4s;
             }
           }
         }
@@ -132,6 +159,7 @@
         padding: 0;
         &__lists {
           &-list {
+            border-bottom: 1px solid #eee;
             a {
               display: flex;
               justify-content: flex-start;

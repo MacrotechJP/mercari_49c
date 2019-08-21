@@ -156,38 +156,86 @@ h3{
         }
       }
       &__right{
-        width:200px;
+        width:520px;
         height:38px;
         float:right;
         position: relative;
-
-      ul{
-        height:38px;
-        width:260px;
-        margin:0;
-        padding:0;
-        li:first-child{
-          // margin:0;
-          height:35px;
-          // width:106px;
-          width: auto;
-          float:left;
-          padding: 0 10px;
-          margin: 0 5px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: red;
-          border-radius: 4px;
-          border:1px solid red; 
-          .sp-header-btn.header-signup{
-            color: #ffffff;
-            text-decoration:none;
-            text-align: center;
+        ul{
+          height:38px;
+          width:auto;
+          margin:0;
+          padding:0;
+          float:right;
+          li:first-child{
+            height:35px;
+            width: auto;
+            float:left;
+            padding: 0 10px;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: red;
+            border-radius: 4px;
+            border:1px solid red; 
+            .sp-header-btn.header-signup{
+              color: #ffffff;
+              text-decoration:none;
+              text-align: center;
+              background-color: red;
+            }
+          }
+          .good{
+            width:113px;
+            height:100%;
+            margin-right:14px;
+            float:right;
+            font-size: 14px;
+          }
+          .info{
+            width:82px;
+            height:100%;
+            margin:0 14px;
+            float:right;
+          }
+          .todo{
+            width:129px;
+            height:100%;
+            margin:0 14px;
+            float:right;
+          }
+          .gomypage{
+            width:112px;
+            height:100%;
+            margin-left:14px;
+            float:right;
+          }
+          a{
+            height:100%;
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .far,.fas{
+              color:silver;
+              float: left;
+            }
+            span{
+              margin-left:5px;
+              float: left;
+              color:#333333;
+            }
+            img{
+              border-radius: 50%;
+              border:1px solid silver;
+            }
+            &:hover{
+              .far,.fas,span{
+                color:#0099e8;
+              }
+            }
           }
         }
-      }
         li{
           margin:0;
           height:35px;
@@ -199,11 +247,10 @@ h3{
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          border:1px solid blue; 
+          border:1px solid #0099e8; 
           .sp-header-btn.header-login{
-            color: blue;
+            color: #0099e8;
             text-decoration:none;
-            display: block;
             text-align: center;
           }
         }

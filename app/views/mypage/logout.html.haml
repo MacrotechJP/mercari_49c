@@ -1,0 +1,11 @@
+=render partial: 'items/header'
+.mypage_pankuzu
+  - breadcrumb :mypage_logout
+  = breadcrumbs  separator: " 　&rsaquo;　 "
+.mypage
+  =render partial: 'left_navi',locals: { left_navi: 'logout' }
+  .contents
+    .contents__signout-block
+      = link_to "ログアウト", destroy_user_session_path,method: :delete,class:"contents__signout-block__btn__red"
+        
+= render partial: 'items/footer'

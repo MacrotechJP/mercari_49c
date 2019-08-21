@@ -14,10 +14,20 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :items, only: [:index,:new,:create,:show, :edit]
+
+
+  resources :items, only: [:index,:new,:create,:show,:destroy, :edit]
+
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
   resources :creditcards, only: [:show]
 
+  get 'mypage',to:'mypage#index'
+  namespace :mypage do
+    get 'profile'
+    get 'identification'
+    get 'logout'
+  end
+  
 end
