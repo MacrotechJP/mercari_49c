@@ -27,6 +27,11 @@ class ItemsController < ApplicationController
 
 
   def edit
+    @item = Item.find(params[:id])
+    @image = @item.images
+    @category = Category.where(item_id:@item.id)
+    
+    binding.pry
     
   end
   private
