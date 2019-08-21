@@ -9,5 +9,5 @@
       .profile__form-content
         %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
           = current_user.profile_description
-      %button.profile__form-btn
-        変更する
+      = link_to "変更する","/",class:"profile__form-btn"
+        
