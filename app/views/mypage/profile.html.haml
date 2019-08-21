@@ -1,8 +1,9 @@
-=render partial: 'items/header'
-.mypage_pankuzu
-  - breadcrumb :mypage_profile
-  = breadcrumbs  separator: " 　&rsaquo;　 "
-.mypage
-  =render partial: 'left_navi',locals: { left_navi: 'profile' }
-  =render partial: 'profileRight'
-=render partial: 'items/footer'
+= form_tag("/mypage/profile_update", method: :put) do 
+  =render partial: 'items/header'
+  .mypage_pankuzu
+    - breadcrumb :mypage_profile
+    = breadcrumbs  separator: " 　&rsaquo;　 "
+  .mypage
+    =render partial: 'left_navi',locals: { left_navi: 'profile' }
+    =render partial: 'profileRight'
+  =render partial: 'items/footer'
