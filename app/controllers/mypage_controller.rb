@@ -3,7 +3,7 @@ class MypageController < ApplicationController
 
   def profile_update
     User.find(current_user.id).update(nickname:update_params[:user_nickname],profile_description:update_params[:user_description])
-    redirect_to mypage_profile_path
+    redirect_to mypage_profile_path, notice: 'プロフィールが更新されました'
   end
 
   private

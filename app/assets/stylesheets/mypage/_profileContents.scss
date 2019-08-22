@@ -61,3 +61,21 @@
     }
   }
 }
+.notifications {
+  color: #468847;
+  text-align: center;  
+  position: absolute;
+  width:100%;
+  height:40px;
+  .notice {
+    width:100%;
+    height:40px;
+    background: #DFF0D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .alert {
+    background: orange;
+  }
+}
