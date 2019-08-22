@@ -17,6 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :point
       t.string :profile_image
       t.text :profile_description
+      t.boolean :admin,  default: false
 
       ## Recoverable
       t.string   :reset_password_token
