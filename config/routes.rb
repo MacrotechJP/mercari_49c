@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :users do
-    member do
+    collection do
       get 'signup'
       get 'signup2'
       get 'signup3'
       get 'signup4'
       get 'signup5'
       get 'signup6'
-      get 'login'
+      get 'signup7'
     end
   end
   resources :items, only: [:index,:new,:create,:show,:destroy]
