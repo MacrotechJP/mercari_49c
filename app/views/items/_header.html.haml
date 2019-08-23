@@ -1,4 +1,4 @@
-= form_tag('/items/search', method: :get) do
+= search_form_for @search, url: search_items_path do |f|
   .pc-header
     .pc-header-box
       .pc-header-box-upper
@@ -6,8 +6,8 @@
           = link_to root_path do
             =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2921618501", alt: "mercari_icon", width:"134", height: "36"
         .pc-header-box-upper__field--right
-          %input.product-form__input{placeholder: "何かお探しですか？", type: "text",name:"search",autocomplete:"off"}
+          = f.text_field :name_cont ,class:"product-form__input",placeholder: '何かお探しですか？',autocomplete:"off"
           %i.pc-header-box-upper__field--right__search
-            %button{type:"submit"}
-              = fa_icon "search"
+            = f.submit ("") 
+            = fa_icon "search"
       = render partial: 'items/header-lower'

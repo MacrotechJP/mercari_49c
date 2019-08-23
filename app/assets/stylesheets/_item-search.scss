@@ -294,16 +294,25 @@
       width:700px;
       float:left;
       margin-left:40px;
-      h2{
+      .word{
         display: inline;
         font-size:22px; 
+      }
+      .noword{
+        font-size:22px; 
+        margin-bottom: 10px;
       }
       span{
         margin-left:5px;
       }
-      p{
+      .match{
         font-size:12px;
         color:#888888;
+        margin:16px 0;
+      }
+      .nomatch{
+        font-size:12px;
+        color:#333333;
         margin:16px 0;
       }
       &_show{

@@ -15,7 +15,7 @@
         .item-search-center_left_detail-keyword
           %i.fas.fa-plus
           %span キーワードを追加する
-          %input
+          %input{placeholder:"例）値下げ"}
         .item-search-center_left_detail-category
           %i.fas.fa-list-ul
           %span カテゴリーを選択する
@@ -132,13 +132,24 @@
           %button{type:"reset",class:"reset_button"}クリア
           %button{type:"submit",class:"submit_button"}完了
     .item-search-center_right
-      %h2 
-        = @search_name
-      %span の検索結果
-      %p 1 - 100件表示
+      - if params[:q]["name_cont"] != ""
+        %h2.word 
+          = params[:q]["name_cont"]
+        %span の検索結果
+        - if @search_item.length() != 0
+          %p.match 1 - 100件表示
+        - else
+          %p.nomatch 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+      -else
+        %h2.noword 新着情報
       .item-search-center_right_show
         = render partial: 'search_item'
-.show_pankuzu
-  - breadcrumb :item_search
-  = breadcrumbs  separator: " 　&rsaquo;　 "
+- if params[:q]["name_cont"] != ""
+  .show_pankuzu
+    - breadcrumb :item_search
+    = breadcrumbs  separator: " 　&rsaquo;　 "
+- else
+  .show_pankuzu
+    - breadcrumb :item_search
+    = breadcrumbs  separator: ""
 = render partial: 'footer'

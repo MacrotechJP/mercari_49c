@@ -7,7 +7,7 @@ crumb :item_show do
 end
 
 crumb :item_search do
-  link "#{params[:search]}", search_items_path
+  link "#{params[:q]["name_cont"]}", search_items_path
 end
 
 crumb :mypage do

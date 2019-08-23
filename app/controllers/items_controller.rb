@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+  before_action :search
   def index
     
   end
@@ -32,8 +33,10 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @search_name = search_params[:search]
-    # binding.pry
+    @search = Item.ransack(params[:q]) #ransackメソッド推奨
+    @search_item = @search.result
+    
+    #binding.pry
   end
 
   private
@@ -42,9 +45,9 @@ class ItemsController < ApplicationController
     params.permit(attrs)
   end
 
-  def search_params
-    params.permit(:search)
-  end
+  # def search_params
+  #   params.require(:q).permit!
+  # end
 
 
 end
