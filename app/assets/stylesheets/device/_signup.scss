@@ -223,7 +223,8 @@
           margin-top: 8px;
           &--select-box{
             position: relative;
-            &::before{
+            select::before{
+              display: block;
               content: "\f107";
               font-family: "FontAwesome";
               font-size: 30px;
@@ -231,8 +232,10 @@
               position: absolute;
               right: 30px;
               top: 8px;
+              font-weight: 900;
             }
-            .year-js, .month-js, .day-js{
+            #user_birthday_1i,#user_birthday_2i,
+            #user_birthday_3i{
               position: relative;
               z-index: 2;
               height: 48px;
@@ -240,12 +243,11 @@
               border-radius: 4px;
               border: 1px solid #ccc;
               background: 0;
-              font-size: 12px;
+              font-size: 1px;
               line-height: 1.5;
               cursor: pointer;
               width: 76px;
               -webkit-appearance: none;
-              font-weight: bold;
             }
             .prefectures{
               position: relative;
