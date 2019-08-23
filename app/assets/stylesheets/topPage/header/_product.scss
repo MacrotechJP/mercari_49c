@@ -35,6 +35,8 @@ h3{
           border: 1px solid #ccc;
           box-sizing: border-box;
           float: left;
+          outline: 0;
+          background-color: #F5F5F5;
         }
         &__search{
           position: absolute;
@@ -48,8 +50,15 @@ h3{
           align-items: center;
           background-color: gray;
           color: white;
-          .fa{
+          button{
             background-color: gray;
+            border:none;
+            outline: none;
+            .fa{
+              background-color: gray;
+              color: white;
+              font-size: 14px;
+            }
           }
         }
       }

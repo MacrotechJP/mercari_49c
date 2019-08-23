@@ -26,7 +26,7 @@
         .todo
           - if current_user.try(:admin?)
             =link_to "/admin" do
-              = content_tag(:i, '', class: 'fas fa-check fa-lg')
+              = content_tag(:i, '', class: 'far fa-address-card fa-lg')
               %span 管理画面
           - else
             =link_to mypage_path do

@@ -31,10 +31,19 @@ class ItemsController < ApplicationController
     third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
   end
 
+  def search
+    @search_name = search_params[:search]
+    # binding.pry
+  end
+
   private
   def item_params
     attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
     params.permit(attrs)
+  end
+
+  def search_params
+    params.permit(:search)
   end
 
 

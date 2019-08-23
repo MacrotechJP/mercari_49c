@@ -6,6 +6,10 @@ crumb :item_show do
   link "#{Item.find(params[:id]).name}", item_path
 end
 
+crumb :item_search do
+  link "#{params[:search]}", search_items_path
+end
+
 crumb :mypage do
   link "マイページ", mypage_path
 end

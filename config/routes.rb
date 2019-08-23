@@ -15,7 +15,11 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :items, only: [:index,:new,:create,:show,:destroy]
+  resources :items, only: [:index,:new,:create,:show,:destroy] do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
