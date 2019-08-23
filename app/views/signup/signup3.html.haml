@@ -26,42 +26,28 @@
 .main-secound
   .main-secound__block
     %h2.main-secound__block__title
-      電話番号認証
-  .main-secound__contents.bottom-space
+      電話番号の確認
+  .main-secound__contents
     .main-secound__contents__container
       .main-secound__contents__container__block
         %p.main-secound__contents__container__block__text
-          認証番号
+          携帯電話の番号
+        %p.main-secound__contents__container__block__require
+          必須
         .main-secound__contents__container__block__form
-          %input.input-place{placeholder:"認証番号番を入力", type:"text"}
+          %input.input-place{placeholder:"携帯電話の番号を入力", type:"text"}
         %p.main-secound__contents__container__block__description
-          SMSで届いた認証番号を入力してください
+          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
       .main-secound__contents__container__block
         .main-secound__contents__container__block__btn-next
-          = link_to "認証して完了",  signup5_users_path ,class:'link-white'
-  .main-secound__contents.bottom-space
-    .main-secound__contents__container
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text
-          30秒たっても認証番号が届かない方へ
+          = link_to "SMSを送信する" , signup4_signup_index_path ,class:'link-white'
         %p.main-secound__contents__container__block__description
-          電話で認証番号を聞くこともできます。
-      .main-secound__contents__container__block  
-        .main-secound__contents__container__block__btn-next
-          = link_to "電話で認証番号を聞く（通話無料）" ,"signup4" ,class:'link-white'
-  .main-secound__contents.bottom-space
-    .main-secound__contents__container
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text{style: 'font-size:16px;'}
-          認証番号を再送することもできます。もう一度電話番号を入力して下さい。
-        .main-secound__contents__container__block__description
-          = link_to "#" ,class:'link-return' do
-            電話番号を再度入力する
-        %p.main-secound__contents__container__block__text-message.small-text
-          ※SMSが届かない場合は
-          = link_to "SMS受信設定", "https://www.mercari.com/jp/tos_list/" ,class: 'link-blue'
-          を確認して、もう一度電話番号を入力してください。
-        
+          ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      .main-secound__contents__container__block.text-right
+        .main-secound__contents__container__block--information
+          = link_to "#" ,class:'link-blue' do
+            電話番号の確認が必要な理由
+            %i.fa.fa-chevron-right
 
 .footer-first
   %ul.footer-first__sections
