@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'signup4'
       get 'signup5'
       get 'signup6'
+      get 'signup7'
     end
   end
   resources :items, only: [:index,:new,:create,:show,:destroy]
