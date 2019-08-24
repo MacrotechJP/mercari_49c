@@ -3,19 +3,23 @@ class ItemsController < ApplicationController
   def index
     # # category has_many items の場合
     # @items = Item.index_items.limit(4).order("id DESC")
-    categories_men = Category.where(name: "メンズ").last_four
-    categories_lady = Category.where(name: "レディース").last_four
-    categories_baby = Category.where(name: "ベビー・キッズ").last_four
-    categories_cos = Category.where(name: "コスメ・香水・美容").last_four
+    categories_men = Category.last_four(0)
+    categories_lady = Category.last_four(1)
+    categories_baby = Category.last_four(2)
+    categories_cos = Category.last_four(3)
 
     @items_men = []
     categories_men.map {|category| @items_men << Item.find(category.item_id)}
+
     @items_lady = [] 
     categories_lady.map {|category| @items_lady << Item.find(category.item_id)}
+
     @items_baby = []
     categories_baby.map {|category| @items_baby << Item.find(category.item_id)}  
+
     @items_cos = []
     categories_cos.map {|category| @items_cos << Item.find(category.item_id)}  
+
   end
 
   def show
