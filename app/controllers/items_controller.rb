@@ -3,31 +3,19 @@ class ItemsController < ApplicationController
   def index
     # # category has_many items の場合
     # @items = Item.index_items.limit(4).order("id DESC")
-    categories_men = Category.where(name: "メンズ").order("created_at DESC").limit(4)
-    categories_lady = Category.where(name: "レディース").order("created_at DESC").limit(4)
-    categories_baby = Category.where(name: "ベビー・キッズ").order("created_at DESC").limit(4)
-    categories_cos = Category.where(name: "コスメ・香水・美容").order("created_at DESC").limit(4)
+    categories_men = Category.where(name: "メンズ").last_four
+    categories_lady = Category.where(name: "レディース").last_four
+    categories_baby = Category.where(name: "ベビー・キッズ").last_four
+    categories_cos = Category.where(name: "コスメ・香水・美容").last_four
 
     @items_men = []
-    categories_men.each do |category|
-      item = Item.find(category.item_id)
-      @items_men << item
-    end   
+    categories_men.map {|category| @items_men << Item.find(category.item_id)}
     @items_lady = [] 
-    categories_lady.each do |category|
-      item = Item.find(category.item_id)
-      @items_lady << item
-    end
+    categories_lady.map {|category| @items_lady << Item.find(category.item_id)}
     @items_baby = []
-    categories_baby.each do |category|
-      item = Item.find(category.item_id)
-      @items_baby << item
-    end   
+    categories_baby.map {|category| @items_baby << Item.find(category.item_id)}  
     @items_cos = []
-    categories_cos.each do |category|
-      item = Item.find(category.item_id)
-      @items_cos << item
-    end   
+    categories_cos.map {|category| @items_cos << Item.find(category.item_id)}  
   end
 
   def show
