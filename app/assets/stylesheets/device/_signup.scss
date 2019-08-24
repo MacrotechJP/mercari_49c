@@ -223,7 +223,7 @@
           margin-top: 8px;
           &--select-box{
             position: relative;
-            select::before{
+            &::before{
               display: block;
               content: "\f107";
               font-family: "FontAwesome";
@@ -249,7 +249,7 @@
               width: 76px;
               -webkit-appearance: none;
             }
-            .prefectures{
+            #cust_addresss_prefecture{
               position: relative;
               z-index: 2;
               height: 48px;
