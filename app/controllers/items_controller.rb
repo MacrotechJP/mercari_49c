@@ -32,23 +32,12 @@ class ItemsController < ApplicationController
     third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
   end
 
-  def search
-    @search = Item.ransack(params[:q]) #ransackメソッド推奨
-    @search_item = @search.result.page(params[:page])
-    @search_page = @search_item.current_page
-    @search_count = @search.result.count
-    #binding.pry
-  end
+  
 
   private
   def item_params
     attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
     params.permit(attrs)
   end
-
-  # def search_params
-  #   params.require(:q).permit!
-  # end
-
 
 end
