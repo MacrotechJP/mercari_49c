@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_072728) do
     t.integer "point"
     t.string "profile_image"
     t.text "profile_description"
+    t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

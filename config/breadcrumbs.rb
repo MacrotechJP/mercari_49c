@@ -6,12 +6,21 @@ crumb :item_show do
   link "#{Item.find(params[:id]).name}", item_path
 end
 
+crumb :item_search do
+  link "#{params[:q]["name_cont"]}", search_items_path
+end
+
 crumb :mypage do
   link "マイページ", mypage_path
 end
 
 crumb :mypage_profile do 
   link "プロフィール", mypage_profile_path
+  parent :mypage
+end
+
+crumb :mypage_card do 
+  link "支払い方法", mypage_card_path
   parent :mypage
 end
 

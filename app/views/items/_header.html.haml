@@ -1,15 +1,13 @@
-.pc-header
-  .pc-header-box
-    .pc-header-box-upper
-      %h1
-        = link_to  "/" do
-          =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2921618501", alt: "mercari_icon", width:"134", height: "36"
-
-      .pc-header-box-upper__field--right
-        %input.product-form__input{placeholder: "何かお探しですか？", type: "text"}/
-        %i.pc-header-box-upper__field--right__search
-          = fa_icon "search"
-
-    = render partial: 'items/header-lower'
-
-
+= search_form_for @search, url: search_items_path do |f|
+  .pc-header
+    .pc-header-box
+      .pc-header-box-upper
+        %h1
+          = link_to root_path do
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2921618501", alt: "mercari_icon", width:"134", height: "36"
+        .pc-header-box-upper__field--right
+          = f.text_field :name_cont ,class:"product-form__input",placeholder: '何かお探しですか？',autocomplete:"off"
+          %i.pc-header-box-upper__field--right__search
+            = f.submit ("") 
+            = fa_icon "search"
+      = render partial: 'items/header-lower'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -14,15 +15,22 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :items, only: [:index,:new,:create,:show,:destroy]
+  resources :items, only: [:index,:new,:create,:show,:destroy] do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
   resources :creditcards, only: [:show]
 
-  get 'mypage',to:'mypage#index'
+  
+  get 'mypage',to:'mypage#index' 
   namespace :mypage do
     get 'profile'
+    put 'profile_update'
+    get 'card'
     get 'identification'
     get 'logout'
   end
