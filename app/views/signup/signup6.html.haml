@@ -29,70 +29,71 @@
       支払い方法
   .main-secound__contents
     .main-secound__contents__container
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text
-          カード番号
-        %p.main-secound__contents__container__block__require
-          必須
-        .main-secound__contents__container__block__form
-          %input.input-place{placeholder:"半角数字のみ", type:"text"}
-        %ul.main-secound__contents__container__block__card
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?917505326', height: '20', width: '49', class: ''
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?917505326', height: '20px', width: '34px', class: 'card-image'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?917505326', height: '20', width: '30', class: 'card-image'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?917505326', height: '20', width: '32', class: 'card-image'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?917505326', height: '20', width: '21', class: 'card-image'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?917505326', height: '20', width: '32', class: 'card-image'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?917505326', height: '20', width: '32', class: 'card-image'
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text
-          有効期限
-        %p.main-secound__contents__container__block__require
-          必須
-        .main-secound__contents__container__block__form
-          .main-secound__contents__container__block__form--select-box
-            %select.prefectures.harf-size
-              %option{value: ""} --
-              - number = 1
-              - while number <= 12 do
-                %option{value: "#{number}"} 
-                  = number
-                - number += 1
-            %span.word
-              月
-          .main-secound__contents__container__block__form--select-box
-            %select.prefectures.harf-size
-              %option{value: ""} --
-              - number = 19
-              - while number <= 30 do
-                %option{value: "#{number}"} 
-                  = number
-                - number += 1
-            %span.word
-              年
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text
-          セキュリティーコード
-        %p.main-secound__contents__container__block__require
-          必須
-        .main-secound__contents__container__block__form
-          %input.input-place{placeholder:"カード背面4桁もしくは3桁の番号", type:"text"}
-        .main-secound__contents__container__block__remarks-column
-          %span.question-mark
-            ?
-          %p.blue-color-text
-            カード裏面の番号とは？
-      .main-secound__contents__container__block
-        .main-secound__contents__container__block__btn-next
-          = link_to "次へ進む" , new_user_registration_path ,class:'link-white'
-        .bottom-space
+      = form_for @user, url: signup_index_path, method: :post do |f|
+        .main-secound__contents__container__block
+          %p.main-secound__contents__container__block__text
+            カード番号
+          %p.main-secound__contents__container__block__require
+            必須
+          .main-secound__contents__container__block__form
+            %input.input-place{placeholder:"半角数字のみ", type:"text"}
+          %ul.main-secound__contents__container__block__card
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?917505326', height: '20', width: '49', class: ''
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?917505326', height: '20px', width: '34px', class: 'card-image'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?917505326', height: '20', width: '30', class: 'card-image'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?917505326', height: '20', width: '32', class: 'card-image'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?917505326', height: '20', width: '21', class: 'card-image'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?917505326', height: '20', width: '32', class: 'card-image'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?917505326', height: '20', width: '32', class: 'card-image'
+        .main-secound__contents__container__block
+          %p.main-secound__contents__container__block__text
+            有効期限
+          %p.main-secound__contents__container__block__require
+            必須
+          .main-secound__contents__container__block__form
+            .main-secound__contents__container__block__form--select-box
+              %select.prefectures.harf-size
+                %option{value: ""} --
+                - number = 1
+                - while number <= 12 do
+                  %option{value: "#{number}"} 
+                    = number
+                  - number += 1
+              %span.word
+                月
+            .main-secound__contents__container__block__form--select-box
+              %select.prefectures.harf-size
+                %option{value: ""} --
+                - number = 19
+                - while number <= 30 do
+                  %option{value: "#{number}"} 
+                    = number
+                  - number += 1
+              %span.word
+                年
+        .main-secound__contents__container__block
+          %p.main-secound__contents__container__block__text
+            セキュリティーコード
+          %p.main-secound__contents__container__block__require
+            必須
+          .main-secound__contents__container__block__form
+            %input.input-place{placeholder:"カード背面4桁もしくは3桁の番号", type:"text"}
+          .main-secound__contents__container__block__remarks-column
+            %span.question-mark
+              ?
+            %p.blue-color-text
+              カード裏面の番号とは？
+        .main-secound__contents__container__block
+          .main-secound__contents__container__block__btn-next
+            = f.submit "次へ進む" ,class:'link-white'
+          .bottom-space
 
 
 .footer-first

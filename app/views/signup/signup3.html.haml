@@ -29,25 +29,26 @@
       電話番号の確認
   .main-secound__contents
     .main-secound__contents__container
-      .main-secound__contents__container__block
-        %p.main-secound__contents__container__block__text
-          携帯電話の番号
-        %p.main-secound__contents__container__block__require
-          必須
-        .main-secound__contents__container__block__form
-          %input.input-place{placeholder:"携帯電話の番号を入力", type:"text"}
-        %p.main-secound__contents__container__block__description
-          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      .main-secound__contents__container__block
-        .main-secound__contents__container__block__btn-next
-          = link_to "SMSを送信する" , signup4_signup_index_path ,class:'link-white'
-        %p.main-secound__contents__container__block__description
-          ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-      .main-secound__contents__container__block.text-right
-        .main-secound__contents__container__block--information
-          = link_to "#" ,class:'link-blue' do
-            電話番号の確認が必要な理由
-            %i.fa.fa-chevron-right
+      = form_for @user, url: signup4_signup_index_path, method: :get do |f|
+        .main-secound__contents__container__block
+          %p.main-secound__contents__container__block__text
+            携帯電話の番号
+          %p.main-secound__contents__container__block__require
+            必須
+          .main-secound__contents__container__block__form
+            = f.text_field :phone_number ,placeholder:"携帯電話の番号を入力", class:"input-place"
+          %p.main-secound__contents__container__block__description
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .main-secound__contents__container__block
+          .main-secound__contents__container__block__btn-next
+            = f.submit "SMSを送信する" ,class:'link-white'
+          %p.main-secound__contents__container__block__description
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .main-secound__contents__container__block.text-right
+          .main-secound__contents__container__block--information
+            = link_to "#" ,class:'link-blue' do
+              電話番号の確認が必要な理由
+              %i.fa.fa-chevron-right
 
 .footer-first
   %ul.footer-first__sections
