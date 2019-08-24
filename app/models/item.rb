@@ -16,4 +16,5 @@ class Item < ApplicationRecord
   #     return index_items
   #   end
   # end
+end
 
