@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :likes_count
       t.string :size
       t.string :deliveryWay
+      t.string :category_id
       t.timestamps
     end
     add_reference :items,:seller, foreign_key:{ to_table: :users}

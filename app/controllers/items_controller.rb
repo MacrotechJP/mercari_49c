@@ -1,9 +1,33 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.limit(4).order("id DESC")
-    @categories = Category.all
+    # # category has_many items の場合
+    # @items = Item.index_items.limit(4).order("id DESC")
+    categories_men = Category.where(name: "メンズ").order("created_at DESC").limit(4)
+    categories_lady = Category.where(name: "レディース").order("created_at DESC").limit(4)
+    categories_baby = Category.where(name: "ベビー・キッズ").order("created_at DESC").limit(4)
+    categories_cos = Category.where(name: "コスメ・香水・美容").order("created_at DESC").limit(4)
 
+    @items_men = []
+    categories_men.each do |category|
+      item = Item.find(category.item_id)
+      @items_men << item
+    end   
+    @items_lady = [] 
+    categories_lady.each do |category|
+      item = Item.find(category.item_id)
+      @items_lady << item
+    end
+    @items_baby = []
+    categories_baby.each do |category|
+      item = Item.find(category.item_id)
+      @items_baby << item
+    end   
+    @items_cos = []
+    categories_cos.each do |category|
+      item = Item.find(category.item_id)
+      @items_cos << item
+    end   
   end
 
   def show
