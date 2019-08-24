@@ -1,9 +1,5 @@
 class SignupController < ApplicationController
 
-  def signup
-
-  end
-
   def signup2
     @user = User.new
   end
@@ -24,30 +20,33 @@ class SignupController < ApplicationController
   def signup4
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
-    @address = CustAddresss.new
   end
+
 
   def signup5
     @user = User.new
     @address = CustAddresss.new
-    session[:firstname] =      address_params[:firstname]
-    session[:lastname] =       address_params[:lastname]
-    session[:firstname_kana] = address_params[:firstname_kana]
-    session[:lastname_kana] =  address_params[:lastname_kana]
-    session[:postal_code] =    address_params[:postal_code]
-    session[:prefecture] =     address_params[:prefecture]
-    session[:municipality] =   address_params[:municipality]
-    session[:house_number] =   address_params[:house_number]
-    session[:building_name] =  address_params[:building_name]
-    session[:phone_number] =   address_params[:phone_number]
+    
   end
 
   def signup6
-    @address = CustAddresss.new
+    session[:cfirstname] = address_params[:firstname]
+    session[:clastname] = address_params[:lastname]
+    session[:cfirstname_kana] = address_params[:firstname_kana]
+    session[:clastname_kana] = address_params[:lastname_kana]
+    session[:cpostal_code] = address_params[:postal_code]
+    session[:cprefecture] = address_params[:prefecture]
+    session[:cmunicipality] = address_params[:municipality]
+    session[:chouse_number] = address_params[:house_number]
+    session[:cbuilding_name] = address_params[:building_name]
+    session[:cphone_number] = address_params[:phone_number]
     @user = User.new
+    @address = CustAddresss.new
   end
 
   def signup7
+    @user = User.new
+    @address = CustAddresss.new
   end
 
   def create
@@ -64,20 +63,19 @@ class SignupController < ApplicationController
       phone_number: session[:phone_number]
     )
     @address = CustAddresss.new(
-      firstname:session[:firstname],
-      lastname:session[:lastname],
-      firstname_kana:session[:firstname_kana],
-      lastname_kana:session[:lastname_kana],
-      postal_code:session[:postal_code],
-      prefecture:session[:prefecture],
-      municipality:session[:municipality],
-      house_number:session[:house_number],
-      building_name:session[:building_name],
-      phone_number:session[:phone_number]
+      firstname:session[:cfirstname],
+      lastname:session[:clastname],
+      firstname_kana:session[:cfirstname_kana],
+      lastname_kana:session[:clastname_kana],
+      postal_code:session[:cpostal_code],
+      prefecture:session[:cprefecture],
+      municipality:session[:cmunicipality],
+      house_number:session[:chouse_number],
+      building_name:session[:cbuilding_name],
+      phone_number:session[:cphone_number]
     )
     if @user.save
       @address.save
-      binding.pry
       sign_in @user
       redirect_to signup7_signup_index_path
     else
@@ -104,7 +102,7 @@ class SignupController < ApplicationController
   end
 
   def address_params
-    params.permit(
+    params.require(:cust_addresss).permit(
       :firstname,
       :lastname,
       :firstname_kana,
