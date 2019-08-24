@@ -316,8 +316,9 @@
         margin:16px 0;
       }
       &_show{
-        height:auto;
         width:700px;
+        overflow: auto;
+        margin-bottom: 40px;
         &-box{
           height:240px;
           width:160px;
@@ -335,6 +336,7 @@
           img{
             height:160px;
             width:160px;
+            background-color: #333333;
           }
           &-detail{
             width:100%;
@@ -367,6 +369,65 @@
               color:#333333;
               font-weight: 600;
             }
+          }
+        }
+      }
+      .pagination{
+        height:auto;
+        @mixin page_box{
+          height:44px;
+          width:44px;
+          display:inline-flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 ;
+          border-radius: 4px;
+          background: #fff;
+          border: 1px solid #ccc;
+        }
+        @mixin size{
+          height: auto;
+          width: auto;
+          display: inline-block;
+        }
+        .first{
+          @include size;
+          .fas{
+            @include page_box()
+          }
+        }
+        .prev{
+          @include size;
+          margin:0 30px 0 0;
+          .fas{
+            @include page_box
+          }
+        }
+        .page{
+          @include size;
+          margin:0;
+          a{
+            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            @include page_box()
+          }
+        }
+        .current{
+          @include page_box();
+          background-color: #EA352D;
+          color:white;
+        }
+        .next{
+          @include size;
+          margin: 0 0 0 30px;
+          .fas{
+            @include page_box()
+          }
+        }
+        .last{
+          @include size;
+          margin: 0;
+          .fas{
+            @include page_box()
           }
         }
       }

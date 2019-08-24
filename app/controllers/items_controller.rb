@@ -34,8 +34,9 @@ class ItemsController < ApplicationController
 
   def search
     @search = Item.ransack(params[:q]) #ransackメソッド推奨
-    @search_item = @search.result
-    
+    @search_item = @search.result.page(params[:page])
+    @search_page = @search_item.current_page
+    @search_count = @search.result.count
     #binding.pry
   end
 

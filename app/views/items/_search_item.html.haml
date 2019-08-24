@@ -1,4 +1,4 @@
-- @search_item.each do |search|
+- @search_item.page(@search_page).each do |search|
   .item-search-center_right_show-box
     =link_to "",item_path(search.id)
     = image_tag search.images[0].image.url

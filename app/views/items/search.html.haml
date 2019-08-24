@@ -137,13 +137,23 @@
           = params[:q]["name_cont"]
         %span の検索結果
         - if @search_item.length() != 0
-          %p.match 1 - 100件表示
+          - if @search_count <= 25
+            %p.match 1 - #{@search_count}件表示
+          - else 
+            - if @search_page == 1
+              %p.match 1 - 25件表示
+            - else
+              - if @search_count <= 25*@search_page
+                %p.match #{25*(@search_page-1)} - #{@search_count}件表示
+              - else
+                %p.match #{25*(@search_page-1)} - #{25*@search_page}件表示
         - else
           %p.nomatch 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
       -else
         %h2.noword 新着情報
       .item-search-center_right_show
         = render partial: 'search_item'
+      = paginate @search_item
 - if params[:q]["name_cont"] != ""
   .show_pankuzu
     - breadcrumb :item_search
