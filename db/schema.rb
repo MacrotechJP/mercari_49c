@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 2019_08_11_072728) do
     t.index ["item_id"], name: "index_categories_on_item_id"
   end
 
+  create_table "cust_addressses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "firstname_kana"
+    t.string "lastname_kana"
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "municipality"
+    t.string "house_number"
+    t.string "building_name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
     t.bigint "item_id"
@@ -42,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_11_072728) do
     t.string "likes_count"
     t.string "size"
     t.string "deliveryWay"
+    t.string "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "seller_id"
