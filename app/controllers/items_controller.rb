@@ -32,7 +32,12 @@ class ItemsController < ApplicationController
     third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
   end
 
-  
+  def search
+    @search = Item.ransack(params[:q]) #ransackメソッド推奨
+    @search_item = @search.result.page(params[:page]).per(100)
+    @search_page = @search_item.current_page
+    @search_count = @search.result.count
+  end
 
   private
   def item_params

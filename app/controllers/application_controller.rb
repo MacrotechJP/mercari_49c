@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth,:search, if: :production?
+  before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
   private
@@ -14,10 +14,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def search
-    @search = Item.ransack(params[:q]) #ransackメソッド推奨
-    @search_item = @search.result.page(params[:page]).per(100)
-    @search_page = @search_item.current_page
-    @search_count = @search.result.count
-  end
 end

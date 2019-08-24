@@ -20,7 +20,7 @@
     %ul.pc-header-box-lower__right-login-nav
       - if user_signed_in?
         .gomypage
-          =link_to mypage_path do
+          =link_to "/mypage" do
             = image_tag "https://stat.ameba.jp/user_images/20131208/09/tamamorijp/00/00/j/o0480048012773923150.jpg?caw=800", width: '32px'
             %span マイページ
         .todo
