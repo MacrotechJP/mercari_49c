@@ -22,16 +22,18 @@
         justify-content: center;
         display: flex;
         align-items: center;
-        .icon {
-          font-size: 48px;
-          margin: 0 20px 0 0;
+        img {
+          width: 48px;
+          border-radius: 50%;
+          border:1px solid silver;
+          margin-right: 5px;
         }
         input {
           height: 48px;
         }
       }
       &-content {
-        padding: 40px 16px;
+        padding: 30px 16px;
         textarea {
           width: 100%;
           min-height: 216px;
@@ -45,14 +47,35 @@
         }
       }
       &-btn {
-        margin: 16px 16px;
+        margin: 0 16px 40px;
         background: #ea352d;
         border: 1px solid #ea352d;
         color: #fff;
         width: 95%;
         height: 50px;
-        font-size: 14px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size:16px;
       }
     }
+  }
+}
+.notifications {
+  color: #468847;
+  text-align: center;  
+  position: absolute;
+  width:100%;
+  height:40px;
+  .notice {
+    width:100%;
+    height:40px;
+    background: #DFF0D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .alert {
+    background: orange;
   }
 }

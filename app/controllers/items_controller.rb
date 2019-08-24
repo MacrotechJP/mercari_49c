@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+  before_action :search
   def index
     # # category has_many items の場合
     # @items = Item.index_items.limit(4).order("id DESC")
@@ -48,7 +49,13 @@ class ItemsController < ApplicationController
     first = Category.create(name:item_params[:item_category_first],item_id:Item.last.id)
     second = first.children.create(name:item_params[:item_category_second][0],item_id:Item.last.id)
     third = second.children.create(name:item_params[:item_category_third][0],item_id:Item.last.id)
-    redirect_to root_path
+  end
+
+  def search
+    @search = Item.ransack(params[:q]) #ransackメソッド推奨
+    @search_item = @search.result.page(params[:page]).per(100)
+    @search_page = @search_item.current_page
+    @search_count = @search.result.count
   end
 
   private
@@ -56,6 +63,5 @@ class ItemsController < ApplicationController
     attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
     params.permit(attrs)
   end
-
 
 end

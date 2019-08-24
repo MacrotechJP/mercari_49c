@@ -3,12 +3,10 @@
 @import "./topPage/header/*";
 @import "./topPage/main/*";
 @import "./topPage/footer/*";
-@import "./device/*";
+@import "./devise/sessions/*";
+@import "./devise/registrations/*";
 @import "./itemDetails/itemName/*";
-@import "./myPage/*";
-@import "./profile/*";
-@import "./identification/*";
+@import "./mypage/*";
 @import "./new";
-@import "./creditcard/*";
-
+@import "./item-search";
 @import "./users/*";

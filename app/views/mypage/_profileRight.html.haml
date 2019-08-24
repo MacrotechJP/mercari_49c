@@ -4,10 +4,10 @@
       プロフィール
     .profile__form
       .profile__form-name
-        = fa_icon "user-circle", class:"icon"
-        %input{value: "#{current_user.nickname}", type: "text"}
+        = image_tag "https://stat.ameba.jp/user_images/20131208/09/tamamorijp/00/00/j/o0480048012773923150.jpg?caw=800"
+        %input{value: "#{current_user.nickname}", type: "text",name:"user_nickname"}
       .profile__form-content
-        %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪",name:"user_description"}
           = current_user.profile_description
-      %button.profile__form-btn
+      %button{type:"submit",class:"profile__form-btn"}
         変更する

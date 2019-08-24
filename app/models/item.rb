@@ -17,4 +17,3 @@ class Item < ApplicationRecord
   #   end
   # end
 
-end
