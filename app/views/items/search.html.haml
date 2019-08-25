@@ -63,71 +63,74 @@
             %i.fas.fa-coins
             %span 価格
             %i.fa.fa-chevron-down.size
-            %select
-              %option 選択してください
-              %option 300 ~ 1000
-              %option 1000 ~ 5000
-              %option 5000 ~ 10000
-              %option 10000 ~ 30000
-              %option 30000 ~ 50000
-              %option 50000 ~
-            %input{placeholder:"¥ Min"}
+            %select#select_price
+              %option{value:"1"} 選択してください
+              %option{value:"2"} 300 ~ 1000
+              %option{value:"3"} 1000 ~ 5000
+              %option{value:"4"} 5000 ~ 10000
+              %option{value:"5"} 10000 ~ 30000
+              %option{value:"6"} 30000 ~ 50000
+              %option{value:"7"} 50000 ~
+            %input{placeholder:"¥ Min",name:"priceMin"}
             %span &nbsp;~&nbsp;
-            %input{placeholder:"¥ Max"}
+            %input{placeholder:"¥ Max",name:"priceMax"}
           .item-search-center_left_detail-condition
             %i.fas.fa-star
             %span 商品の状態
             .condition_check
               %ul
                 %li
-                  %input{type:"checkbox"}
+                  %input{type:"checkbox",class:"conditionAll"}
                   %span すべて
-                %li 
-                  %input{type:"checkbox"}
-                  %span 新品、未使用
-                %li
-                  %input{type:"checkbox"}
-                  %span 未使用に近い
-                %li 
-                  %input{type:"checkbox"}
-                  %span 目立った傷や汚れなし
-                %li
-                  %input{type:"checkbox"}
-                  %span やや傷や汚れ汚れあり
-                %li 
-                  %input{type:"checkbox"}
-                  %span 傷や汚れあり
-                %li 
-                  %input{type:"checkbox"}
-                  %span 全体的に状態が悪い
+                #conditionCheck
+                  %li 
+                    %input{type:"checkbox",name:"condition[]",value:"新品、未使用"}
+                    %span 新品、未使用
+                  %li
+                    %input{type:"checkbox",name:"condition[]",value:"未使用に近い"}
+                    %span 未使用に近い
+                  %li 
+                    %input{type:"checkbox",name:"condition[]",value:"目立った傷や汚れなし"}
+                    %span 目立った傷や汚れなし
+                  %li
+                    %input{type:"checkbox",name:"condition[]",value:"やや傷や汚れ汚れあり"}
+                    %span やや傷や汚れ汚れあり
+                  %li 
+                    %input{type:"checkbox",name:"condition[]",value:"傷や汚れあり"}
+                    %span 傷や汚れあり
+                  %li 
+                    %input{type:"checkbox",name:"condition[]",value:"全体的に状態が悪い"}
+                    %span 全体的に状態が悪い
           .item-search-center_left_detail-deriveryfee
             %i.fas.fa-truck-moving
             %span 配送料の負担
             .deriveryfee_check
               %ul
                 %li
-                  %input{type:"checkbox"}
+                  %input{type:"checkbox",class:"deriveryfeeAll"}
                   %span すべて
-                %li 
-                  %input{type:"checkbox"}
-                  %span 着払い(購入者負担)
-                %li
-                  %input{type:"checkbox"}
-                  %span 送料込み(出品者負担)
+                #deriveryfeeCheck
+                  %li 
+                    %input{type:"checkbox",name:"deriveryfee[]",value:"着払い(購入者負担)"}
+                    %span 着払い(購入者負担)
+                  %li
+                    %input{type:"checkbox",name:"deriveryfee[]",value:"送料込み(出品者負担)"}
+                    %span 送料込み(出品者負担)
           .item-search-center_left_detail-situation
             %i.fas.fa-shopping-cart
             %span 販売状況
             .situation_check
               %ul
                 %li
-                  %input{type:"checkbox"}
+                  %input{type:"checkbox",class:"situationAll"}
                   %span すべて
-                %li 
-                  %input{type:"checkbox"}
-                  %span 販売中
-                %li
-                  %input{type:"checkbox"}
-                  %span 売り切れ
+                #situationCheck
+                  %li 
+                    %input{type:"checkbox",name:"situation[]",value:"販売中"}
+                    %span 販売中
+                  %li
+                    %input{type:"checkbox",name:"situation[]",value:"売り切れ"}
+                    %span 売り切れ
           .item-search-center_left_detail-button
             %button{type:"reset",class:"reset_button"}クリア
             %button{type:"submit",class:"submit_button"}完了
