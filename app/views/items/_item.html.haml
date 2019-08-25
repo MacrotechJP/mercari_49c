@@ -1,7 +1,7 @@
 %section.item-box
   =link_to item_path(item.id) do
     %figure.item-box__image
-      = image_tag item.images.first.image.url
+      -# = image_tag item.images.first.image.url
     .item-box__body
       %h3.item-box__body-name
         = item.name
