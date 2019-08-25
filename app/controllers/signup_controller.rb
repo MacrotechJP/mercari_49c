@@ -82,7 +82,7 @@ class SignupController < ApplicationController
       redirect_to signup7_signup_index_path
     end
   end
-
+  
   private
   def user_params
     params.require(:user).permit(
