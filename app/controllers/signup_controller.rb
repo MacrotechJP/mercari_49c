@@ -79,7 +79,7 @@ class SignupController < ApplicationController
       sign_in @user
       redirect_to signup7_signup_index_path
     else
-      redirect_to signup2_signup_index_path
+      redirect_to signup7_signup_index_path
     end
   end
 
