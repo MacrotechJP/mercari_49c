@@ -224,7 +224,6 @@
           &--select-box{
             position: relative;
             &::before{
-              display: block;
               content: "\f107";
               font-family: "FontAwesome";
               font-size: 30px;
@@ -232,10 +231,8 @@
               position: absolute;
               right: 30px;
               top: 8px;
-              font-weight: 900;
             }
-            #user_birthday_1i,#user_birthday_2i,
-            #user_birthday_3i{
+            .year-js, .month-js, .day-js{
               position: relative;
               z-index: 2;
               height: 48px;
@@ -243,11 +240,12 @@
               border-radius: 4px;
               border: 1px solid #ccc;
               background: 0;
-              font-size: 1px;
+              font-size: 12px;
               line-height: 1.5;
               cursor: pointer;
               width: 76px;
               -webkit-appearance: none;
+              font-weight: bold;
             }
             .prefectures{
               position: relative;
@@ -284,18 +282,16 @@
         }
         &__btn-next{
           height: 50px;
-          // background-color: #ea352d;
+          background-color: #ea352d;
           width: 343px;
           .link-white{
             color: #fff;
-            cursor: pointer;
             text-decoration: none;
-            display: block;
+            display: inline-block;
             font-size: 14px;
             width: 100%;
             height: 100%;
             line-height: 50px;
-            background-color: #ea352d
           }
         }
         &--information{
