@@ -24,8 +24,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
-  resources :creditcards, only: [:show]
-
+  resources :creditcards, only: [:new, :show]
   
   get 'mypage',to:'mypage#index' 
   namespace :mypage do
