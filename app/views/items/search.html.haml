@@ -3,134 +3,134 @@
   .item-search-center
     .item-search-center_left
       %i.fa.fa-chevron-down.order
-      %select{class:"item_order"}
-        %option 並び替え
-        %option 価格の安い順
-        %option 価格の高い順
-        %option 出品の古い順
-        %option 出品の新しい順
-        %option いいね！の多い順
-      .item-search-center_left_detail
-        %h3 詳細検索
-        .item-search-center_left_detail-keyword
-          %i.fas.fa-plus
-          %span キーワードを追加する
-          %input{placeholder:"例）値下げ"}
-        .item-search-center_left_detail-category
-          %i.fas.fa-list-ul
-          %span カテゴリーを選択する
-          %i.fa.fa-chevron-down.category
-          %select
-            %option すべて
-            %option レディース
-            %option メンズ
-            %option ベビー・キッズ
-            %option インテリア・住まい・小物
-            %option 本・音楽・ゲーム
-            %option おもちゃ・ホビー・グッズ
-            %option コスメ・香水・美容
-            %option 家電・スマホ・カメラ
-            %option スポーツ・レジャー
-            %option ハンドメイド
-            %option チケット
-            %option 自転車・オートバイ
-            %option その他
-        .item-search-center_left_detail-bland
-          %i.fas.fa-tag
-          %span ブランド名から探す
-          %input{placeholder:"例）シャネル"}
-        .item-search-center_left_detail-size
-          %i.fas.fa-expand
-          %span サイズを指定する
-          %i.fa.fa-chevron-down.size
-          %select
-            %option すべて
-            %option 洋服のサイズ
-            %option メンズ靴のサイズ
-            %option レディース靴のサイズ
-            %option スカートのサイズ
-            %option キッズ服のサイズ
-            %option ベビー・キッズ靴のサイズ
-            %option ベビー服のサイズ
-            %option テレビのサイズ
-            %option カメラレンズのサイズ
-            %option オートバイのサイズ
-            %option ヘルメットのサイズ
-            %option タイヤのサイズ
-            %option スキーのサイズ
-            %option スノーボードのサイズ
-        .item-search-center_left_detail-price
-          %i.fas.fa-coins
-          %span 価格
-          %i.fa.fa-chevron-down.size
-          %select
-            %option 選択してください
-            %option 300 ~ 1000
-            %option 1000 ~ 5000
-            %option 5000 ~ 10000
-            %option 10000 ~ 30000
-            %option 30000 ~ 50000
-            %option 50000 ~
-          %input{placeholder:"¥ Min"}
-          %span &nbsp;~&nbsp;
-          %input{placeholder:"¥ Max"}
-        .item-search-center_left_detail-condition
-          %i.fas.fa-star
-          %span 商品の状態
-          .condition_check
-            %ul
-              %li
-                %input{type:"checkbox"}
-                %span すべて
-              %li 
-                %input{type:"checkbox"}
-                %span 新品、未使用
-              %li
-                %input{type:"checkbox"}
-                %span 未使用に近い
-              %li 
-                %input{type:"checkbox"}
-                %span 目立った傷や汚れなし
-              %li
-                %input{type:"checkbox"}
-                %span やや傷や汚れ汚れあり
-              %li 
-                %input{type:"checkbox"}
-                %span 傷や汚れあり
-              %li 
-                %input{type:"checkbox"}
-                %span 全体的に状態が悪い
-        .item-search-center_left_detail-deriveryfee
-          %i.fas.fa-truck-moving
-          %span 配送料の負担
-          .deriveryfee_check
-            %ul
-              %li
-                %input{type:"checkbox"}
-                %span すべて
-              %li 
-                %input{type:"checkbox"}
-                %span 着払い(購入者負担)
-              %li
-                %input{type:"checkbox"}
-                %span 送料込み(出品者負担)
-        .item-search-center_left_detail-situation
-          %i.fas.fa-shopping-cart
-          %span 販売状況
-          .situation_check
-            %ul
-              %li
-                %input{type:"checkbox"}
-                %span すべて
-              %li 
-                %input{type:"checkbox"}
-                %span 販売中
-              %li
-                %input{type:"checkbox"}
-                %span 売り切れ
-        .item-search-center_left_detail-button
-          %button{type:"reset",class:"reset_button"}クリア
-          %button{type:"submit",class:"submit_button"}完了
+      = search_form_for @search, url: search_items_path ,html: { method: :get } do |e|
+        = e.select( :sorts,{ '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} )
+        = e.hidden_field :name_cont,value:"#{params[:q]["name_cont"]}"
+      -#   %option いいね！の多い順
+      = search_form_for @search, url: search_items_path ,html: { method: :get } do |d|
+        .item-search-center_left_detail
+          %h3 詳細検索
+          .item-search-center_left_detail-keyword
+            %i.fas.fa-plus
+            %span キーワードを追加する
+            = d.text_field :name_cont,placeholder:"例）値下げ",autocomplete:"off"
+          .item-search-center_left_detail-category
+            %i.fas.fa-list-ul
+            %span カテゴリーを選択する
+            %i.fa.fa-chevron-down.category
+            %select
+              %option すべて
+              %option レディース
+              %option メンズ
+              %option ベビー・キッズ
+              %option インテリア・住まい・小物
+              %option 本・音楽・ゲーム
+              %option おもちゃ・ホビー・グッズ
+              %option コスメ・香水・美容
+              %option 家電・スマホ・カメラ
+              %option スポーツ・レジャー
+              %option ハンドメイド
+              %option チケット
+              %option 自転車・オートバイ
+              %option その他
+          .item-search-center_left_detail-bland
+            %i.fas.fa-tag
+            %span ブランド名から探す
+            -# = d.text_field :bland,placeholder:"例）シャネル"
+            = d.text_field :brand,placeholder:"例）シャネル",autocomplete:"off"
+            -# %input{placeholder:"例）シャネル"}
+          .item-search-center_left_detail-size
+            %i.fas.fa-expand
+            %span サイズを指定する
+            %i.fa.fa-chevron-down.size
+            %select
+              %option すべて
+              %option 洋服のサイズ
+              %option メンズ靴のサイズ
+              %option レディース靴のサイズ
+              %option スカートのサイズ
+              %option キッズ服のサイズ
+              %option ベビー・キッズ靴のサイズ
+              %option ベビー服のサイズ
+              %option テレビのサイズ
+              %option カメラレンズのサイズ
+              %option オートバイのサイズ
+              %option ヘルメットのサイズ
+              %option タイヤのサイズ
+              %option スキーのサイズ
+              %option スノーボードのサイズ
+          .item-search-center_left_detail-price
+            %i.fas.fa-coins
+            %span 価格
+            %i.fa.fa-chevron-down.size
+            %select
+              %option 選択してください
+              %option 300 ~ 1000
+              %option 1000 ~ 5000
+              %option 5000 ~ 10000
+              %option 10000 ~ 30000
+              %option 30000 ~ 50000
+              %option 50000 ~
+            %input{placeholder:"¥ Min"}
+            %span &nbsp;~&nbsp;
+            %input{placeholder:"¥ Max"}
+          .item-search-center_left_detail-condition
+            %i.fas.fa-star
+            %span 商品の状態
+            .condition_check
+              %ul
+                %li
+                  %input{type:"checkbox"}
+                  %span すべて
+                %li 
+                  %input{type:"checkbox"}
+                  %span 新品、未使用
+                %li
+                  %input{type:"checkbox"}
+                  %span 未使用に近い
+                %li 
+                  %input{type:"checkbox"}
+                  %span 目立った傷や汚れなし
+                %li
+                  %input{type:"checkbox"}
+                  %span やや傷や汚れ汚れあり
+                %li 
+                  %input{type:"checkbox"}
+                  %span 傷や汚れあり
+                %li 
+                  %input{type:"checkbox"}
+                  %span 全体的に状態が悪い
+          .item-search-center_left_detail-deriveryfee
+            %i.fas.fa-truck-moving
+            %span 配送料の負担
+            .deriveryfee_check
+              %ul
+                %li
+                  %input{type:"checkbox"}
+                  %span すべて
+                %li 
+                  %input{type:"checkbox"}
+                  %span 着払い(購入者負担)
+                %li
+                  %input{type:"checkbox"}
+                  %span 送料込み(出品者負担)
+          .item-search-center_left_detail-situation
+            %i.fas.fa-shopping-cart
+            %span 販売状況
+            .situation_check
+              %ul
+                %li
+                  %input{type:"checkbox"}
+                  %span すべて
+                %li 
+                  %input{type:"checkbox"}
+                  %span 販売中
+                %li
+                  %input{type:"checkbox"}
+                  %span 売り切れ
+          .item-search-center_left_detail-button
+            %button{type:"reset",class:"reset_button"}クリア
+            %button{type:"submit",class:"submit_button"}完了
     .item-search-center_right
       - if params[:q]["name_cont"] != ""
         %h2.word 

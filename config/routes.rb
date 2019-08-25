@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:new,:create,:show,:destroy] do
     collection do
       get 'search'
+      post 'search'
     end
   end
   resources :users, only: [:show, :identification, :index, :new]
