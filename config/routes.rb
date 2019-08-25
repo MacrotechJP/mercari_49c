@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'items#index'
-  resources :signup do
-    collection do
+  resources :users do
+    member do
       get 'signup'
       get 'signup2'
       get 'signup3'
       get 'signup4'
       get 'signup5'
       get 'signup6'
-      get 'signup7'
+      get 'login'
     end
   end
   resources :items, only: [:index,:new,:create,:show,:destroy] do
