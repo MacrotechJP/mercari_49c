@@ -28,6 +28,7 @@
         %label 郵便番号
         %span.identification__form__label-annotation 任意
         %input.identification__form__label-input{placeholder:"例）1234567"}
+
       #addressPulldown.identification__form__label
         %label 都道府県
         %span.identification__form__label-annotation 任意
@@ -36,6 +37,9 @@
           %select.addressSelect
             %option{"v-for" => "address in addressList"}
               {{ address }}
+
+
+              
       .identification__form__label
         %label 市区町村
         %span.identification__form__label-annotation 任意

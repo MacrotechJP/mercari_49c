@@ -20,4 +20,3 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :cust_addressses
 
 end
-
