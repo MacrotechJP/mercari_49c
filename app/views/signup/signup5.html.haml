@@ -62,7 +62,7 @@
             必須
           .main-secound__contents__container__block__form
             .main-secound__contents__container__block__form--select-box
-              = f.collection_select :prefecture,Prefecture.all, :name, :name
+              = f.collection_select :prefecture,Prefecture.all, :name, :name,{},class:"prefecture"
         .main-secound__contents__container__block
           %p.main-secound__contents__container__block__text
             市区町村
