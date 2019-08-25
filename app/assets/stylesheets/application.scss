@@ -6,8 +6,10 @@
 @import "./devise/sessions/*";
 @import "./devise/registrations/*";
 @import "./itemDetails/itemName/*";
-@import "./myPage/*";
+@import "./myPage/identification";
 @import "./myPage/logout";
+@import "./myPage/mypage";
+@import "./myPage/profileContents";
 @import "./new";
 @import "./item-search";
 @import "./users/*";
