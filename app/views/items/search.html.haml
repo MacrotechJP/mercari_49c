@@ -36,9 +36,7 @@
           .item-search-center_left_detail-bland
             %i.fas.fa-tag
             %span ブランド名から探す
-            -# = d.text_field :bland,placeholder:"例）シャネル"
             = d.text_field :brand,placeholder:"例）シャネル",autocomplete:"off"
-            -# %input{placeholder:"例）シャネル"}
           .item-search-center_left_detail-size
             %i.fas.fa-expand
             %span サイズを指定する
