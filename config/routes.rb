@@ -24,7 +24,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]
   resources :identifications, only: [:show]
-  resources :creditcards, only: [:new, :show]
+  resources :creditcards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'creditcards#show'
+      post 'pay', to: 'creditcards#pay'
+      post 'delete', to: 'creditcards#delete'
+    end
+  end
   
   get 'mypage',to:'mypage#index' 
   namespace :mypage do
