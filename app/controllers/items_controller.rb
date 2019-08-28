@@ -36,9 +36,19 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @image = @item.images
-    @category = Category.where(item_id:@item.id)
-    
-    binding.pry
+    if @item.seller_id == current_user.id
+      @category = Category.where(item_id:@item.id)
+      @category_grandchildren = @category.third
+      @category_children = @category.third.parent
+      @category_parent = @category.third.parent.parent
+      
+      
+      binding.pry
+      
+      # @first = @category.first
+      # @second = @category.second
+      
+    end
     
   end
   private
