@@ -1,7 +1,93 @@
 $(function(){
+// 選択されている親要素のカテゴリの値を表示
+  const categoryParentName = $('.js-parent-category').data('category')
+  console.log(categoryParentName)
+  const targetParentOption = $(`option[value="${categoryParentName}"]`)
+  console.log(targetParentOption)
+  targetParentOption.prop('selected', true);
+  const calEditParent = targetParentOption.parent().prop("selectedIndex");
+  console.log(calEditParent)
+  if(calEditParent != 0){
+    $(".item_main_center-cell4-right_select2."+calEditParent).show();
+    $(".item_main_center-cell4").css('height', '+=110');
+    $(".item_main").css('height', '+=110');
+  }else{
+    if($(".item_main_center-cell4-right_select3").length){
+      $(".item_main_center-cell4-right_select2 select").val("");
+      $(".item_main_center-cell4-right_select2").hide();
+      $(".item_main_center-cell4-right_select3 select").val("");
+      $(".item_main_center-cell4-right_select3").hide();
+      $(".item_main_center-cell4").css('height', '-=220');
+      $(".item_main").css('height', '-=220');
+    }else{
+      $(".item_main_center-cell4-right_select2 select").val("");
+      $(".item_main_center-cell4-right_select2").hide();
+      $(".item_main_center-cell4").css('height', '-=110');
+      $(".item_main").css('height', '-=110');
+    }
+  }
 
-  $(".item_main_center-cell4-right_select2 select").val("");
-  $(".item_main_center-cell4-right_select3 select").val("");
+  // 選択されている子要素のカテゴリの値を表示
+  const categoryChildrenName = $('.js-children-category').data('category')
+  console.log(categoryChildrenName)
+  const targetChildrenOption = $(`option[value="${categoryChildrenName}"]`)
+  console.log(targetChildrenOption)
+  targetChildrenOption.prop('selected', true).val("");
+  const calEditChildren = targetChildrenOption.parent().prop("selectedIndex");
+  console.log(calEditChildren)
+  // $('.category2').change(function() {
+    // var calEditParent = $('.category1').prop("selectedIndex");
+    // console.log(calEditParent)
+
+    // var calEditChildren = $(this).prop("selectedIndex");
+    if(calEditChildren != 0 ){
+      $(".item_main_center-cell4-right_select3."+calEditParent+"_"+calEditChildren).show();
+      $(".item_main_center-cell4").css('height', '+=110');
+      $(".item_main").css('height', '+=110');
+    }else{
+      $(".item_main_center-cell4-right_select3 select").val("");
+      $(".item_main_center-cell4-right_select3").hide();
+      $(".item_main_center-cell4").css('height', '-=110');
+      $(".item_main").css('height', '-=110');
+    }
+    
+  // });
+
+  // 選択されている孫要素のカテゴリの値を表示
+  const categoryGrandChildrenName = $('.js-grand-children-category').data('category')
+  console.log(categoryGrandChildrenName)
+  const targetGrandChildrenOption = $(`option[value="${categoryGrandChildrenName}"]`)
+  console.log(targetGrandChildrenOption)
+  targetGrandChildrenOption.prop('selected', true).val("");
+  const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
+  console.log(calEditGrandChildren)
+  // $('.category3').change(function() {
+    
+    $(".item_main_center-cell4-right_selectBrand").show();
+    $(".item_main_center-cell4-right_selectSize").show();
+    $(".item_main_center-cell4").css('height', '+=220');
+    $(".item_main").css('height', '+=220');
+  // });
+
+
+  const itemSize = $('.js-item-size').data('@item.size')
+  console.log(itemSize)
+  const targetItemSize = $(`option[value="${categoryGrandChildrenName}"]`)
+  console.log(targetGrandChildrenOption)
+  targetGrandChildrenOption.prop('selected', true).val("");
+  const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
+  console.log(calEditGrandChildren)
+  //   var selectElements = document.getElementsByName('selectbox'),
+//       optionElements = selectElements[0].options;
+
+
+
+
+  // $(".item_main_center-cell4-right_select2 select").val("");
+  // $(".item_main_center-cell4-right_select3 select").val("");
+
+
+
   //カテゴリーについてのセレクトボックスを増表示する
   $('.category1').change(function() {
     var cal = $('.category1').prop("selectedIndex");
@@ -68,6 +154,8 @@ $(function(){
   //販売価格の計算を行う
   $("#price").on("keyup",function(){
     var price = $("#price").val();
+    let price_fee = $("#rightup").val(price*0.1);
+
 
     if(price < 300 || price > 9999999){
       $("#rightUp").text("-");
