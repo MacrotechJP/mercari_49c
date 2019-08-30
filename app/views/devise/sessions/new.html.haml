@@ -14,7 +14,7 @@
       .main-login__contents__block
         %ul.main-login__contents__block__list
           %li.main-login__contents__block__list__signup-btn--facebook
-            = link_to "#" do
+            = link_to "user_omniauth_authorize_path(:facebook)" do
               %i.fab.fa-facebook-square
               Facebookで登録する
           %li.main-login__contents__block__list__signup-btn--google
