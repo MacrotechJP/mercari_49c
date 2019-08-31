@@ -18,7 +18,8 @@
               %i.fab.fa-facebook-square
               Facebookで登録する
           %li.main-login__contents__block__list__signup-btn--google
-            Googleで登録する
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+              Googleで登録する
       .main-login__contents__container
         .main-login__contents__container__form
           = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:"メールアドレス",class:"input-form"
