@@ -1,19 +1,23 @@
 $(function(){
 
 
-  const editImgId = $('.js-update-img').data('img')
-  // console.log(editImgId)
-  var cnnEdit = editImgId.length
+  // const editImgId = $('.js-update-img').data('img')
+  // // console.log(editImgId)
+  // var cnnEdit = editImgId.length
   // console.log(cnnEdit)
 
 
 
 
-  var eachnames = $('.js-update-img').data('img');
-  console.log(eachnames)
-  var nameSample = eachnames.forEach(function( eachname ){
-    // console.log(nameSample);
-  });
+  // var eachnames = $('.js-update-img').data('img');
+  // console.log(eachnames)
+
+  // eachnames.forEach(function( eachname ){
+  // console.log(eachname.image);
+  // });
+  // nameSample.readAsDataURL(fileprop);
+    // classCnt()
+
   
   
     // var fileprop = $(this).prop('files')[cnnEdit],

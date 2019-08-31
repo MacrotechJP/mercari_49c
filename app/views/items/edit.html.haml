@@ -15,18 +15,12 @@
               %li.left 出品画像
               %li.right_hissu 必須
             %p 最大10枚までアップロードできます
-            -# .drag.js-update-img{'data-img': @image.urls}
-            .drag.js-update-img
+            .drag.js-update-img{'data-img': @image}
               .drag_over
                 .drag_center
-                - @image.each_with_index do |img,index|
-                  .upImage
-                    =  image_tag img.image.url, alt: "mercari_icon",heght:'100px', width:'100px'
-                    .upImage_button
-                      %li
-                  -# = image_tag img.image.url, alt: "mercari_icon",heght:'100px', width:'100px'
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
+                  %p ドラッグアンドドロップ
+                  %p またはクリックしてファイルをアップロード
+                  -# = image_tag(@image.url.cache)
               %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",required:"true"}
               
               .drag_over2

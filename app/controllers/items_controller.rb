@@ -41,9 +41,7 @@ class ItemsController < ApplicationController
       @category_grandchildren = @category.third
       @category_children = @category.third.parent
       @category_parent = @category.third.parent.parent
-    end
-    
-    # @image.url.cache! unless @image.present?
+    end 
     
     # binding.pry
   end
