@@ -2,7 +2,7 @@ $(function(){
   $(window).on('load',function(){
     var editImgId = $('.js-update-img').data('img')
     $.each(editImgId, function(i, value) {
-      var cnn = 10;
+      var cnn = i+10;
       var view_box = $(".file").parent('.drag');
       var img = '<div class="upImage" id='+cnn+'>'+
                     '<img id="'+cnn+'" src="'+editImgId[i]+'">'+
@@ -112,9 +112,8 @@ $(function(){
             "display": "none"
           });
           break;
-    }
-      
-    });
+      }
+  });
     
     // $(".file").clone(".file").insertAfter(".file");
     // $(".file").attr('name','file[]');
