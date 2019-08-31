@@ -1,24 +1,133 @@
 $(function(){
-  const editImgId = $('.js-update-img').data('img')
-  console.log(editImgId)
-  var cnn = 0;
-  var view_box = $(".file").parent('.drag');
-  var img = '<div class="upImage" id='+cnn+'>'+
-                '<img id="'+cnn+'">'+
-                '<div class="upImage_buton '+cnn+'">'+
-                  '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
-                  '<li><a href="#" class="img_del">削除</a></li>'+
-                  '</div>'+
-              '</div>';
-  view_box.append(img);
-  $(".file").clone(".file").insertAfter(".file");
-  $(".file").attr('name','file[]');
-  $(".file").attr('class','change_file img_edi'+cnn);
-  $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
-  view_box.find('#'+cnn+' img').attr('src', editImgId);
-  cnn += 1 ;
-  img_del(view_box);
-  classCnt()
+  $(window).on('load',function(){
+    var editImgId = $('.js-update-img').data('img')
+    $.each(editImgId, function(i, value) {
+      var cnn = 10;
+      var view_box = $(".file").parent('.drag');
+      var img = '<div class="upImage" id='+cnn+'>'+
+                    '<img id="'+cnn+'" src="'+editImgId[i]+'">'+
+                    '<div class="upImage_buton '+cnn+'">'+
+                    '<input accept=".jpg,.gif,.png,image/jpeg,image/png" class="change_file img_edi'+cnn+'" type="file"></input>'+
+                      '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
+                      '<li><a href="#" class="img_del">削除</a></li>'+
+                      '</div>'+
+                  '</div>';
+      view_box.append(img);
+      
+      switch( i ) {
+
+        case 0:
+          $(".drag_over").css({
+            "margin-left": "126.5px",
+            "width": "493.5px"
+          });
+          break;
+        case 1:
+          $(".drag_over").css({
+            "margin-left": "253px",
+            "width": "367px"
+          });
+          $(".drag_center").css({
+            "font-size": "14px"
+          });
+          break;
+        case 2:
+          $(".drag_over").css({
+            "margin-left": "379.5px",
+            "width": "240.5px"
+          });
+          $(".drag_center").css({
+            "font-size": "13px"
+          });
+          break;
+        case 3:
+          $(".drag_over").css({
+            "margin-left": "506px",
+            "width": "114px",
+            "display": "block"
+          });
+          $(".drag_center p").css({
+            "font-size": "9px"
+          });
+          $(".drag_over2").css({
+            "display": "none"
+          });
+          $(".file").css({
+            "position": "absolute",
+            "top": "0"
+          });
+          break;
+        case 4:
+          $(".drag_over").css({
+            "display": "none"
+          });
+          $(".drag_over2").css({
+            "display": "block",
+            "width": "620px",
+            "margin-left": "0"
+          });
+          $(".file").css({
+            "position": "absolute",
+            "top": "180px"
+          });
+          $(".item_main_center-cell2").css('height', '463');
+          $(".item_main").css('height', '+=160');
+          break;
+        case 5:
+          $(".drag_over2").css({
+            "margin-left": "126.5px",
+            "width": "493.5px"
+          });
+          break;
+        case 6:
+          $(".drag_over2").css({
+            "margin-left": "253px",
+            "width": "367px"
+          });
+          $(".drag_center2").css({
+            "font-size": "14px"
+          });
+          break;
+        case 7:
+          $(".drag_over2").css({
+            "margin-left": "379.5px",
+            "width": "240.5px"
+          });
+          $(".drag_center2").css({
+            "font-size": "13px"
+          });
+          break;
+        case 8:
+          $(".drag_over2").css({
+            "margin-left": "506px",
+            "width": "114px",
+            "display": "block"
+          });
+          $(".drag_center2 p").css({
+            "font-size": "9px"
+          });
+          break;
+        case 9:
+          $(".drag_over2").css({
+            "display": "none"
+          });
+          break;
+    }
+      
+    });
+    
+    // $(".file").clone(".file").insertAfter(".file");
+    // $(".file").attr('name','file[]');
+    // $(".file").attr('class','change_file img_edi'+cnn);
+    // $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
+    // view_box.find('#'+cnn+' img').attr('src', editImgId);
+    // cnn += 1 ;
+    // img_del(view_box);
+  });
+
+  
+  
+  
   
   // var cnnEdit = editImgId.length
   // console.log(cnnEdit)
