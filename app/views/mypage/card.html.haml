@@ -1,0 +1,8 @@
+=render partial: 'items/header'
+.mypage_pankuzu
+  - breadcrumb :mypage_card
+  = breadcrumbs  separator: " 　&rsaquo;　 "
+.mypage
+  =render partial: 'left_navi',locals: { left_navi: 'card' }
+  =render partial: 'cardRight'
+=render partial: 'items/footer'

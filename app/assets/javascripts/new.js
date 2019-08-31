@@ -242,7 +242,23 @@ $(document).ready(function () {
       }
     }
   }
+  //モーダルウィンドウ非表示にする
+  $("#modal-itemnew .item-new").on("click",function(){
+    $("#modal-all").hide();
+    $("#modal-itemnew").hide();
+  })
+  $("#modal-itemnew .item-root").on("click",function(){
+    $("#modal-all").hide();
+    $("#modal-itemnew").hide();
+  })
 });
 function checkSubmit() {
-	return confirm("送信しても良いですか？");
+  var conf = confirm("送信しても良いですか？");
+  if(conf == false){
+    return conf  
+  }else{//モーダルウィンドウ表示
+    document.activeElement.blur();
+    $("#modal-all").show();
+    $("#modal-itemnew").slideToggle("slow");
+  }
 }

@@ -9,16 +9,17 @@
       %p.main-login__block__message
         アカウントをお持ちでない方はこちら
       .main-login__block__signup-btn
-        = link_to "新規会員登録",new_user_registration_path,class:"link-white"
+        = link_to "新規会員登録",signup_signup_index_path,class:"link-white"
     .main-login__contents
       .main-login__contents__block
         %ul.main-login__contents__block__list
           %li.main-login__contents__block__list__signup-btn--facebook
-            = link_to "#" do
+            = link_to user_facebook_omniauth_authorize_path, method: :post do
               %i.fab.fa-facebook-square
               Facebookで登録する
           %li.main-login__contents__block__list__signup-btn--google
-            Googleで登録する
+            = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+              Googleで登録する
       .main-login__contents__container
         .main-login__contents__container__form
           = f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder:"メールアドレス",class:"input-form"

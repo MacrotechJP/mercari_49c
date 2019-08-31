@@ -2,7 +2,11 @@
 .mypage_pankuzu
   - breadcrumb :mypage_profile
   = breadcrumbs  separator: " 　&rsaquo;　 "
-.mypage
-  =render partial: 'left_navi',locals: { left_navi: 'profile' }
-  =render partial: 'profileRight'
-=render partial: 'items/footer'
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
+= form_tag("/mypage/profile_update", method: :put) do
+  .mypage
+    =render partial: 'left_navi',locals: { left_navi: 'profile' }
+    =render partial: 'profileRight'
+  =render partial: 'items/footer'
