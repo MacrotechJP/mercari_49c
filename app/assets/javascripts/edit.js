@@ -1,13 +1,27 @@
 $(function(){
-
-
-  // const editImgId = $('.js-update-img').data('img')
-  // // console.log(editImgId)
+  const editImgId = $('.js-update-img').data('img')
+  console.log(editImgId)
+  var cnn = 0;
+  var view_box = $(".file").parent('.drag');
+  var img = '<div class="upImage" id='+cnn+'>'+
+                '<img id="'+cnn+'">'+
+                '<div class="upImage_buton '+cnn+'">'+
+                  '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
+                  '<li><a href="#" class="img_del">削除</a></li>'+
+                  '</div>'+
+              '</div>';
+  view_box.append(img);
+  $(".file").clone(".file").insertAfter(".file");
+  $(".file").attr('name','file[]');
+  $(".file").attr('class','change_file img_edi'+cnn);
+  $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
+  view_box.find('#'+cnn+' img').attr('src', editImgId);
+  cnn += 1 ;
+  img_del(view_box);
+  classCnt()
+  
   // var cnnEdit = editImgId.length
   // console.log(cnnEdit)
-
-
-
 
   // var eachnames = $('.js-update-img').data('img');
   // console.log(eachnames)

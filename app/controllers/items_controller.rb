@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @image = @item.images
+    @image = @item.images[0].image.url
     if @item.seller_id == current_user.id
       @category = Category.where(item_id:@item.id)
       @category_grandchildren = @category.third
