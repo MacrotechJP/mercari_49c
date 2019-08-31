@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :items, only: [:index,:new,:create,:show,:destroy, :edit]
+  resources :items, only: [:index,:new,:create,:show,:destroy,:edit,:update]
 
   resources :users, only: [:show, :identification, :index, :new]
   resources :profiles, only: [:show]

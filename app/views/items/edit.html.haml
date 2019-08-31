@@ -5,7 +5,8 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
   .item_main
     .item_main_center
-      = form_tag('/items', method: :post,onSubmit:"return checkSubmit()",multipart: true) do 
+      -# = form_tag('/items', method: :patch,onSubmit:"return checkSubmit()",multipart: true) do 
+      = form_tag("/items/#{@item.id}", method: :patch) do 
         .item_main_center-cell1.js-parent-category{ 'data-category': @category_parent.name }
           %h2 商品の情報を入力
         .item_main_center-cell2.js-children-category{ 'data-category': @category_children.name }
@@ -14,12 +15,20 @@
               %li.left 出品画像
               %li.right_hissu 必須
             %p 最大10枚までアップロードできます
-            .drag
+            -# .drag.js-update-img{'data-img': @image.urls}
+            .drag.js-update-img
               .drag_over
                 .drag_center
-                  %p ドラッグアンドドロップ
-                  %p またはクリックしてファイルをアップロード
+                - @image.each_with_index do |img,index|
+                  .upImage
+                    =  image_tag img.image.url, alt: "mercari_icon",heght:'100px', width:'100px'
+                    .upImage_button
+                      %li
+                  -# = image_tag img.image.url, alt: "mercari_icon",heght:'100px', width:'100px'
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
               %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",required:"true"}
+              
               .drag_over2
                 .drag_center2
                   %p ドラッグアンドドロップ
@@ -51,17 +60,17 @@
                 %li.left サイズ
                 %li.right_hissu 必須
               %select{class:"default",name:"item_size"}
-                %option{value:---} ---
-                %option{value:XXS以下}XXS以下
-                %option{value:XS(SS)}XS(SS)
-                %option{value:S}S
-                %option{value:M}M
-                %option{value:L}L
-                %option{value:XL(LL)}XL(LL)
-                %option{value:2XL(3L)}2XL(3L)
-                %option{value:3XL(4L)}3XL(4L)
-                %option{value:4XL(5L)以上}4XL(5L)以上
-                %option{value:FREE SIZE}FREE SIZE
+                %option{value:"---"} ---
+                %option{value:"XXS以下"}XXS以下
+                %option{value:"XS(SS)"}XS(SS)
+                %option{value:"S"}S
+                %option{value:"M"}M
+                %option{value:"L"}L
+                %option{value:"XL(LL)"}XL(LL)
+                %option{value:"2XL(3L)"}2XL(3L)
+                %option{value:"3XL(4L)"}3XL(4L)
+                %option{value:"4XL(5L)以上"}4XL(5L)以上
+                %option{value:"FREE SIZE"}FREE SIZE
               %i.fa.fa-chevron-down
 
             .item_main_center-cell4-right_selectBrand
@@ -75,13 +84,13 @@
                 %li.left 商品の状態
                 %li.right_hissu 必須
               %select{class:"default",name:"item_condition",required:"true"}
-                %option{value:---} ---
-                %option{value:新品、未使用}新品、未使用
-                %option{value:未使用に近い}未使用に近い
-                %option{value:目立った傷や汚れなし}目立った傷や汚れなし
-                %option{value:やや傷や汚れなし}やや傷や汚れなし
-                %option{value:傷や汚れあり}傷や汚れあり
-                %option{value:全体的に状態が悪い}全体的に状態が悪い
+                %option{value:"---"} ---
+                %option{value:"新品、未使用"}新品、未使用
+                %option{value:"未使用に近い"}未使用に近い
+                %option{value:"目立った傷や汚れなし"}目立った傷や汚れなし
+                %option{value:"やや傷や汚れなし"}やや傷や汚れなし
+                %option{value:"傷や汚れあり"}傷や汚れあり
+                %option{value:"全体的に状態が悪い"}全体的に状態が悪い
               %i.fa.fa-chevron-down
               
         .item_main_center-cell5
@@ -94,80 +103,80 @@
                 %li.left 配送料の負担
                 %li.right_hissu 必須
               %select{id:'drive',class:"default",name:"item_deliveryfee",required:"true"}
-                %option{value:---} ---
-                %option{value:送料込み(出品者負担)}送料込み(出品者負担)
-                %option{value:着払い(購入者負担)}着払い(購入者負担)
+                %option{value:"---"} ---
+                %option{value:"送料込み(出品者負担)"}送料込み(出品者負担)
+                %option{value:"着払い(購入者負担)"}着払い(購入者負担)
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox.driveWay
               %ul
                 %li.left 発送の方法
                 %li.right_hissu 必須
               %select{class:"default",name:"item_deliveryWay"}
-                %option{value:---} ---
-                %option{value:未定}未定
-                %option{value:らくらくメルカリ便}らくらくメルカリ便
-                %option{value:ゆうメール}ゆうメール
-                %option{value:レターパック}レターパック
-                %option{value:普通郵便(定形、定形外)}普通郵便(定形、定形外)
-                %option{value:クロネコヤマト}クロネコヤマト
-                %option{value:ゆうパック}ゆうパック
-                %option{value:クリックポスト}クリックポスト
-                %option{value:ゆうポケット}ゆうポケット
+                %option{value:"---"} ---
+                %option{value:"未定"}未定
+                %option{value:"らくらくメルカリ便"}らくらくメルカリ便
+                %option{value:"ゆうメール"}ゆうメール
+                %option{value:"レターパック"}レターパック
+                %option{value:"普通郵便(定形、定形外)"}普通郵便(定形、定形外)
+                %option{value:"クロネコヤマト"}クロネコヤマト
+                %option{value:"ゆうパック"}ゆうパック
+                %option{value:"クリックポスト"}クリックポスト
+                %option{value:"ゆうポケット"}ゆうポケット
               %i.fa.fa-chevron-down
             .item_main_center-cell5-right_selectBox
               %ul
                 %li.left 発送元の地域
                 %li.right_hissu 必須
               %select{class:"default",name:"item_area",required:"true"}
-                %option{value:---} ---
-                %option{value:北海道}北海道
-                %option{value:青森県}青森県
-                %option{value:岩手県}岩手県
-                %option{value:宮城県}宮城県
-                %option{value:秋田県}秋田県
-                %option{value:山形県}山形県
-                %option{value:福島県}福島県
-                %option{value:茨城県}茨城県
-                %option{value:栃木県}栃木県
-                %option{value:群馬県}群馬県
-                %option{value:埼玉県}埼玉県
-                %option{value:千葉県}千葉県
-                %option{value:東京都}東京都
-                %option{value:神奈川県}神奈川県
-                %option{value:新潟県}新潟県
-                %option{value:富山県}富山県
-                %option{value:石川県}石川県
-                %option{value:福井県}福井県
-                %option{value:山梨県}山梨県
-                %option{value:長野県}長野県
-                %option{value:岐阜県}岐阜県
-                %option{value:静岡県}静岡県
-                %option{value:愛知県}愛知県
-                %option{value:三重県}三重県
-                %option{value:滋賀県}滋賀県
-                %option{value:京都府}京都府
-                %option{value:大阪府}大阪府
-                %option{value:兵庫県}兵庫県
-                %option{value:奈良県}奈良県
-                %option{value:和歌山県}和歌山県
-                %option{value:鳥取県}鳥取県
-                %option{value:島根県}島根県
-                %option{value:岡山県}岡山県
-                %option{value:広島県}広島県
-                %option{value:山口県}山口県
-                %option{value:徳島県}徳島県
-                %option{value:香川県}香川県
-                %option{value:愛媛県}愛媛県
-                %option{value:高知県}高知県
-                %option{value:福岡県}福岡県
-                %option{value:佐賀県}佐賀県
-                %option{value:長崎県}長崎県
-                %option{value:熊本県}熊本県
-                %option{value:大分県}大分県
-                %option{value:宮崎県}宮崎県
-                %option{value:鹿児島県}鹿児島県
-                %option{value:沖縄県}沖縄県
-                %option{value:未定}未定
+                %option{value:"---"} ---
+                %option{value:"北海道"}北海道
+                %option{value:"青森県"}青森県
+                %option{value:"岩手県"}岩手県
+                %option{value:"宮城県"}宮城県
+                %option{value:"秋田県"}秋田県
+                %option{value:"山形県"}山形県
+                %option{value:"福島県"}福島県
+                %option{value:"茨城県"}茨城県
+                %option{value:"栃木県"}栃木県
+                %option{value:"群馬県"}群馬県
+                %option{value:"埼玉県"}埼玉県
+                %option{value:"千葉県"}千葉県
+                %option{value:"東京都"}東京都
+                %option{value:"神奈川県"}神奈川県
+                %option{value:"新潟県"}新潟県
+                %option{value:"富山県"}富山県
+                %option{value:"石川県"}石川県
+                %option{value:"福井県"}福井県
+                %option{value:"山梨県"}山梨県
+                %option{value:"長野県"}長野県
+                %option{value:"岐阜県"}岐阜県
+                %option{value:"静岡県"}静岡県
+                %option{value:"愛知県"}愛知県
+                %option{value:"三重県"}三重県
+                %option{value:"滋賀県"}滋賀県
+                %option{value:"京都府"}京都府
+                %option{value:"大阪府"}大阪府
+                %option{value:"兵庫県"}兵庫県
+                %option{value:"奈良県"}奈良県
+                %option{value:"和歌山県"}和歌山県
+                %option{value:"鳥取県"}鳥取県
+                %option{value:"島根県"}島根県
+                %option{value:"岡山県"}岡山県
+                %option{value:"広島県"}広島県
+                %option{value:"山口県"}山口県
+                %option{value:"徳島県"}徳島県
+                %option{value:"香川県"}香川県
+                %option{value:"愛媛県"}愛媛県
+                %option{value:"高知県"}高知県
+                %option{value:"福岡県"}福岡県
+                %option{value:"佐賀県"}佐賀県
+                %option{value:"長崎県"}長崎県
+                %option{value:"熊本県"}熊本県
+                %option{value:"大分県"}大分県
+                %option{value:"宮崎県"}宮崎県
+                %option{value:"鹿児島県"}鹿児島県
+                %option{value:"沖縄県"}沖縄県
+                %option{value:"未定"}未定
               %i.fa.fa-chevron-down
 
             .item_main_center-cell5-right_selectBox
@@ -175,10 +184,10 @@
                 %li.left 発送までの日数
                 %li.right_hissu 必須
               %select{class:"default",name:"item_days_to_ship",required:"true"}
-                %option{value:---} ---
-                %option{value:１〜２日で発送}１〜２日で発送
-                %option{value:２〜３日で発送}２〜３日で発送
-                %option{value:４〜７日で発送}４〜７日で発送
+                %option{value:"---"} ---
+                %option{value:"１〜２日で発送"}１〜２日で発送
+                %option{value:"２〜３日で発送"}２〜３日で発送
+                %option{value:"４〜７日で発送"}４〜７日で発送
               %i.fa.fa-chevron-down
 
         .item_main_center-cell6

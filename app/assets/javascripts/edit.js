@@ -1,12 +1,57 @@
 $(function(){
+
+
+  const editImgId = $('.js-update-img').data('img')
+  // console.log(editImgId)
+  var cnnEdit = editImgId.length
+  // console.log(cnnEdit)
+
+
+
+
+  var eachnames = $('.js-update-img').data('img');
+  console.log(eachnames)
+  var nameSample = eachnames.forEach(function( eachname ){
+    // console.log(nameSample);
+  });
+  
+  
+    // var fileprop = $(this).prop('files')[cnnEdit],
+    //     filereader = new FileReader(),
+    //     view_box = $(this).parent('.drag');
+        // console.log(fileprop)
+    
+  //   var img = '<div class="upImage" id='+cnnEdit+'>'+
+  //               '<img id="'+cnnEdit+'">'+
+  //               '<div class="upImage_buton '+cnnEdit+'">'+
+  //                 '<li><a class="img_edi" id="img_edi'+cnnEdit+'" >編集</a></li>'+
+  //                 '<li><a href="#" class="img_del">削除</a></li>'+
+  //                 '</div>'+
+  //             '</div>';
+  //   view_box.append(img);
+  //   $(this).clone(true).insertAfter(this);
+  //   $(this).attr('name','file[]');
+  //   $(this).attr('class','change_file img_edi'+cnnEdit);
+  //   $(".img_edi"+cnnEdit).prependTo(".upImage_buton."+cnnEdit);
+  
+  //   filereader.onload = function() {
+  //     view_box.find('#'+cnnEdit+' img').attr('src', filereader.result);
+  //     cnn += 1 ;
+  //     img_del(view_box);
+      
+  //   }
+  //   filereader.readAsDataURL(fileprop);
+  //   classCnt()
+
+
 // 選択されている親要素のカテゴリの値を表示
   const categoryParentName = $('.js-parent-category').data('category')
-  console.log(categoryParentName)
+  // console.log(categoryParentName)
   const targetParentOption = $(`option[value="${categoryParentName}"]`)
-  console.log(targetParentOption)
+  // console.log(targetParentOption)
   targetParentOption.prop('selected', true);
   const calEditParent = targetParentOption.parent().prop("selectedIndex");
-  console.log(calEditParent)
+  // console.log(calEditParent)
   if(calEditParent != 0){
     $(".item_main_center-cell4-right_select2."+calEditParent).show();
     $(".item_main_center-cell4").css('height', '+=110');
@@ -29,12 +74,12 @@ $(function(){
 
   // 選択されている子要素のカテゴリの値を表示
   const categoryChildrenName = $('.js-children-category').data('category')
-  console.log(categoryChildrenName)
+  // console.log(categoryChildrenName)
   const targetChildrenOption = $(`option[value="${categoryChildrenName}"]`)
-  console.log(targetChildrenOption)
+  // console.log(targetChildrenOption)
   targetChildrenOption.prop('selected', true).val("");
   const calEditChildren = targetChildrenOption.parent().prop("selectedIndex");
-  console.log(calEditChildren)
+  // console.log(calEditChildren)
   // $('.category2').change(function() {
     // var calEditParent = $('.category1').prop("selectedIndex");
     // console.log(calEditParent)
@@ -55,12 +100,12 @@ $(function(){
 
   // 選択されている孫要素のカテゴリの値を表示
   const categoryGrandChildrenName = $('.js-grand-children-category').data('category')
-  console.log(categoryGrandChildrenName)
+  // console.log(categoryGrandChildrenName)
   const targetGrandChildrenOption = $(`option[value="${categoryGrandChildrenName}"]`)
-  console.log(targetGrandChildrenOption)
+  // console.log(targetGrandChildrenOption)
   targetGrandChildrenOption.prop('selected', true).val("");
   const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
-  console.log(calEditGrandChildren)
+  // console.log(calEditGrandChildren)
   // $('.category3').change(function() {
     
     $(".item_main_center-cell4-right_selectBrand").show();
@@ -70,13 +115,13 @@ $(function(){
   // });
 
 
-  const itemSize = $('.js-item-size').data('@item.size')
-  console.log(itemSize)
-  const targetItemSize = $(`option[value="${categoryGrandChildrenName}"]`)
-  console.log(targetGrandChildrenOption)
-  targetGrandChildrenOption.prop('selected', true).val("");
-  const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
-  console.log(calEditGrandChildren)
+  // const itemSize = $('.js-item-size').data('@item.size')
+  // console.log(itemSize)
+  // const targetItemSize = $(`option[value="${categoryGrandChildrenName}"]`)
+  // console.log(targetGrandChildrenOption)
+  // targetGrandChildrenOption.prop('selected', true).val("");
+  // const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
+  // console.log(calEditGrandChildren)
   //   var selectElements = document.getElementsByName('selectbox'),
 //       optionElements = selectElements[0].options;
 

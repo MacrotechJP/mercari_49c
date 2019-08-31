@@ -41,19 +41,26 @@ class ItemsController < ApplicationController
       @category_grandchildren = @category.third
       @category_children = @category.third.parent
       @category_parent = @category.third.parent.parent
-      
-      
-      binding.pry
-      
-      # @first = @category.first
-      # @second = @category.second
-      
     end
     
+    # @image.url.cache! unless @image.present?
+    
+    # binding.pry
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    @item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id) if @item.seller_id == current_user.id
+
+    # if @item.update(item_params)
+      redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
   private
   def item_params
-    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
+    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[],imgae_cache:[],image:[]]
     params.permit(attrs)
   end
 
