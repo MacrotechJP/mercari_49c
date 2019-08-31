@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_08_30_101729) do
     t.index ["user_id"], name: "index_creditcards_on_user_id"
   end
 
+  create_table "cust_addressses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "firstname_kana"
+    t.string "lastname_kana"
+    t.string "postal_code"
+    t.string "prefecture"
+    t.string "municipality"
+    t.string "house_number"
+    t.string "building_name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
     t.bigint "item_id"
@@ -63,6 +78,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_101729) do
     t.string "likes_count"
     t.string "size"
     t.string "deliveryWay"
+    t.string "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "seller_id"
@@ -93,6 +109,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_101729) do
     t.integer "point"
     t.string "profile_image"
     t.text "profile_description"
+    t.boolean "admin", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
