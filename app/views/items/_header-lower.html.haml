@@ -24,11 +24,11 @@
             = image_tag "https://stat.ameba.jp/user_images/20131208/09/tamamorijp/00/00/j/o0480048012773923150.jpg?caw=800", width: '32px'
             %span マイページ
         .todo
-          - if current_user.admin == true
-            =link_to "/admin" do
-              = content_tag(:i, '', class: 'far fa-address-card fa-lg')
-              %span 管理画面
-          - else
+          -# - if current_user.admin == true
+          -#   =link_to "/admin" do
+          -#     = content_tag(:i, '', class: 'far fa-address-card fa-lg')
+          -#     %span 管理画面
+          -# - else
             =link_to mypage_path do
               = content_tag(:i, '', class: 'fas fa-check fa-lg')
               %span やることリスト
