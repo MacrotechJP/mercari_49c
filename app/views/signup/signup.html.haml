@@ -18,7 +18,8 @@
             %i.fa.fa-facebook
             Facebookで登録する
         %li.main-first__block__contents__list__signup-btn--google
-          Googleで登録する
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+            Googleで登録する
 
 .footer-first
   %ul.footer-first__sections
