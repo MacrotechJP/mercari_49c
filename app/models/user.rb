@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth)
     sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
+    # @user = auth
     unless sns
       @user = User.create(
       email: auth.info.email,
