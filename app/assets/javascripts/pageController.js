@@ -32,18 +32,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
       ]
     }
 })
-
-// var cardTimePulldown = new Vue({
-//   el: "#cardTimePulldown",
-//   data: {
-//     cardMonthList: [
-//       "--",
-//       "01","02","03","04","05","06","07","08","09","10","11","12"
-//     ],
-//     cardYearList: [
-//       "--",
-//       "19","20","21","22","23","24","25","26","27","28","29"
-//     ]
-//   }
-// })
 });
