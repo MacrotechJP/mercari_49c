@@ -221,6 +221,7 @@
           display: flex;
           float: left;
           margin-top: 8px;
+          position: relative;
           &--select-boxs{
             .year,.month,.day{
               position: relative;
@@ -441,8 +442,8 @@
   font-size: 25px;
   color: #888;
   position: absolute;
-  right: 535px;
-  top: 1093px;
+  top: 5px;
+  left: 45px;
   font-weight: 900;
 }
 .arrow2{
@@ -450,8 +451,8 @@
   font-size: 25px;
   color: #888;
   position: absolute;
-  right: 637.5px;
-  top: 1093px;
+  top:5px;
+  left: 148px;
   font-weight: 900;
 
 }
@@ -460,7 +461,7 @@
   font-size: 25px;
   color: #888;
   position: absolute;
-  right: 740px;
-  top: 1093px;
+  top:5px;
+  left: 250px;
   font-weight: 900;
 }
