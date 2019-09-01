@@ -85,9 +85,12 @@
           %p.main-secound__contents__container__block__require
             必須
         .main-secound__contents__container__block__form
+          %label{for: 'user_birthday_1i'} 
+          %label{for: 'user_birthday_2i'} 
+          %label{for: 'user_birthday_3i'} 
           .main-secound__contents__container__block__form--select-box
             -# = raw sprintf(f.date_select(:birthday, start_year: 1920, end_year: Time.now.year, :use_month_numbers => true, :date_separator => '%s'),'年','月')
-            = raw sprintf(f.date_select(:birthday,use_month_numbers: true,start_year: 1920,end_year: Time.now.year,prompt:"--" ,date_separator: '%s'),'年 ', '月 ') + '日'
+            = raw sprintf(f.date_select(:birthday,with_css_classes:'birthday',use_month_numbers: true,start_year: 1920,end_year: Time.now.year,prompt:"--" ,date_separator: '%s'),'年 ', '月 ') + '日'
             -#   %select.year-js
             -#     %option{value: ""} --
             -#     - number = 2019

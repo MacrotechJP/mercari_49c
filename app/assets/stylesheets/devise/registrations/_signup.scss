@@ -234,8 +234,8 @@
               top: 8px;
               font-weight: 900;
             }
-            #user_birthday_1i,#user_birthday_2i,
-            #user_birthday_3i{
+            
+            .year,.month,.day{
               position: relative;
               z-index: 2;
               height: 48px;
@@ -248,6 +248,18 @@
               cursor: pointer;
               width: 76px;
               -webkit-appearance: none;
+              &::before{
+                z-index: 10;
+                display: block;
+                content: "\f107";
+                font-family: "FontAwesome";
+                font-size: 30px;
+                color: #888;
+                position: absolute;
+                right: 30px;
+                top: 8px;
+                font-weight: 900;
+              }
             }
             .prefectures{
               position: relative;
