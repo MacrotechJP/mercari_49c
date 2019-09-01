@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth)
     sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
-    # @user = auth
+    @user = sns.user
     unless sns
       @user = User.create(
       email: auth.info.email,
@@ -37,12 +37,5 @@ class User < ApplicationRecord
     sns
     @user
   end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
-  end
-
 end
 
