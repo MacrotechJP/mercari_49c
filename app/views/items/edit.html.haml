@@ -14,12 +14,12 @@
               %li.left 出品画像
               %li.right_hissu 必須
             %p 最大10枚までアップロードできます
-            .drag.js-update-img{'data-img': @images}
+            .drag.js-update-img{'data-img': @images,'data-imgid': @images_id}
               .drag_over
                 .drag_center
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-              %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",required:"true"}
+              %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png"}
               
               .drag_over2
                 .drag_center2
@@ -44,7 +44,6 @@
             %h5 商品の詳細
           .item_main_center-cell4-right
             = render "editCategory", locals: {category: @category}
-
 
 
             .item_main_center-cell4-right_selectSize.js-item-size{ 'data-size': @item.size }

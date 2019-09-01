@@ -63,8 +63,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @image = @item.images
     @images = []
+    @images_id = []
     @image.each do |image|
       @images << image.image.url
+      @images_id << image.id
     end
     if @item.seller_id == current_user.id
       @category = Category.where(item_id:@item.id)
@@ -78,26 +80,22 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-    binding.pry
-    images = Image.where(item_id: item.id)
-    images.map do |old_image|
-      Image.delete(old_image.id)
-    end
-    item_params[:file].each do |image|
-      Image.create(image:image,item_id: item.id)
-    end
-    
 
-    
-    # if @item.update(item_params)
+    if item_params[:image_delate].present?
+      item_params[:image_delate].each do |image_del|
+        Image.delete(id: image_del)
+      end
+    end
+    if item_params[:image_delate].present?
+      item_params[:file].each do |image|
+        Image.create(image:image,item_id: item.id)
+      end
+    end
       redirect_to root_path
-    # else
-    #   render :edit
-    # end
   end
   private
   def item_params
-    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[],image:[]]
+    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[],image:[],image_delate:[]]
     params.permit(attrs)
   end
 

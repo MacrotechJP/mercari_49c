@@ -1,6 +1,7 @@
 $(function(){
   $(window).on('load',function(){
     var editImgId = $('.js-update-img').data('img')
+    var editImgIdId = $('.js-update-img').data('imgid')
     $.each(editImgId, function(i, value) {
       var cnn = i+10;
       var view_box = $(".file").parent('.drag');
@@ -9,7 +10,7 @@ $(function(){
                     '<div class="upImage_buton '+cnn+'">'+
                     '<input accept=".jpg,.gif,.png,image/jpeg,image/png" class="change_file img_edi'+cnn+'" type="file"></input>'+
                       '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
-                      '<li><a href="#" class="img_del">削除</a></li>'+
+                      '<li><a href="#" class="img_del" name="'+editImgIdId[i]+'">削除</a></li>'+
                       '</div>'+
                   '</div>';
       view_box.append(img);
