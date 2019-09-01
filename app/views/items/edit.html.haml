@@ -5,8 +5,7 @@
         = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
   .item_main
     .item_main_center
-      -# = form_tag('/items', method: :patch,onSubmit:"return checkSubmit()",multipart: true) do 
-      = form_tag("/items/#{@item.id}", method: :patch) do 
+      = form_tag("/items/#{@item.id}", method: :put, multipart: true) do 
         .item_main_center-cell1.js-parent-category{ 'data-category': @category_parent.name }
           %h2 商品の情報を入力
         .item_main_center-cell2.js-children-category{ 'data-category': @category_children.name }
@@ -20,7 +19,6 @@
                 .drag_center
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-                  -# = image_tag(@image.url.cache)
               %input{type:"file", class:"file",accept:".jpg,.gif,.png,image/jpeg,image/png",required:"true"}
               
               .drag_over2
@@ -49,11 +47,11 @@
 
 
 
-            .item_main_center-cell4-right_selectSize.js-item-size{ 'data-category': @item.size }
+            .item_main_center-cell4-right_selectSize.js-item-size{ 'data-size': @item.size }
               %ul
                 %li.left サイズ
                 %li.right_hissu 必須
-              %select{class:"default",name:"item_size"}
+              %select{class:"default",name:"item_size", value: @item.size}
                 %option{value:"---"} ---
                 %option{value:"XXS以下"}XXS以下
                 %option{value:"XS(SS)"}XS(SS)
@@ -71,9 +69,9 @@
               %ul
                 %li.left ブランド
                 %li.right_nini 任意
-              %input{placeholder:"例）シャネル",name:"item_brand"}
+              %input{placeholder:"例）シャネル",name:"item_brand", value: @item.brand}
 
-            .item_main_center-cell4-right_selectBox
+            .item_main_center-cell4-right_selectBox.js-item-condition{ 'data-condition': @item.condition }
               %ul
                 %li.left 商品の状態
                 %li.right_hissu 必須
@@ -92,7 +90,7 @@
             %h5 配送について
             = link_to '?',"http://urx.space/W3Wr" 
           .item_main_center-cell5-right
-            .item_main_center-cell5-right_select1.select1
+            .item_main_center-cell5-right_select1.select1.js-item-deliveryfee{ 'data-deliveryfee': @item.deliveryfee }
               %ul
                 %li.left 配送料の負担
                 %li.right_hissu 必須
@@ -101,7 +99,7 @@
                 %option{value:"送料込み(出品者負担)"}送料込み(出品者負担)
                 %option{value:"着払い(購入者負担)"}着払い(購入者負担)
               %i.fa.fa-chevron-down
-            .item_main_center-cell5-right_selectBox.driveWay
+            .item_main_center-cell5-right_selectBox.driveWay.js-item-deliveryway{ 'data-deliveryWay': @item.deliveryWay }
               %ul
                 %li.left 発送の方法
                 %li.right_hissu 必須
@@ -117,7 +115,7 @@
                 %option{value:"クリックポスト"}クリックポスト
                 %option{value:"ゆうポケット"}ゆうポケット
               %i.fa.fa-chevron-down
-            .item_main_center-cell5-right_selectBox
+            .item_main_center-cell5-right_selectBox.js-item-area{ 'data-deliveryWay': @item.area }
               %ul
                 %li.left 発送元の地域
                 %li.right_hissu 必須
@@ -173,7 +171,7 @@
                 %option{value:"未定"}未定
               %i.fa.fa-chevron-down
 
-            .item_main_center-cell5-right_selectBox
+            .item_main_center-cell5-right_selectBox.js-item-ship{ 'data-days_to_ship': @item.days_to_ship }
               %ul
                 %li.left 発送までの日数
                 %li.right_hissu 必須

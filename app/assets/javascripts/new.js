@@ -103,12 +103,11 @@ $(document).ready(function () {
       $(this).attr('name','file[]');
       $(this).attr('class','change_file img_edi'+cnn);
       $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
-  
+      
       filereader.onload = function() {
         view_box.find('#'+cnn+' img').attr('src', filereader.result);
         cnn += 1 ;
         img_del(view_box);
-        
       }
       filereader.readAsDataURL(fileprop);
       classCnt()
