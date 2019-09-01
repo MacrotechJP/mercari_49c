@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:new,:create,:show,:destroy] do
     collection do
       get 'search'
+      post 'search'
     end
     member do
       get 'purchase'
