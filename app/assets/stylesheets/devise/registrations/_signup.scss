@@ -221,21 +221,8 @@
           display: flex;
           float: left;
           margin-top: 8px;
-          &--select-box{
-            position: relative;
-            &::before{
-              display: block;
-              content: "\f107";
-              font-family: "FontAwesome";
-              font-size: 30px;
-              color: #888;
-              position: absolute;
-              right: 30px;
-              top: 8px;
-              font-weight: 900;
-            }
-            #user_birthday_1i,#user_birthday_2i,
-            #user_birthday_3i{
+          &--select-boxs{
+            .year,.month,.day{
               position: relative;
               z-index: 2;
               height: 48px;
@@ -249,6 +236,21 @@
               width: 76px;
               -webkit-appearance: none;
             }
+          }
+          &--select-box{
+            position: relative;
+            &::before{
+              display: block;
+              content: "\f107";
+              font-family: "FontAwesome";
+              font-size: 30px;
+              color: #888;
+              position: absolute;
+              right: 30px;
+              top: 8px;
+              font-weight: 900;
+            }
+            
             .prefectures{
               position: relative;
               z-index: 2;
@@ -433,4 +435,32 @@
 .link-white{
   color: #fff;
   text-decoration: none;
+}
+.arrow1{
+  display: block;
+  font-size: 25px;
+  color: #888;
+  position: absolute;
+  right: 535px;
+  top: 1093px;
+  font-weight: 900;
+}
+.arrow2{
+  display: block;
+  font-size: 25px;
+  color: #888;
+  position: absolute;
+  right: 637.5px;
+  top: 1093px;
+  font-weight: 900;
+
+}
+.arrow3{
+  display: block;
+  font-size: 25px;
+  color: #888;
+  position: absolute;
+  right: 740px;
+  top: 1093px;
+  font-weight: 900;
 }
