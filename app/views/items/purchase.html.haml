@@ -14,7 +14,7 @@
       .buy-content__box
         .buy-content__box--inner
           %h3.buy-content__box--inner-image
-            = image_tag '/item-images/elly20160701265118_TP_V.jpg',class:"buy-content-photo"
+            = image_tag @item.images.first.image.url,class:"buy-content-photo"
           %p.buy-content__box--inner-name ナイキの新作スニーカー 新品 美品
 
           .buy-form-box
