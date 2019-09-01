@@ -35,10 +35,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    seller_id = Item.find(params[:id]).seller_id
+    if seller_id == current_user.id
     Category.find_by(item_id:params[:id]).destroy if Category.find_by(item_id:params[:id])
     Image.find_by(item_id:params[:id]).destroy if Image.find_by(item_id:params[:id])
     Item.find(params[:id]).delete
-    redirect_to root_path
+    else
+    redirect_to item_path(params[:id])
+    end
   end
 
   def create
@@ -63,5 +67,7 @@ class ItemsController < ApplicationController
     attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
     params.permit(attrs)
   end
+
+
 
 end
