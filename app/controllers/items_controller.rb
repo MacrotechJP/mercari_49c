@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     card = Creditcard.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "new" 
+      redirect_to new_creditcard_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
