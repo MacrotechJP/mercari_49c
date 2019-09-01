@@ -73,21 +73,21 @@ class ItemsController < ApplicationController
       @category_parent = @category.third.parent.parent
     end 
     
-    # binding.pry
   end
   
   def update
-    @item = Item.find(params[:id])
+    item = Item.find(params[:id])
+    item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
     binding.pry
-    @item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-    binding.pry
-    
+    images = Image.where(item_id: item.id)
+    images.map do |old_image|
+      Image.delete(old_image.id)
+    end
     item_params[:file].each do |image|
-      Image.delete(image:image,item_id:Item.last.id)
-      Image.create(image:image,item_id:Item.last.id)      
+      Image.create(image:image,item_id: item.id)
     end
     
-    binding.pry
+
     
     # if @item.update(item_params)
       redirect_to root_path
