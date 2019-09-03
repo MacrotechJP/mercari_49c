@@ -275,17 +275,4 @@ $(function(){
       $(".item_main").css('height', '-=110');
     }
   });
-
-  // //販売価格の計算を行う
-  // $("#price").on("keyup",function(){
-  //   var price = $("#price").val();
-  //   let price_fee = $("#rightup").val(price*0.1);
-  //   if(price < 300 || price > 9999999){
-  //     $("#rightUp").text("-");
-  //     $("#rightDown").text("-");
-  //   }else{
-  //     $("#rightUp").text("¥"+Math.round(price*0.1).toLocaleString());
-  //     $("#rightDown").text("¥"+Math.round(price*0.9).toLocaleString());
-  //   }
-  // })
 });
