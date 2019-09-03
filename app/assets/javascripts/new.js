@@ -118,14 +118,11 @@ $(document).ready(function () {
     target.find("a.img_del").on('click',function(){
       var self = $(this);
       var deleteNumber = self.attr('name')
-      console.log(deleteNumber)
       setTimeout(function(){
         var del_img = '<input type="hidden" class="image_delate'+deleteNumber+'" name="image_delate[]">';
         $("form").append(del_img);
         $(".image_delate"+deleteNumber+"").val(deleteNumber);
-
         $(".image_delate").val(deleteNumber);
-        console.log($(".image_delate").val())
         self.parent().parent().parent().remove();
         classCnt()
       } , 0);   
