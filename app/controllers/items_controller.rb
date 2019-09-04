@@ -78,15 +78,10 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     @image = item.images
-    # binding.pry
-    
     item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-
-    binding.pry
 
     if item_params[:image_delate].present?
       item_params[:image_delate].each do |image_del|
-        # Image.delete(id: image_del)
         Image.delete(image_del)
       end
     end
@@ -95,8 +90,6 @@ class ItemsController < ApplicationController
         @image = Image.create(image:image,item_id: item.id)
       end
     end
-    
-    binding.pry
     
       redirect_to root_path
   end

@@ -5,14 +5,14 @@ $(function(){
     $.each(editImgId, function(i, value) {
       var cnn = i+10;
       var view_box = $(".file").parent('.drag');
-      var img = '<div class="upImage" id='+cnn+'>'+
-                    '<img id="'+cnn+'" src="'+editImgId[i]+'">'+
-                    '<div class="upImage_buton '+cnn+'">'+
-                    '<input accept=".jpg,.gif,.png,image/jpeg,image/png" class="change_file img_edi'+cnn+'" type="file"></input>'+
-                      '<li><a class="img_edi" id="img_edi'+cnn+'" >編集</a></li>'+
-                      '<li><a href="#" class="img_del" name="'+editImgIdId[i]+'">削除</a></li>'+
-                      '</div>'+
-                  '</div>';
+      var img = `<div class="upImage" id=${cnn}>
+                    <img id="$(cnn}" src="${editImgId[i]}">
+                    <div class="upImage_buton ${cnn}">
+                    <input accept=".jpg,.gif,.png,image/jpeg,image/png" class="change_file img_edi${cnn}" type="file"></input>
+                      <li><a class="img_edi" id="img_edi${cnn}" >編集</a></li>
+                      <li><a href="#" class="img_del" name="${editImgIdId[i]}">削除</a></li>
+                      </div>
+                  </div>`;
       view_box.append(img);
       
       switch( i ) {
