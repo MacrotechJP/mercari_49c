@@ -122,12 +122,12 @@ $(function(){
   
   
 // 選択されている親要素のカテゴリの値を表示
-  var categoryParentName = $('.js-parent-category').data('category')
+  const categoryParentName = $('.js-parent-category').data('category')
   // console.log(categoryParentName)
-  var targetParentOption = $(`option[value="${categoryParentName}"]`)
+  const targetParentOption = $(`option[value="${categoryParentName}"]`)
   // console.log(targetParentOption)
   targetParentOption.prop('selected', true);
-  var calEditParent = targetParentOption.parent().prop("selectedIndex");
+  const calEditParent = targetParentOption.parent().prop("selectedIndex");
   // console.log(calEditParent)
   if(calEditParent != 0){
     $(".item_main_center-cell4-right_select2."+calEditParent).show();
@@ -150,12 +150,12 @@ $(function(){
   }
 
   // 選択されている子要素のカテゴリの値を表示
-  var categoryChildrenName = $('.js-children-category').data('category')
+  const categoryChildrenName = $('.js-children-category').data('category')
   // console.log(categoryChildrenName)
-  var targetChildrenOption = $(`option[value="${categoryChildrenName}"]`)
+  const targetChildrenOption = $(`option[value="${categoryChildrenName}"]`)
   // console.log(targetChildrenOption)
   targetChildrenOption.prop('selected', true).val("");
-  var calEditChildren = targetChildrenOption.parent().prop("selectedIndex");
+  const calEditChildren = targetChildrenOption.parent().prop("selectedIndex");
   // console.log(calEditChildren)
   // $('.category2').change(function() {
     // var calEditParent = $('.category1').prop("selectedIndex");
@@ -176,12 +176,12 @@ $(function(){
   // });
 
   // 選択されている孫要素のカテゴリの値を表示
-  var categoryGrandChildrenName = $('.js-grand-children-category').data('category')
+  const categoryGrandChildrenName = $('.js-grand-children-category').data('category')
   // console.log(categoryGrandChildrenName)
-  var targetGrandChildrenOption = $(`option[value="${categoryGrandChildrenName}"]`)
+  const targetGrandChildrenOption = $(`option[value="${categoryGrandChildrenName}"]`)
   // console.log(targetGrandChildrenOption)
   targetGrandChildrenOption.prop('selected', true).val("");
-  var calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
+  const calEditGrandChildren = targetGrandChildrenOption.parent().prop("selectedIndex");
   // console.log(calEditGrandChildren)
     
     $(".item_main_center-cell4-right_selectBrand").show();
@@ -190,64 +190,65 @@ $(function(){
     $(".item_main").css('height', '+=220');
 
   // 選択されているサイズを表示
-  var sizeName = $('.js-item-size').data('size')
+  const sizeName = $('.js-item-size').data('size')
   // console.log(sizeName)
-  var targetSizeOption = $(`option[value="${sizeName}"]`).val("");
+  const targetSizeOption = $(`option[value="${sizeName}"]`);
   // console.log(targetSizeOption)
-  targetSizeOption.prop('selected', true).val("");
-  var calEditSize = targetSizeOption.parent().prop("selectedIndex");
+  targetSizeOption.prop('selected', true);
+  const calEditSize = targetSizeOption.parent().prop("selectedIndex");
   
   // 選択されている商品の状態を表示
-  var conditionName = $('.js-item-condition').data('condition')
+  const conditionName = $('.js-item-condition').data('condition')
   // console.log(conditionName)
-  var targetConditionOption = $(`option[value="${conditionName}"]`)
+  const targetConditionOption = $(`option[value="${conditionName}"]`)
   // console.log(targetConditionOption)
-  targetConditionOption.prop('selected', true).val("");
-  var calEditCondition = targetConditionOption.parent().prop("selectedIndex");
+  targetConditionOption.prop('selected', true);
+  const calEditCondition = targetConditionOption.parent().prop("selectedIndex");
   
   // 選択されている商品の配送料の負担を表示
-  var deliveryfeeName = $('.js-item-deliveryfee').data('deliveryfee')
+  const deliveryfeeName = $('.js-item-deliveryfee').data('deliveryfee')
   // console.log(deliveryfeeName)
-  var targetDeliveryfeeOption = $(`option[value="${deliveryfeeName}"]`)
+  const targetDeliveryfeeOption = $(`option[value="${deliveryfeeName}"]`)
   // console.log(targetDeliveryfeeOption)
-  targetDeliveryfeeOption.prop('selected', true).val("");
-  var calEditdeliveryfee = targetDeliveryfeeOption.parent().prop("selectedIndex");
+  targetDeliveryfeeOption.prop('selected', true);
+  const calEditdeliveryfee = targetDeliveryfeeOption.parent().prop("selectedIndex");
   // console.log(calEditdeliveryfee)
   
-  if(calEditdeliveryway != 0 ){
-    $(".driveWay").show();
-    $(".item_main_center-cell5").css('height', '+=110');
-    $(".item_main").css('height', '+=110');
-  }else{
-    $(".driveWay").hide();
-    $(".item_main_center-cell5").css('height', '-=110');
-    $(".item_main").css('height', '-=110');
-  }
-
-
+  
+  
   // 選択されている商品の配送方法を表示
-  var deliverywayName = $('.js-item-deliveryway').data('deliveryway')
+  const deliverywayName = $('.js-item-deliveryway').data('deliveryway')
   // console.log(deliveryfeeName)
-  var targetDeliverywayOption = $(`option[value="${deliverywayName}"]`)
+  const targetDeliverywayOption = $(`option[value="${deliverywayName}"]`)
   // console.log(targetDeliveryfeeOption)
-  targetDeliverywayOption.prop('selected', true).val("");
-  var calEditdeliveryway = targetDeliverywayOption.parent().prop("selectedIndex");
+  targetDeliverywayOption.prop('selected', true);
+  const calEditdeliveryway = targetDeliverywayOption.parent().prop("selectedIndex");
+                if(calEditdeliveryway != 0 ){
+                  $(".driveWay").show();
+                  $(".item_main_center-cell5").css('height', '+=110');
+                  $(".item_main").css('height', '+=110');
+                }else{
+                  $(".driveWay").hide();
+                  $(".item_main_center-cell5").css('height', '-=110');
+                  $(".item_main").css('height', '-=110');
+                }
+
 
   // 選択されている都道府県を表示
-  var areaName = $('.js-item-area').data('area')
+  const areaName = $('.js-item-area').data('area')
   // console.log(deliveryfeeName)
-  var targetAreaOption = $(`option[value="${areaName}"]`)
+  const targetAreaOption = $(`option[value="${areaName}"]`)
   // console.log(targetDeliveryfeeOption)
-  targetAreaOption.prop('selected', true).val("");
-  var calEditArea = targetAreaOption.parent().prop("selectedIndex");
+  targetAreaOption.prop('selected', true);
+  const calEditArea = targetAreaOption.parent().prop("selectedIndex");
   
   // 選択されている発送までの日数を表示
-  var shipName = $('.js-item-ship').data('days_to_ship')
+  const shipName = $('.js-item-ship').data('days_to_ship')
   // console.log(deliveryfeeName)
-  var targetShipOption = $(`option[value="${shipName}"]`)
+  const targetShipOption = $(`option[value="${shipName}"]`)
   // console.log(targetDeliveryfeeOption)
-  targetShipOption.prop('selected', true).val("");
-  var calEditShip = targetShipOption.parent().prop("selectedIndex");
+  targetShipOption.prop('selected', true);
+  const calEditShip = targetShipOption.parent().prop("selectedIndex");
 
 
 

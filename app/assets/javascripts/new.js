@@ -125,7 +125,7 @@ $(document).ready(function () {
         $(".image_delate"+deleteNumber+"").val(deleteNumber);
 
         $(".image_delate").val(deleteNumber);
-        console.log($(".image_delate").val())
+        console.log($(".image_delate").val(deleteNumber))
         self.parent().parent().parent().remove();
         classCnt()
       } , 0);   

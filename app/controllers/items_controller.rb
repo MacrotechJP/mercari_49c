@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-
     item_params[:file].each do |image|
       Image.create(image:image,item_id:Item.last.id)
     end
@@ -58,7 +57,6 @@ class ItemsController < ApplicationController
     @search_page = @search_item.current_page
     @search_count = @search.result.count
   end
-
 
   def edit
     @item = Item.find(params[:id])
@@ -78,24 +76,28 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
+    item = Item.find(params[:id])
+    @image = item.images
+    # binding.pry
     
-    binding.pry
-    
-    @item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-    
+    item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
+
     binding.pry
 
     if item_params[:image_delate].present?
       item_params[:image_delate].each do |image_del|
-        Image.delete(id: image_del)
+        # Image.delete(id: image_del)
+        Image.delete(image_del)
       end
     end
-    if item_params[:image_delate].present?
+    if item_params[:file].present?
       item_params[:file].each do |image|
-        Image.create(image:image,item_id: item.id)
+        @image = Image.create(image:image,item_id: item.id)
       end
     end
+    
+    binding.pry
+    
       redirect_to root_path
   end
   private
