@@ -84,7 +84,7 @@ Things you may want to cover:
 
 
 
-## credicardsテーブル
+## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
