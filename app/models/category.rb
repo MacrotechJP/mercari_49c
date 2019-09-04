@@ -5,9 +5,15 @@ class Category < ApplicationRecord
 
 
   def self.last_four(count)
-    names = ["メンズ", "レディース", "ベビー・キッズ", "コスメ・香水・美容"]
+    names = ["レディース", "メンズ",  "ベビー・キッズ", "コスメ・香水・美容"]
     where("name = ?","#{names[count]}").order(created_at: :desc).limit(4)
   end
+
+  def self.category_name(count)
+    names = ["レディース", "メンズ",  "ベビー・キッズ", "コスメ・香水・美容"]
+    name = names[count]
+  end
+
 
   
 end

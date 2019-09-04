@@ -1,0 +1,2 @@
+= form_tag(pay_creditcards_path, method: :post) do
+  %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript", "data-text": "カード登録","data-submit-text": "カード登録"}

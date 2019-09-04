@@ -56,7 +56,7 @@ class SignupController < ApplicationController
       password: session[:password],
       password_confirmation: session[:password_confirmation],
       firstname:session[:firstname],
-      lastname_kana: session[:lastname],
+      lastname: session[:lastname],
       firstname_kana: session[:firstname_kana],
       lastname_kana: session[:lastname_kana],
       birthday: session[:birthday],
