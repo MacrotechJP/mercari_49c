@@ -103,11 +103,12 @@ $(document).ready(function () {
       $(this).attr('name','file[]');
       $(this).attr('class','change_file img_edi'+cnn);
       $(".img_edi"+cnn).prependTo(".upImage_buton."+cnn);
-      
+  
       filereader.onload = function() {
         view_box.find('#'+cnn+' img').attr('src', filereader.result);
         cnn += 1 ;
         img_del(view_box);
+        
       }
       filereader.readAsDataURL(fileprop);
       classCnt()
@@ -117,12 +118,7 @@ $(document).ready(function () {
   function img_del(target){
     target.find("a.img_del").on('click',function(){
       var self = $(this);
-      var deleteNumber = self.attr('name')
       setTimeout(function(){
-        var del_img = '<input type="hidden" class="image_delate'+deleteNumber+'" name="image_delate[]">';
-        $("form").append(del_img);
-        $(".image_delate"+deleteNumber+"").val(deleteNumber);
-        $(".image_delate").val(deleteNumber);
         self.parent().parent().parent().remove();
         classCnt()
       } , 0);   

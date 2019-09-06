@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
+    Item.create(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
     item_params[:file].each do |image|
       Image.create(image:image,item_id:Item.last.id)
     end
@@ -62,43 +62,6 @@ class ItemsController < ApplicationController
     @search_count = @search.result.count
   end
 
-
-  def edit
-    @item = Item.find(params[:id])
-    @image = @item.images
-    @images = []
-    @images_id = []
-    @image.each do |image|
-      @images << image.image.url
-      @images_id << image.id
-    end
-    if @item.seller_id == current_user.id
-      @category = Category.where(item_id:@item.id)
-      @category_grandchildren = @category.third
-      @category_children = @category.third.parent
-      @category_parent = @category.third.parent.parent
-    end 
-  end
-  
-  def update
-    item = Item.find(params[:id])
-    @image = item.images
-    item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
-
-    if item_params[:image_delate].present?
-      item_params[:image_delate].each do |image_del|
-        Image.delete(image_del)
-      end
-    end
-    if item_params[:file].present?
-      item_params[:file].each do |image|
-        @image = Image.create(image:image,item_id: item.id)
-      end
-    end
-    
-      redirect_to root_path
-  end
-
   def purchase
     @item = Item.find(params[:id])
     card = Creditcard.where(user_id: current_user.id).first
@@ -111,10 +74,9 @@ class ItemsController < ApplicationController
     end
   end
 
-
   private
   def item_params
-    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[],image:[],image_delate:[]]
+    attrs = [:item_name,:item_description,:item_condition,:item_price,:item_brand,:item_deliveryfee,:item_area,:item_days_to_ship,:item_sales_situation,:item_size,:item_deliveryWay,:item_category_first,file:[],item_category_second:[],item_category_third:[]]
     params.permit(attrs)
   end
 
