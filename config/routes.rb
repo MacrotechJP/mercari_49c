@@ -20,8 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :items do
+
+
 
   resources :items, only: [:index,:new,:create,:show,:destroy] do
+
     collection do
       get 'search'
       post 'search'
@@ -30,6 +34,9 @@ Rails.application.routes.draw do
       get 'purchase'
     end
   end
+
+
+
 
 
   resources :users, only: [:show, :identification, :index, :new]
