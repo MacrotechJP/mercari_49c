@@ -83,10 +83,18 @@ class ItemsController < ApplicationController
   end
   
   def update
-    item = Item.find(params[:id])
-    @image = item.images
-    item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id)
+    @item = Item.find(params[:id])
+    @images = @item.images
+    if params[:image_delate]
+      delete_ids = params[:image_delate].map do |id|
+        id.to_i
+      end
+      redirect_to edit_item_path(@item) and return if delete_ids.uniq == @images.ids
+    end
 
+    @item.update(name:item_params[:item_name],description:item_params[:item_description],condition:item_params[:item_condition],price:item_params[:item_price],brand:item_params[:item_brand],deliveryfee:item_params[:item_deliveryfee],area:item_params[:item_area],days_to_ship:item_params[:item_days_to_ship],sales_situation:"出品中",likes_count:0,size:item_params[:item_size],deliveryWay:item_params[:item_deliveryWay],seller_id:current_user.id) 
+
+    
     if item_params[:image_delate].present?
       item_params[:image_delate].each do |image_del|
         Image.delete(image_del)
@@ -94,7 +102,7 @@ class ItemsController < ApplicationController
     end
     if item_params[:file].present?
       item_params[:file].each do |image|
-        @image = Image.create(image:image,item_id: item.id)
+        @image = Image.create(image:image,item_id: @item.id)
       end
     end
     
