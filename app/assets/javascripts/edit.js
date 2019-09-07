@@ -235,21 +235,28 @@ $(function(){
     var cal = $('.category1').prop("selectedIndex");
     if(cal != 0){
       $(".item_main_center-cell4-right_select2."+cal).show();
-      $(".item_main_center-cell4").css('height', '+=110');
-      $(".item_main").css('height', '+=110');
+      // $(".item_main_center-cell4").css('height', '+=110');
+      // $(".item_main").css('height', '+=110');
+
+      $(".item_main_center-cell4-right_select2 select").val("");
+        $(".item_main_center-cell4-right_select2").hide();
+        $(".item_main_center-cell4-right_select3 select").val("");
+        $(".item_main_center-cell4-right_select3").hide();
+        // $(".item_main_center-cell4").css('height', '-=220');
+        // $(".item_main").css('height', '-=220');
     }else{
       if($(".item_main_center-cell4-right_select3").length){
         $(".item_main_center-cell4-right_select2 select").val("");
         $(".item_main_center-cell4-right_select2").hide();
         $(".item_main_center-cell4-right_select3 select").val("");
         $(".item_main_center-cell4-right_select3").hide();
-        $(".item_main_center-cell4").css('height', '-=220');
-        $(".item_main").css('height', '-=220');
+        // $(".item_main_center-cell4").css('height', '-=220');
+        // $(".item_main").css('height', '-=220');
       }else{
         $(".item_main_center-cell4-right_select2 select").val("");
         $(".item_main_center-cell4-right_select2").hide();
-        $(".item_main_center-cell4").css('height', '-=110');
-        $(".item_main").css('height', '-=110');
+        // $(".item_main_center-cell4").css('height', '-=110');
+        // $(".item_main").css('height', '-=110');
       }
     }
   });
@@ -259,21 +266,21 @@ $(function(){
     var cal2 = $(this).prop("selectedIndex");
     if(cal2 != 0 ){
       $(".item_main_center-cell4-right_select3."+cal+"_"+cal2).show();
-      $(".item_main_center-cell4").css('height', '+=110');
-      $(".item_main").css('height', '+=110');
+      // $(".item_main_center-cell4").css('height', '+=110');
+      // $(".item_main").css('height', '+=110');
     }else{
       $(".item_main_center-cell4-right_select3 select").val("");
       $(".item_main_center-cell4-right_select3").hide();
-      $(".item_main_center-cell4").css('height', '-=110');
-      $(".item_main").css('height', '-=110');
+      // $(".item_main_center-cell4").css('height', '-=110');
+      // $(".item_main").css('height', '-=110');
     }
   });
 
   $('.category3').change(function() {
       $(".item_main_center-cell4-right_selectBrand").show();
       $(".item_main_center-cell4-right_selectSize").show();
-      $(".item_main_center-cell4").css('height', '+=220');
-      $(".item_main").css('height', '+=220');
+      // $(".item_main_center-cell4").css('height', '+=220');
+      // $(".item_main").css('height', '+=220');
   });
 
   //配送についてのセレクトボックスを増表示する

@@ -77,6 +77,8 @@ class ItemsController < ApplicationController
       @category_grandchildren = @category.third
       @category_children = @category.third.parent
       @category_parent = @category.third.parent.parent
+    else
+      redirect_to root_path
     end 
   end
   
