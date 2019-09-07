@@ -53,12 +53,12 @@ class CreditcardsController < ApplicationController
   def buy
     item = Item.find(params[:id])
     card = Creditcard.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new"
-    else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      unless customer.id != card.customer_id
+    unless current_user.id == item.seller_id
+      if card.blank?
+        redirect_to action: "new"
+      else
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        customer = Payjp::Customer.retrieve(card.customer_id)       
         Payjp::Charge.create(
         amount: item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
         customer: card.customer_id, #顧客ID
@@ -67,6 +67,8 @@ class CreditcardsController < ApplicationController
         item.update(buyer_id: current_user.id)
         redirect_to root_path, notice: "支払いが完了しました"
       end
+    else
+      redirect_to root_path, notice: "自分の商品は購入できません"
     end
 
   end
