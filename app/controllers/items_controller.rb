@@ -102,7 +102,7 @@ class ItemsController < ApplicationController
   def purchase
     @item = Item.find(params[:id])
     card = Creditcard.where(user_id: current_user.id).first
-    if @item.seller_id == current_user.id
+    if @item.seller_id == current_user.id || @item.buyer_id != nil
       redirect_to item_path(params[:id])
     else
       if card.blank?
