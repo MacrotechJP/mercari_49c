@@ -4,7 +4,7 @@
   .item_header
     .item_header_icon
       = link_to 'https://www.mercari.com/jp/' do
-        = image_tag '/assets/mercari-logos/top-logo.svg',class:"mercari_icon"
+        = image_tag 'http://u0u0.net/QHiY',width:'180px',class:"mercari_icon"
 
 
 .buy-all-container__box
@@ -15,12 +15,13 @@
         .buy-content__box--inner
           %h3.buy-content__box--inner-image
             = image_tag @item.images.first.image.url,class:"buy-content-photo"
-          %p.buy-content__box--inner-name ナイキの新作スニーカー 新品 美品
-
+          %p.buy-content__box--inner-name
+            = @item.name
           .buy-form-box
             %p.buy-content__price-ja.bold
               ￥#{@item.price}
-              %span.buy-content__fee 送料込み
+              %span.buy-content__fee
+                = @item.deliveryfee
             %ul.buy-content-accordion-box.not-have
               %li.buy-content-accordion-parent
                 .buy-content-accordion-box-toggle.not-have ポイントはありません
